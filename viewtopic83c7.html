@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=2207&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; PostgreSQL+hMailServer安装教程。</title>
+
+<link href="https://www.hmailserver.org/styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="https://www.hmailserver.org/">https://www.hmailserver.org/</a></p>
+
+		<h2>PostgreSQL+hMailServer安装教程。</h2>
+		<p><a href="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=2207">https://www.hmailserver.org/viewtopic.php?f=4&amp;t=2207</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>PostgreSQL+hMailServer安装教程。</h3>
+				<div class="date">发表于 : <strong>2018年5月29日, 14:06</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">Windows Server 2008 R2 企业版 SP1 64位<br>
+hMailServer-5.6.7<br>
+<a href="https://get.enterprisedb.com/postgresql/postgresql-9.6.9-1-windows-x64.exe" class="postlink">https://get.enterprisedb.com/postgresql ... ws-x64.exe</a><br>
+1.首先安装postgresql，
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=448" class="postimage" alt="1.png" onclick="viewableArea(this);" /></dt>
+						<dd>1.png (21.48 KiB) 查看 69494 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=449" class="postimage" alt="2.png" onclick="viewableArea(this);" /></dt>
+						<dd>2.png (8.64 KiB) 查看 69494 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+设置密码
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=450" class="postimage" alt="3.png" onclick="viewableArea(this);" /></dt>
+						<dd>3.png (7.53 KiB) 查看 69494 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=451" class="postimage" alt="4.png" onclick="viewableArea(this);" /></dt>
+						<dd>4.png (7.29 KiB) 查看 69494 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<span style="color:#FF0000">语言</span>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=452" class="postimage" alt="5.png" onclick="viewableArea(this);" /></dt>
+						<dd>5.png (7.7 KiB) 查看 69494 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=453" class="postimage" alt="6.png" onclick="viewableArea(this);" /></dt>
+						<dd>6.png (8.12 KiB) 查看 69494 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+我安装的时候没有勾选。完成。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=454" class="postimage" alt="7.png" onclick="viewableArea(this);" /></dt>
+						<dd>7.png (23.51 KiB) 查看 69494 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+打开<br>
+PgAdmin4<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=455" class="postimage" alt="8.png" onclick="viewableArea(this);" /></dt>
+						<dd>8.png (24.98 KiB) 查看 69494 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+展开PostgreSQL 输入密码<br>
+ 右键点击 Login/Group Roles-Create-Login/Group Role...
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=456" class="postimage" alt="9.png" onclick="viewableArea(this);" /></dt>
+						<dd>9.png (23.2 KiB) 查看 69494 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+在NAME 输入一个数据库名（例如：hms)
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=457" class="postimage" alt="10.png" onclick="viewableArea(this);" /></dt>
+						<dd>10.png (9.99 KiB) 查看 69494 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+点击Definition设置密码
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=458" class="postimage" alt="11.png" onclick="viewableArea(this);" /></dt>
+						<dd>11.png (14.01 KiB) 查看 69492 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+点击Privileges设置权限，保存！
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=459" class="postimage" alt="12.png" onclick="viewableArea(this);" /></dt>
+						<dd>12.png (26.02 KiB) 查看 69492 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+然后打开<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>C:\Program Files\PostgreSQL\9.6\data\pg_hba.conf</code></pre></div>
+修改<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>host    all             all             127.0.0.1/32            md5</code></pre></div>
+修改为：
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>host    all             all             127.0.0.1/32            password</code></pre></div>
+然后保存pg_hba.conf<br>
+<br>
+2.安装hmailserver
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=460" class="postimage" alt="13.png" onclick="viewableArea(this);" /></dt>
+						<dd>13.png (8.49 KiB) 查看 69491 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=461" class="postimage" alt="14.png" onclick="viewableArea(this);" /></dt>
+						<dd>14.png (7.65 KiB) 查看 69491 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=462" class="postimage" alt="15.png" onclick="viewableArea(this);" /></dt>
+						<dd>15.png (9.89 KiB) 查看 69491 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+设置hmailserver管理密码
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=463" class="postimage" alt="16.png" onclick="viewableArea(this);" /></dt>
+						<dd>16.png (8.13 KiB) 查看 69491 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=464" class="postimage" alt="17.png" onclick="viewableArea(this);" /></dt>
+						<dd>17.png (9.23 KiB) 查看 69491 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+输入hmailserver管理密码
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=465" class="postimage" alt="18.png" onclick="viewableArea(this);" /></dt>
+						<dd>18.png (8.08 KiB) 查看 69491 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=466" class="postimage" alt="19.png" onclick="viewableArea(this);" /></dt>
+						<dd>19.png (6.14 KiB) 查看 69491 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+选择
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=467" class="postimage" alt="20.png" onclick="viewableArea(this);" /></dt>
+						<dd>20.png (8.22 KiB) 查看 69490 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+选择PostgreSQL
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=468" class="postimage" alt="21.png" onclick="viewableArea(this);" /></dt>
+						<dd>21.png (6.12 KiB) 查看 69490 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+输入在PostgreSQL设置的数据库名以及密码
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=469" class="postimage" alt="22.png" onclick="viewableArea(this);" /></dt>
+						<dd>22.png (7.56 KiB) 查看 69490 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=470" class="postimage" alt="23.png" onclick="viewableArea(this);" /></dt>
+						<dd>23.png (8.24 KiB) 查看 69490 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=471" class="postimage" alt="24.png" onclick="viewableArea(this);" /></dt>
+						<dd>24.png (5.74 KiB) 查看 69490 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=472" class="postimage" alt="25.png" onclick="viewableArea(this);" /></dt>
+						<dd>25.png (5.47 KiB) 查看 69490 次</dd>
+		</dl>
+		
+		
+		
+			</div></div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: PostgreSQL+hMailServer安装教程。</h3>
+				<div class="date">发表于 : <strong>2018年12月18日, 09:45</strong></div>
+				<div class="author">由 <strong>onlyliu</strong></div>
+				<div class="content">支持支持支持支持支持支持</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="http://www.hmailserver.org/">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=2207&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:44 GMT -->
+</html>

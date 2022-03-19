@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=573 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:31:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>hMailServer在线注册用户php教程 - hMailServer中文论坛</title>
+
+	<link rel="alternate" type="application/atom+xml" title="Feed - hMailServer中文论坛" href="app.php/feed.html">			<link rel="alternate" type="application/atom+xml" title="Feed - 新主题" href="app.php/feed/topics.html">		<link rel="alternate" type="application/atom+xml" title="Feed - 版面 - 教程发布" href="app.php/feed/forum/4.html">	<link rel="alternate" type="application/atom+xml" title="Feed - 主题 - hMailServer在线注册用户php教程" href="app.php/feed/topic/573.html">	
+	<link rel="canonical" href="viewtopice677.html?t=573">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="assets/css/font-awesome.mina796.css?assets_version=928" rel="stylesheet">
+<link href="styles/prosilver/theme/stylesheeta796.css?assets_version=928" rel="stylesheet">
+<link href="styles/prosilver/theme/zh_cmn_hans/stylesheeta796.html?assets_version=928" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/prosilver/theme/tweaks.css?assets_version=928" rel="stylesheet">
+<![endif]-->
+
+	
+<link href="ext/phpbb/boardannouncements/styles/all/theme/boardannouncementsa796.css?assets_version=928" rel="stylesheet" media="screen" />
+<link href="ext/phpbb/ads/styles/all/theme/phpbbadsa796.css?assets_version=928" rel="stylesheet" media="screen" />
+
+
+
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+				<a id="logo" class="logo" href="index-2.html" title="论坛首页"><span class="site_logo"></span></a>
+				<h1>hMailServer中文论坛</h1>
+				<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。</p>
+				<p class="skiplink"><a href="#start_here">跳到内容</a></p>
+			</div>
+
+									<div id="search-box" class="search-box search-header" role="search">
+				<form action="https://www.hmailserver.org/search.php" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="按关键词搜索" class="inputbox search tiny" size="20" value="" placeholder="搜索……" />
+					<button class="button button-search" type="submit" title="搜索">
+						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+					</button>
+					<a href="search.html" class="button button-search-end" title="高级搜索">
+						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+					</a>
+					
+				</fieldset>
+				</form>
+			</div>
+						
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>快捷链接</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+											<li class="separator"></li>
+																									<li>
+								<a href="search33a7.html?search_id=unanswered" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>查看没有回复的主题</span>
+								</a>
+							</li>
+							<li>
+								<a href="search526f.html?search_id=active_topics" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>查看活跃的主题</span>
+								</a>
+							</li>
+							<li class="separator"></li>
+							<li>
+								<a href="search.html" role="menuitem">
+									<i class="icon fa-search fa-fw" aria-hidden="true"></i><span>搜索</span>
+								</a>
+							</li>
+					
+										<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="ucp26c3.html?mode=login" title="登录" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>登录</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="ucp8319.html?mode=register" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>注册</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+				
+		
+		<li class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+
+			
+							<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope><a itemprop="item" href="index-2.html" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="name">论坛首页</span></a><meta itemprop="position" content="1" /></span>
+
+											
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="12"><a itemprop="item" href="viewforum01c9.html?f=12"><span itemprop="name">讨论</span></a><meta itemprop="position" content="2" /></span>
+															
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="4"><a itemprop="item" href="viewforum31e6.html?f=4"><span itemprop="name">教程发布</span></a><meta itemprop="position" content="3" /></span>
+							
+					</li>
+
+		
+					<li class="rightside responsive-search">
+				<a href="search.html" title="查看高级搜索选项" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+				<div id="phpbb_announcement">
+		<a href="app.php/boardannouncements/close3ef5.html?hash=dc7c24e5" data-ajax="close_announcement" data-overlay="false" class="close clearfix" title="Close announcement"></a>		<div><span style="color:#0000FF">hMailServer中文论坛 QQ群：80049760</span></div>
+	</div>
+
+<h2 class="topic-title"><a href="viewtopic4a33.html?f=4&amp;t=573">hMailServer在线注册用户php教程</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">hMailServer教程相关文章。<br /></div>
+<p>
+	<strong>版主:</strong> <a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>
+</p>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="posting49b0.html?mode=reply&amp;f=4&amp;t=573" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="viewtopic1000.html?f=4&amp;t=573&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="https://www.hmailserver.org/search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="查找这个主题……" />
+				<button class="button button-search" type="submit" title="搜索">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</button>
+				<a href="search.html" class="button button-search-end" title="高级搜索">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+				</a>
+				<input type="hidden" name="t" value="573" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			4 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+		</div>
+
+
+
+
+			<div id="p1027" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1027">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" class="avatar"><img class="avatar" src="download/file1d88.png?avatar=2_1421286644.png" width="100" height="100" alt="头像" /></a>														</div>
+								<a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>							</dt>
+
+						<dd class="profile-rank">网站管理员<br /><img src="images/ranks/administrator.png" alt="网站管理员" title="网站管理员" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search51e1.html?author_id=2&amp;sr=posts">335</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2014年11月26日, 12:41</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>地址:</strong> 上海</dd>
+												
+							<dd class="profile-contact">
+				<strong>联系:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="#" class="dropdown-trigger" title="联系 Hsia">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">联系 Hsia</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="index.html" title="网站" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">网站</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1027">
+
+						<h3 class="first"><a href="viewtopic1303.html?p=1027#p1027">hMailServer在线注册用户php教程</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting787f.html?mode=quote&amp;f=4&amp;p=1027" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic1303.html?p=1027#p1027" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a></strong> &raquo; </span><time datetime="2016-03-18T09:40:16+00:00">2016年3月18日, 17:40</time>
+			</p>
+			
+			
+			
+			<div class="content">此代码是一个PHP网页，用户自己注册账号，已经做过部分提示汉化。<br>
+
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>&lt;?php 
+error_reporting(E_ALL &amp; ~E_NOTICE);
+//MySQL database connection information 
+//MySQL connection information: 
+$mysql_host = "localhost"; //Host Name 
+$mysql_user = "root"; //数据库用户名 
+$mysql_pass = "数据库密码"; //填写数据库密码
+$mysql_db = "数据库名"; //填写数据库名 
+
+//General Configuration: 
+$form_title = "电子邮件注册"; //Name for this form 
+$account_max = "1";  //Maximum size per account (1000000 = 1MB -&gt; Do not uses spaces or commas!) 
+$admin_notify = "1"; //1 = yes &amp; 0 = no  是否需要通知
+$admin_email = "service@hmailserver.net"; //Administrators email to send notifications) 
+$admin_default_activate = "0"; //1 = yes &amp; 0 = no -&gt; If no, the administrator has to authorise the account 
+$accountisad = 0; // account is AD-account? 0 = no (default), 1 = yws;
+$encryption = 2; //Password encryption level - 2 means md5;
+$domain = 'hmailserver.net'; // 这里填写自己的域名。
+
+$serv_webmail_url = 'http://mail.hmailserver.org/webadmin/'; // WEBMAIL的路径。
+
+$url = $_SERVER["HTTP_HOST"]; 
+$domain = (empty($domain))? $_SERVER["HTTP_HOST"] : $domain; 
+$domain = (substr($domain,0,4) == "www.")? strstr($domain, ".") : $domain;
+
+// Protect database entries and use MD5 encryption 
+$strName    = (isset($_POST['name']))? addslashes( $_POST['name'] ) : ''; 
+$strUser    = (isset($_POST['user']))? addslashes( $_POST['user'] ) : ''; 
+
+$strDomain  = addslashes( "$domain" ); 
+$strPass1   = (isset($_POST['pass1']))? addslashes( $_POST['pass1'] ) : ''; 
+ 
+//Connect to database using information from above 
+$open = mysql_connect($mysql_host, $mysql_user, $mysql_pass); 
+$select = mysql_select_db($mysql_db); 
+
+if (!$open || !$select) 
+{ 
+  echo "Unable to open database, contact your administrator!"; 
+} else { 
+  echo "&lt;font size=\"+1\"&gt;$form_title&lt;/font&gt;&lt;br&gt;&lt;br&gt;"; 
+   
+  if ( isset($_POST['submit']) &amp;&amp;  $_POST['submit'] == 'create account' )
+  { 
+    $domain_res = mysql_query("SELECT * FROM `hm_domains` WHERE `domainname` = '{$strDomain}' LIMIT 1"); 
+      if (!$domain_res) 
+      {
+        die('Error while selecting data: ' . mysql_error());
+       }
+      $domain_info = mysql_fetch_array($domain_res, MYSQL_ASSOC);
+
+    //Check to see if email account exists, if not process signup 
+    $account_res = mysql_query("SELECT * FROM `hm_accounts` WHERE `accountaddress` = '{$strUser}@$strDomain' LIMIT 1"); 
+    $v1 = mysql_num_rows($account_res); 
+        
+    If ($v1 &gt;= 1) 
+    { 
+       echo "这封电子邮件的用户已经存在！!&lt;br&gt;&lt;br&gt;请点击 &lt;a href=\"javascript:history.go(-1)\"&gt;这里&lt;/a&gt; 返回。"; 
+       return false;
+    } else { 
+      if ( !$_POST['pass1'] || !$_POST['pass2'] ) 
+      { 
+         echo "你没有输入密码!&lt;br&gt;&lt;br&gt;请点击 &lt;a href=\"javascript:history.go(-1)\"&gt;这里&lt;/a&gt; 返回."; 
+      } 
+      elseif ( $_POST['pass1'] != $_POST['pass2'] ) 
+      { 
+         echo "输入的密码不匹配!&lt;br&gt;&lt;br&gt;请点击 &lt;a href=\"javascript:history.go(-1)\"&gt;这里&lt;/a&gt; 返回."; 
+      } else { 
+         $domain_id = $domain_info['domainid'];
+         $account_pass = ($encryption == 2)? md5( $strPass1 ) : $strPass1;
+         
+        $account_add = mysql_query("INSERT INTO `hm_accounts` (`accountdomainid`,`accountaddress`,`accountpassword`,`accountactive`,`accountisad`,`accountmaxsize`,`accountpwencryption`) VALUES ('$domain_id','$strUser@$strDomain','$account_pass','$admin_Default_activate','$accountisad','$account_max','$encryption')"); 
+      } 
+    } 
+    
+    if (!$account_add) 
+      {
+        die('&lt;br&gt;&lt;br&gt;数据库错误，无法添加帐户。请与您的管理员联系！&lt;br&gt; ' . mysql_error());
+       }
+        
+    If ($admin_Default_activate == 0) 
+    { 
+       echo "您的帐户已创建，但 &lt;b&gt;需要管理员激活.&lt;/b&gt;"; 
+      echo "一旦你的申请被批准，你将收到一个确认信息。&lt;br&gt;&lt;br&gt;"; 
+    } else { 
+      echo "您的帐户已创建，并已准备好使用!&lt;br&gt;&lt;br&gt;"; 
+      echo "Username: $strUser@$strDomain&lt;br&gt;&lt;br&gt;"; 
+      if ( !empty($serv_webmail_url) ) echo "Webmail: &lt;a href=\"$serv_webmail_url\"&gt;www.$strDomain/webmail&lt;/a&gt;&lt;br&gt;"; 
+      echo "POP3: mail.$strDomain&lt;br&gt;"; 
+      echo "IMAP: mail.$strDomain&lt;br&gt;&lt;br&gt;"; 
+      echo "SMTP: mail.$strDomain"; 
+        
+      $subject = "Welcome To $strDomain Email!"; 
+      $message = "这是确认您的帐户已创建。您可以登录到您的帐户，并开始使用它."; 
+
+      mail("{$_POST['user']}@$strDomain", $subject, $message); //Send welcome message 
+    } 
+        
+    if ($admin_Default_activate == 0 &amp;&amp; $admin_notIfy == 1) 
+    { 
+      $admin_mail_subject = "Account Requires Activation!"; 
+      $admin_mail_message = "The email account {$_POST['user']}@$strDomain has been created by {$_POST['name']} and requires administration activation!\r\n\r\nPlease login to the admin control panel to verIfy and activate user account.\r\n\r\n"; 
+      mail($admin_email, $admin_mail_subject, $admin_mail_message); 
+    } 
+    elseif ($admin_Default_activate == 1 &amp;&amp; $admin_notIfy == 1) 
+    { 
+      $admin_mail_subject = "New Account Created!"; 
+      $admin_mail_message = "{$_POST['user']}@$strDomain has been created by {$_POST['name']}!"; 
+      mail($admin_email, $admin_mail_subject, $admin_mail_message); 
+    } 
+  }
+}
+   
+   //Email account signup page 
+  echo " 
+     &lt;table width=\"350\" border=\"0\" cellpadding=\"0\" cellspacing=\"2\"&gt; 
+    &lt;form action=\"\" method=\"POST\"&gt; 
+       &lt;tr&gt;&lt;td&gt;姓名:&lt;/td&gt;&lt;td&gt;&lt;input type=\"text\" name=\"name\" size=\"21\"&gt;&lt;/td&gt;&lt;/tr&gt; 
+      &lt;tr&gt;&lt;td&gt;E-Mail:&lt;/td&gt;&lt;td&gt;&lt;input type=\"text\" name=\"user\" size=\"21\"&gt; @ ".$domain."&lt;/td&gt;&lt;/tr&gt; 
+      &lt;tr&gt;&lt;td&gt;密码:&lt;/td&gt;&lt;td&gt;&lt;input type=\"password\" name=\"pass1\" size=\"21\"&gt;&lt;/td&gt;&lt;/tr&gt; 
+      &lt;tr&gt;&lt;td&gt;密码:&lt;/td&gt;&lt;td&gt;&lt;input type=\"password\" name=\"pass2\" size=\"21\"&gt; (确认)&lt;/td&gt;&lt;/tr&gt; 
+      &lt;tr&gt;&lt;td colspan=\"2\" align=\"center\"&gt;&lt;input type=\"submit\" name=\"submit\" value=\"create account\" style=\"width: 98%\"&gt;&lt;/td&gt;&lt;/tr&gt; 
+    &lt;/form&gt; 
+    &lt;/table&gt;"; 
+?&gt;</code></pre></div>
+
+来源于<a href="https://www.hmailserver.com/forum/viewtopic.php?p=45008#p45008" class="postlink">hms官网</a> <br>
+<br>
+测试后发现用注册的账户登录会提示错误<br>
+<br>
+解决方法是在roundcubemail\config\config.inc.php 加入
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>$config['junk_mbox'] = 'INBOX.spam';
+ $config['create_default_folders'] = true;</code></pre></div></div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				
+			<div id="p2452" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2452">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlistac77.html?mode=viewprofile&amp;u=777" class="username">黑衣超人</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="searchdfb2.html?author_id=777&amp;sr=posts">2</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2016年10月10日, 16:38</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2452">
+
+						<h3 ><a href="viewtopice31a.html?p=2452#p2452">Re: hMailServer在线注册用户php教程</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="postingedb3.html?mode=quote&amp;f=4&amp;p=2452" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopice31a.html?p=2452#p2452" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistac77.html?mode=viewprofile&amp;u=777" class="username">黑衣超人</a></strong> &raquo; </span><time datetime="2016-10-10T08:46:19+00:00">2016年10月10日, 16:46</time>
+			</p>
+			
+			
+			
+			<div class="content">您好，我用的是afterlogic,用您的代码成功注册用户了，管理员也可以成功激活用户，但是该用户登录上之后邮件列表刷不出来，报错信息为：Data transfer has failed, probably due to server error. Please contact system administrator.我看了您下面那两行代码，但是不知道该往哪里添加，因为我用的是afterlogic不是roundcubemail，配置文件不一样，我找到了三个叫config.php的文件，不知道往哪里添加。请指教！谢谢！</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p2457" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2457">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" class="avatar"><img class="avatar" src="download/file1d88.png?avatar=2_1421286644.png" width="100" height="100" alt="头像" /></a>														</div>
+								<a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>							</dt>
+
+						<dd class="profile-rank">网站管理员<br /><img src="images/ranks/administrator.png" alt="网站管理员" title="网站管理员" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search51e1.html?author_id=2&amp;sr=posts">335</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2014年11月26日, 12:41</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>地址:</strong> 上海</dd>
+												
+							<dd class="profile-contact">
+				<strong>联系:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="#" class="dropdown-trigger" title="联系 Hsia">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">联系 Hsia</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="index.html" title="网站" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">网站</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2457">
+
+						<h3 ><a href="viewtopicf674.html?p=2457#p2457">Re: hMailServer在线注册用户php教程</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="postingdcac.html?mode=quote&amp;f=4&amp;p=2457" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopicf674.html?p=2457#p2457" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a></strong> &raquo; </span><time datetime="2016-10-13T01:47:29+00:00">2016年10月13日, 09:47</time>
+			</p>
+			
+			
+			
+			<div class="content">估计没修过完。数据库连接错误。</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p2459" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2459">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlistac77.html?mode=viewprofile&amp;u=777" class="username">黑衣超人</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="searchdfb2.html?author_id=777&amp;sr=posts">2</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2016年10月10日, 16:38</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2459">
+
+						<h3 ><a href="viewtopic365d.html?p=2459#p2459">Re: hMailServer在线注册用户php教程</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting3230.html?mode=quote&amp;f=4&amp;p=2459" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic365d.html?p=2459#p2459" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistac77.html?mode=viewprofile&amp;u=777" class="username">黑衣超人</a></strong> &raquo; </span><time datetime="2016-10-13T02:04:14+00:00">2016年10月13日, 10:04</time>
+			</p>
+			
+			
+			
+			<div class="content">不应该啊，我看到hmailserver中都出现注册账号了，而且可以登录上去，只是邮件列表没办法刷新。</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+			
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="posting49b0.html?mode=reply&amp;f=4&amp;t=573" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="viewtopic1000.html?f=4&amp;t=573&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=573">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="SORT_OPTIONS" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>显示: <select name="st" id="st"><option value="0" selected="selected">全部帖子</option><option value="1">1天</option><option value="7">7天</option><option value="14">2周</option><option value="30">1个月</option><option value="90">3个月</option><option value="180">6个月</option><option value="365">1年</option></select></label>
+								<label>排序: <select name="sk" id="sk"><option value="a">作者</option><option value="t" selected="selected">发表时间</option><option value="s">标题</option></select></label>
+				<label>SORT_DIRECTION: <select name="sd" id="sd"><option value="a" selected="selected">升序</option><option value="d">降序</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="去" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			4 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="viewforum31e6.html?f=4" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>回到 “教程发布”</span>
+		</a>
+	</p>
+	
+		<br /><br />
+	</div>
+
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="index-2.html" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>论坛首页</span></a></span>					</li>
+		
+				<li class="rightside">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr></li>
+							<li class="rightside">
+				<a href="ucp033a.html?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>删除全部论坛cookie</span>
+				</a>
+			</li>
+														</ul>
+
+	</div>
+</div>
+<!--
+<h3 style="padding-top: 8px;">advertisements</h3>
+
+-->
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持</span>
+		</p>
+				<p class="footer-row">
+			<span class="footer-copyright">Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a></span>
+		</p>
+				
+				
+		
+				
+	</div>
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="错误" data-l-timeout-processing-req="请求超时。">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+
+<script src="assets/javascript/jquery.mina796.js?assets_version=928"></script>
+<script src="assets/javascript/corea796.js?assets_version=928"></script>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	</div>
+
+<script src="assets/javascript/jquery.mina796.js?assets_version=928"></script>
+<script src="assets/javascript/corea796.js?assets_version=928"></script>
+
+
+
+
+
+<script src="ext/phpbb/boardannouncements/styles/all/template/js/boardannouncementsa796.js?assets_version=928"></script>
+<script src="styles/prosilver/template/forum_fna796.js?assets_version=928"></script>
+<script src="styles/prosilver/template/ajaxa796.js?assets_version=928"></script>
+
+
+
+
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=573 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:31:20 GMT -->
+</html>

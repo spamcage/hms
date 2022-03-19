@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?t=26 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>hmailserver ssl openssl教程 - hMailServer中文论坛</title>
+
+	<link rel="alternate" type="application/atom+xml" title="Feed - hMailServer中文论坛" href="https://www.hmailserver.org/app.php/feed">			<link rel="alternate" type="application/atom+xml" title="Feed - 新主题" href="https://www.hmailserver.org/app.php/feed/topics">		<link rel="alternate" type="application/atom+xml" title="Feed - 版面 - 教程发布" href="https://www.hmailserver.org/app.php/feed/forum/4">	<link rel="alternate" type="application/atom+xml" title="Feed - 主题 - hmailserver ssl openssl教程" href="https://www.hmailserver.org/app.php/feed/topic/26">	
+	<link rel="canonical" href="https://www.hmailserver.org/viewtopic.php?t=26">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="https://www.hmailserver.org/assets/css/font-awesome.min.css?assets_version=928" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/stylesheet.css?assets_version=928" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/zh_cmn_hans/stylesheet.css?assets_version=928" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/prosilver/theme/tweaks.css?assets_version=928" rel="stylesheet">
+<![endif]-->
+
+	
+<link href="https://www.hmailserver.org/ext/phpbb/boardannouncements/styles/all/theme/boardannouncements.css?assets_version=928" rel="stylesheet" media="screen" />
+<link href="https://www.hmailserver.org/ext/phpbb/ads/styles/all/theme/phpbbads.css?assets_version=928" rel="stylesheet" media="screen" />
+
+
+
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+				<a id="logo" class="logo" href="https://www.hmailserver.org/index.php" title="论坛首页"><span class="site_logo"></span></a>
+				<h1>hMailServer中文论坛</h1>
+				<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。</p>
+				<p class="skiplink"><a href="#start_here">跳到内容</a></p>
+			</div>
+
+									<div id="search-box" class="search-box search-header" role="search">
+				<form action="https://www.hmailserver.org/search.php" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="按关键词搜索" class="inputbox search tiny" size="20" value="" placeholder="搜索……" />
+					<button class="button button-search" type="submit" title="搜索">
+						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+					</button>
+					<a href="https://www.hmailserver.org/search.php" class="button button-search-end" title="高级搜索">
+						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+					</a>
+					
+				</fieldset>
+				</form>
+			</div>
+						
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>快捷链接</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+											<li class="separator"></li>
+																									<li>
+								<a href="https://www.hmailserver.org/search.php?search_id=unanswered" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>查看没有回复的主题</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.hmailserver.org/search.php?search_id=active_topics" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>查看活跃的主题</span>
+								</a>
+							</li>
+							<li class="separator"></li>
+							<li>
+								<a href="https://www.hmailserver.org/search.php" role="menuitem">
+									<i class="icon fa-search fa-fw" aria-hidden="true"></i><span>搜索</span>
+								</a>
+							</li>
+					
+										<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="https://www.hmailserver.org/ucp.php?mode=login" title="登录" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>登录</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="https://www.hmailserver.org/ucp.php?mode=register" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>注册</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+				
+		
+		<li class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+
+			
+							<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope><a itemprop="item" href="https://www.hmailserver.org/index.php" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="name">论坛首页</span></a><meta itemprop="position" content="1" /></span>
+
+											
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="12"><a itemprop="item" href="https://www.hmailserver.org/viewforum.php?f=12"><span itemprop="name">讨论</span></a><meta itemprop="position" content="2" /></span>
+															
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="4"><a itemprop="item" href="https://www.hmailserver.org/viewforum.php?f=4"><span itemprop="name">教程发布</span></a><meta itemprop="position" content="3" /></span>
+							
+					</li>
+
+		
+					<li class="rightside responsive-search">
+				<a href="https://www.hmailserver.org/search.php" title="查看高级搜索选项" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+				<div id="phpbb_announcement">
+		<a href="https://www.hmailserver.org/app.php/boardannouncements/close?hash=dc7c24e5" data-ajax="close_announcement" data-overlay="false" class="close clearfix" title="Close announcement"></a>		<div><span style="color:#0000FF">hMailServer中文论坛 QQ群：80049760</span></div>
+	</div>
+
+<h2 class="topic-title"><a href="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=26">hmailserver ssl openssl教程</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">hMailServer教程相关文章。<br /></div>
+<p>
+	<strong>版主:</strong> <a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>
+</p>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="https://www.hmailserver.org/posting.php?mode=reply&amp;f=4&amp;t=26" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=26&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="https://www.hmailserver.org/search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="查找这个主题……" />
+				<button class="button button-search" type="submit" title="搜索">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</button>
+				<a href="https://www.hmailserver.org/search.php" class="button button-search-end" title="高级搜索">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+				</a>
+				<input type="hidden" name="t" value="26" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			4 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+		</div>
+
+
+
+
+			<div id="p41" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile41">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=2" class="avatar"><img class="avatar" src="https://www.hmailserver.org/download/file.php?avatar=2_1421286644.png" width="100" height="100" alt="头像" /></a>														</div>
+								<a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>							</dt>
+
+						<dd class="profile-rank">网站管理员<br /><img src="https://www.hmailserver.org/images/ranks/administrator.png" alt="网站管理员" title="网站管理员" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="https://www.hmailserver.org/search.php?author_id=2&amp;sr=posts">335</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2014年11月26日, 12:41</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>地址:</strong> 上海</dd>
+												
+							<dd class="profile-contact">
+				<strong>联系:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="#" class="dropdown-trigger" title="联系 Hsia">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">联系 Hsia</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="http://www.hmailserver.org/" title="网站" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">网站</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content41">
+
+						<h3 class="first"><a href="https://www.hmailserver.org/viewtopic.php?p=41#p41">hmailserver ssl openssl教程</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://www.hmailserver.org/posting.php?mode=quote&amp;f=4&amp;p=41" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="https://www.hmailserver.org/viewtopic.php?p=41#p41" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a></strong> &raquo; </span><time datetime="2014-12-21T17:29:03+00:00">2014年12月22日, 01:29</time>
+			</p>
+			
+			
+			
+			<div class="content">有关hmailserver ssl证书加密连接，这东西我搞了很久，hmailserver openssl在中文网上很少的教程，我都是个半桶水的，并不是专业的技术。以下设置有问题请在评论说明.<br>
+工具都给大家准备好了，<div class="inline-attachment">
+			
+		
+		
+				<dl class="file">
+			<dt><span class="imageset icon_topic_attach"></span> <a class="postlink" href="https://www.hmailserver.org/download/file.php?id=72">hMailServer_SSL_0_9_8j.rar</a></dt>
+						<dd>(2.8 MiB) 下载 3337 次</dd>
+		</dl>
+		
+		
+			</div>
+
+教程一。<br>
+下载后先安装vcredist_x86.exe 再安装Win32OpenSSL_Light-0_9_8j.exe （默认安装c盘）<br>
+然后把剩下的三个文件复制到c:\openssl\bin  <br>
+<br>
+打开命令窗口<br>
+输入： cd c:\openssl\bin  <br>
+1.私密KEY    openssl genrsa -des3 -out hm_org.key 2048 需要输入密码<br>
+2.证书  openssl req -new -key hm_org.key -out hm.req  需要输入你的相关资料。如下：<br>
+<br>
+Country Name (2 letter code) [XX]:cn    <br>
+State or Province Name (full name) []:yunnan<br>
+Locality Name (eg, city) [Default City]:kunming<br>
+Organization Name (eg, company) [Default Company Ltd]:hmailserver.org Co., Ltd.<br>
+Organizational Unit Name (eg, section) []:egg<br>
+Common Name (eg, your name or your server's hostname) []:（填域名）<br>
+Email Address []:  （你的邮件，不用翻译了吧）<br>
+please enter the following ”extra" attributes <br>
+to be sent with your certificate request <br>
+a challenge password ： （这里的挑战密码是指：“挑战密码”请求作为CSR生成的一部分，用于将保密密钥加密的密码（在请求的密钥生成的时间时，或当一个明文密钥加密后 - 然后每次再次请求启用了SSL的服务使用它启动时），是两个单独的和不同的事情。）你看着办。<br>
+An optional company name []: 这里是公司名。<br>
+<br>
+3. 自签证书  openssl x509 -req -days 3650 -sha1 -extfile C:\OpenSSL\bin\openssl.cfg -extensions v3_ca -signkey hm_org.key -in hm.req -out hm.crt<br>
+4.通俗的讲，去除key的密码 openssl rsa -in hm_org.key -out hm.key
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=68" class="postimage" alt="hmailserverssl1.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailserverssl1.png (30.91 KiB) 查看 31869 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=69" class="postimage" alt="hmailserverssl2.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailserverssl2.png (28.93 KiB) 查看 31869 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=70" class="postimage" alt="hmailserverssl3.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailserverssl3.png (47.88 KiB) 查看 31869 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+教程一完毕。<br>
+<br>
+教程二：<br>
+<br>
+我不知道这个有什么区别，但是这样子也能连接上，同样也可以收发信，当然要设置25端口。不然就不能收信。<br>
+<br>
+ 文字说明同上。<br>
+<br>
+openssl genrsa -out key.pem 2048<br>
+openssl req -new -key key.pem -out request.csr<br>
+openssl x509 -req -days 365 -in request.csr -signkey key.pem -out certificate.pem
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=71" class="postimage" alt="hmailserverssl4.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailserverssl4.png (25.27 KiB) 查看 31869 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+
+后面的端口按照上面的图那样设置。完毕。<br>
+<br>
+总结：上面的弄好后还没完。在高级设置里面，TCP/IP端口，其中smtp:25,pop3:110,imap:143,smtp:587 应该选择STARTTLS(Optional)，其他端口如：smtp:465,imap:993,pop3:995，应该选择ssl/tls 。<br>
+如果你想在外部始终用ssl连接，请在IP范围-internet中勾选“需要ssl/tls进行身份验证”。那么TCP/IP端口就不用设置那么多了。<br>
+完毕。</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				
+			<div id="p42" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile42">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=2" class="avatar"><img class="avatar" src="https://www.hmailserver.org/download/file.php?avatar=2_1421286644.png" width="100" height="100" alt="头像" /></a>														</div>
+								<a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>							</dt>
+
+						<dd class="profile-rank">网站管理员<br /><img src="https://www.hmailserver.org/images/ranks/administrator.png" alt="网站管理员" title="网站管理员" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="https://www.hmailserver.org/search.php?author_id=2&amp;sr=posts">335</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2014年11月26日, 12:41</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>地址:</strong> 上海</dd>
+												
+							<dd class="profile-contact">
+				<strong>联系:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="#" class="dropdown-trigger" title="联系 Hsia">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">联系 Hsia</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="http://www.hmailserver.org/" title="网站" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">网站</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content42">
+
+						<h3 ><a href="https://www.hmailserver.org/viewtopic.php?p=42#p42">Re: hmailserver ssl 证书教程</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://www.hmailserver.org/posting.php?mode=quote&amp;f=4&amp;p=42" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="https://www.hmailserver.org/viewtopic.php?p=42#p42" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a></strong> &raquo; </span><time datetime="2014-12-22T09:21:06+00:00">2014年12月22日, 17:21</time>
+			</p>
+			
+			
+			
+			<div class="content">官方给我的回答是25端口必须打开，smtp:465 , imap:993,995   其它端口选择STARTTLS Optional，大概意思是如果可能加密就会加密，25、587、110 应选择STARTTLS Optional.</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p301" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile301">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=190" class="username">jasonshaw</a>							</dt>
+
+						<dd class="profile-rank">Level 3<br /><img src="https://www.hmailserver.org/images/ranks/rank3.png" alt="Level 3" title="Level 3" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="https://www.hmailserver.org/search.php?author_id=190&amp;sr=posts">34</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2015年5月6日, 11:16</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content301">
+
+						<h3 ><a href="https://www.hmailserver.org/viewtopic.php?p=301#p301">Re: hmailserver ssl openssl教程</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://www.hmailserver.org/posting.php?mode=quote&amp;f=4&amp;p=301" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="https://www.hmailserver.org/viewtopic.php?p=301#p301" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=190" class="username">jasonshaw</a></strong> &raquo; </span><time datetime="2015-05-08T02:15:31+00:00">2015年5月8日, 10:15</time>
+			</p>
+			
+			
+			
+			<div class="content">完全按照你的教程设置之后，似乎是可以了，但是在foxmail里面设置 增加ssl就无法收发邮件，不知道是哪里有问题<br>
+同时，我现在参考你的所有教程，现在的情况是 能对内网对内网收发，收到外网的邮件，但是无法发送到外网，紧急求救啊！</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p3409" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3409">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=1026" class="username">hamil_tony</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="https://www.hmailserver.org/images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="https://www.hmailserver.org/search.php?author_id=1026&amp;sr=posts">1</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2017年7月27日, 17:25</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3409">
+
+						<h3 ><a href="https://www.hmailserver.org/viewtopic.php?p=3409#p3409">Re: hmailserver ssl openssl教程</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://www.hmailserver.org/posting.php?mode=quote&amp;f=4&amp;p=3409" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="https://www.hmailserver.org/viewtopic.php?p=3409#p3409" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=1026" class="username">hamil_tony</a></strong> &raquo; </span><time datetime="2017-07-27T09:30:35+00:00">2017年7月27日, 17:30</time>
+			</p>
+			
+			
+			
+			<div class="content">有没有64位的 包啊。我用你提供的32位的包安装 执行到自签证书：openssl x509 -req -days 3650 -sha1 -extfile C:\OpenSSL\bin\openssl.cfg -extensions v3_ca -signkey hm_org.key -in hm.req -out hm.crt  这一句的时候 一直失败， 我想可能是32位的原因。求大神给个解决方案  有劳了</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+			
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="https://www.hmailserver.org/posting.php?mode=reply&amp;f=4&amp;t=26" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=26&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=26">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="SORT_OPTIONS" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>显示: <select name="st" id="st"><option value="0" selected="selected">全部帖子</option><option value="1">1天</option><option value="7">7天</option><option value="14">2周</option><option value="30">1个月</option><option value="90">3个月</option><option value="180">6个月</option><option value="365">1年</option></select></label>
+								<label>排序: <select name="sk" id="sk"><option value="a">作者</option><option value="t" selected="selected">发表时间</option><option value="s">标题</option></select></label>
+				<label>SORT_DIRECTION: <select name="sd" id="sd"><option value="a" selected="selected">升序</option><option value="d">降序</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="去" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			4 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="https://www.hmailserver.org/viewforum.php?f=4" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>回到 “教程发布”</span>
+		</a>
+	</p>
+	
+		<br /><br />
+	</div>
+
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="https://www.hmailserver.org/index.php" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>论坛首页</span></a></span>					</li>
+		
+				<li class="rightside">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr></li>
+							<li class="rightside">
+				<a href="https://www.hmailserver.org/ucp.php?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>删除全部论坛cookie</span>
+				</a>
+			</li>
+														</ul>
+
+	</div>
+</div>
+<!--
+<h3 style="padding-top: 8px;">advertisements</h3>
+
+-->
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持</span>
+		</p>
+				<p class="footer-row">
+			<span class="footer-copyright">Copyright © 2014-2015 <a href="http://www.hmailserver.org/">hMailServer中文论坛</a></span>
+		</p>
+				
+				
+		
+				
+	</div>
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="错误" data-l-timeout-processing-req="请求超时。">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+
+<script src="https://www.hmailserver.org/assets/javascript/jquery.min.js?assets_version=928"></script>
+<script src="https://www.hmailserver.org/assets/javascript/core.js?assets_version=928"></script>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	</div>
+
+<script src="https://www.hmailserver.org/assets/javascript/jquery.min.js?assets_version=928"></script>
+<script src="https://www.hmailserver.org/assets/javascript/core.js?assets_version=928"></script>
+
+
+
+
+
+<script src="https://www.hmailserver.org/ext/phpbb/boardannouncements/styles/all/template/js/boardannouncements.js?assets_version=928"></script>
+<script src="https://www.hmailserver.org/styles/prosilver/template/forum_fn.js?assets_version=928"></script>
+<script src="https://www.hmailserver.org/styles/prosilver/template/ajax.js?assets_version=928"></script>
+
+
+
+
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?t=26 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:43 GMT -->
+</html>

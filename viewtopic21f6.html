@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=11&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; hMailServer安装搭建图文详细教程(推荐MYSQL,MSSQL，PostgreSQL）</title>
+
+<link href="https://www.hmailserver.org/styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="https://www.hmailserver.org/">https://www.hmailserver.org/</a></p>
+
+		<h2>hMailServer安装搭建图文详细教程(推荐MYSQL,MSSQL，PostgreSQL）</h2>
+		<p><a href="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=11">https://www.hmailserver.org/viewtopic.php?f=4&amp;t=11</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>hMailServer安装搭建图文详细教程(推荐MYSQL,MSSQL，PostgreSQL）</h3>
+				<div class="date">发表于 : <strong>2014年11月28日, 22:15</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">hMailServer中文论坛介绍下hMailServer的安装方法，内置图文说明，根据下图一步一步，就可完成安装搭建一个HmailServer的邮件服务。我们安装过程中使用的数据库是Microsoft sql compact。<br>
+<strong class="text-strong"><span style="color:#FF0000">以下是用默认的小型数据库来安装的，在实际的生产中，建议用mysql或者mssql作为数据库</span></strong><br>
+<br>
+<strong class="text-strong"><span style="color:#FF0000">阿里云ESC的专有网络封了25端口的，所以只能用经典网络，然后如果用mysql，可能会出现一个错误，就是要用到32位的dll,慢慢体验https://<a href="http://www.hmailserver.org/viewtopic.php?f=5&amp;t=114" class="postlink">www.hmailserver.org/viewtopic.php?f=5&amp;t=114</a></span></strong><br>
+<br>
+关于环境的问题，可以用这个phpstudy，集成的mysql  php http。自己先把环境安装好。这是第一步。<br>
+<a href="http://www.phpstudy.net/phpstudy/phpStudy4iis.zip" class="postlink">http://www.phpstudy.net/phpstudy/phpStudy4iis.zip</a><br>
+phpstudy安装顺序是：先安装<strong class="text-strong">vc9运行库_x86(必装)</strong>  然后把php.ini覆盖到php5.4里面的php.ini，替换掉。<br>
+<br>
+<span style="color:#FF0000"><strong class="text-strong">下面是用默认的小型数据库安装。不适合生产环境，测试用。至于用mysql作为数据怎么安装，就是在安装的时候选择mysql<br>
+就行啦。</strong></span><br>
+<br>
+一、下载：<br>
+到hMailServer中文论坛下载hMailServer，也可以到官方下载，我们的服务器是放在国内的，下载速度很明显，我把它放在本地，是为了用户的下载能够快一点。<br>
+二、安装hMailServer ，根据下面的图片选择安装即可。均有解释。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=34" class="postimage" alt="hmailanzhuang1.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailanzhuang1.png (26.85 KiB) 查看 27794 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=35" class="postimage" alt="hmailanzhuang2.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailanzhuang2.png (13.68 KiB) 查看 27794 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=36" class="postimage" alt="hmailanzhuang3.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailanzhuang3.png (12.12 KiB) 查看 27794 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+下面这里有两个选项，按默认就行。意思是选择完全安装或者自定义安装。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=37" class="postimage" alt="hmailanzhuang4.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailanzhuang4.png (11.57 KiB) 查看 27794 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<span style="color:#FF0000">下图的意思是要使用 Microsoft sql还是自定义数据库，如果要用MYSQL作为数据，就在这里选择mysql，必须先把数据安装好，就前面介绍的，可以用phpstudy来一键配置环境。</span>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=38" class="postimage" alt="hmailanzhuang5.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailanzhuang5.png (10.5 KiB) 查看 27794 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+don't create a start menu folder  意思是不要创建菜单。可以勾上，随你了。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=39" class="postimage" alt="hmailanzhuang6.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailanzhuang6.png (12.9 KiB) 查看 27794 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+设置邮件服务管理工具的管理密码，登录管理的时候要此密码。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=40" class="postimage" alt="hmailanzhuang7.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailanzhuang7.png (11.26 KiB) 查看 27794 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=41" class="postimage" alt="hmailanzhuang8.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailanzhuang8.png (12.88 KiB) 查看 27794 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+选择“是”，大概意思就是要用到Microsoft .NET 这个组件。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=42" class="postimage" alt="hmailanzhuang9.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailanzhuang9.png (17.09 KiB) 查看 27794 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=43" class="postimage" alt="hmailanzhuang10.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailanzhuang10.png (10.7 KiB) 查看 27794 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+点击 Finish 完成并运行。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=44" class="postimage" alt="hmailanzhuang11.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailanzhuang11.png (26.8 KiB) 查看 27794 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+到此步，安装完成。你也可以将英文汉化，我们提供了<a href="https://www.hmailserver.org/viewtopic.php?f=5&amp;t=13" class="postlink">中文汉化</a>。<br>
+<br>
+<span style="color:#FF0000">如果你的机器是64位的，用mysql来安装的话，还需要这个东西</span><a href="https://www.hmailserver.org/viewtopic.php?f=5&amp;t=114" class="postlink">viewtopic.php?f=5&amp;t=114</a><br>
+推荐用阿里云的 2008 r2 企业版 64位的哦。<br>
+<br>
+IIS7<br>
+<a href="http://phpmanager.codeplex.com/releases/view/69115" class="postlink">http://phpmanager.codeplex.com/releases/view/69115</a></div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hMailServer安装搭建图文详细教程</h3>
+				<div class="date">发表于 : <strong>2015年3月22日, 12:47</strong></div>
+				<div class="author">由 <strong>roy</strong></div>
+				<div class="content">已安装完成</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="http://www.hmailserver.org/">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=11&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:44 GMT -->
+</html>

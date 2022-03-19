@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=206&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; 只允许特定账户向外网发邮件，其他用户禁止</title>
+
+<link href="https://www.hmailserver.org/styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="https://www.hmailserver.org/">https://www.hmailserver.org/</a></p>
+
+		<h2>只允许特定账户向外网发邮件，其他用户禁止</h2>
+		<p><a href="https://www.hmailserver.org/viewtopic.php?f=3&amp;t=206">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=206</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>只允许特定账户向外网发邮件，其他用户禁止</h3>
+				<div class="date">发表于 : <strong>2015年12月4日, 16:55</strong></div>
+				<div class="author">由 <strong>sysindex</strong></div>
+				<div class="content">需求：只允许特定账户向外网发邮件，其他用户禁止。<br>
+<br>
+现状：大部分HMAIL上的用户可以对内网互相发送邮件，可以收发内外网的邮件；但是不可以对外网发送邮件。<br>
+实现方式：IP ranges 中，内部用户的IP设置我勾选了SMTP,POP3,IMAP,ANTI-SPAM,ANTI-VIRUS local to local e-mail addresses;local to external e-mailaddresses;external to local e-mail address;local to local e-mail addresses;local to external e-mail address<br>
+<br>
+关于服务器的IP：127.0.0.1的IP ranges 中勾选了SMTP,ANTI-SPAM,ANTI-VIRUS, ALLOW DELIVERIES FROM全部;Require smtp authentication全部。<br>
+<br>
+尝试过的方式，都是通过脚本控制，每次更新脚本文件都是会RELOAD，然后在WINDOWS服务中重启HMAIL服务，但都没有效果。<br>
+<br>
+尝试一：本论坛
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>Sub OnSMTPData(oClient, oMessage)
+   If (oClient.Username &lt;&gt; "") Then
+      Const NotPermitted = "test@hmailserver.org"
+      Dim i
+      If InStr(NotPermitted, oClient.Username) Then
+         For i = 0 To oMessage.Recipients.Count -1
+            If (Not oMessage.Recipients(i).IsLocalUser) Then
+               Result.Value = 2
+               Result.Message = "You are only allowed to send internally"
+            End If
+         Next
+      End If
+   End If
+End Sub</code></pre></div>
+
+尝试二：HMAIL EN论坛<br>
+<a href="https://www.hmailserver.com/forum/viewtopic.php?f=9&amp;t=17190" class="postlink">https://www.hmailserver.com/forum/viewt ... =9&amp;t=17190</a><br>
+<br>
+尝试三：
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>Sub OnAcceptMessage(oClient, oMessage)
+ dim fromemail, fromemail_domain, authenuser, authenuser_value
+ authenuser = Split ( (oClient.Username) , "@")
+ authenuser_value = authenuser(1)
+ fromemail = Split ( (oMessage.FromAddress) , "@" )
+ fromemail_domain = fromemail(1)
+ If oClient.Username&lt;&gt;"" Then
+  If LCase(authenuser_value)=LCase(fromemail_domain) and LCase(fromemail_domain)&lt;&gt;LCase("yourdomain.com") Then  
+    '如果用户不是以发件者发送邮件且不是本地域名则提示没有被授权
+    Result.Value = 2
+    Result.Message = "You are not allow to send mail"
+  ElseIf LCase(authenuser_value) = LCase(fromemail_domain) Then
+    set FSO=CreateObject("Scripting.FileSystemObject")
+    Set txtfile = FSO.OpenTextFile("H:\hMailServer\Events\LimitUsers.txt",1,TriStateTrue)
+Do Until txtfile.AtEndOfStream
+strtxt = Trim(txtfile.ReadLine)
+if oClient.Username = strtxt then 
+  '如果是受限邮件账号(内部邮件账号)则检查外发邮件地址是否是本域地址,如果非本域地址则禁止发送
+dim toemail, tomail_value, CountRecipients
+CountRecipients = oMessage.Recipients.Count
+for i = 0 to CountRecipients
+   toemail = Split( (oMessage.Recipients(i).Address) , "@" )
+   toemail_value = toemail(1)
+if LCase (toemail_value)&lt;&gt;LCase("yourdomain.com") then
+Result.Value = 2
+Result.Message = "You are not allow to send external mail to " + oMessage.Recipients(i).Address +" ,please remove this address then tray again!"
+Set FSO2 = CreateObject("Scripting.FileSystemObject")
+Set str = FSO2.OpenTextFile("D:\hMailServer\Logs\LimitUsers.log",8,True)
+strResponses = str.Writeline(CStr(Now)+"–&gt;"+oClient.Username+"–&gt;"+oMessage.Recipients(i).Address)
+str.Close
+Exit For
+End If
+Next
+     end if
+   Loop
+   txtfile.Close
+  End If
+ End If
+End Sub
+</code></pre></div>
+
+请各位大侠帮忙，谢谢了。</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="http://www.hmailserver.org/">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=206&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:49 GMT -->
+</html>

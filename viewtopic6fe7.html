@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=44&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; hMailServer的SQL Server CE数据库管理密码和工具</title>
+
+<link href="https://www.hmailserver.org/styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="https://www.hmailserver.org/">https://www.hmailserver.org/</a></p>
+
+		<h2>hMailServer的SQL Server CE数据库管理密码和工具</h2>
+		<p><a href="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=44">https://www.hmailserver.org/viewtopic.php?f=4&amp;t=44</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>hMailServer的SQL Server CE数据库管理密码和工具</h3>
+				<div class="date">发表于 : <strong>2015年2月10日, 17:07</strong></div>
+				<div class="author">由 <strong>ama</strong></div>
+				<div class="content">在hmailserver的安装步骤中有一步是选择数据库，如果你的hmailserver使用的是sql server或者mysql就简单了，sql server的企业管理器和phpmyadmin都能轻松搞定。<br>
+<br>
+我当时就是没注意，直接默认选项走下去了，使用的是hmailserver内置的SQL Server Compact Edition数据库。<br>
+<br>
+找了找资料看看怎么查询里面的数据，现在写下来，给朋友们引个路。<br>
+<br>
+先上传管理软件：<div class="inline-attachment">
+			
+		
+		
+				<dl class="file">
+			<dt><span class="imageset icon_topic_attach"></span> <a class="postlink" href="https://www.hmailserver.org/download/file.php?id=93">CompactView.bkill.com.rar</a></dt>
+						<dd>(107.25 KiB) 下载 219 次</dd>
+		</dl>
+		
+		
+			</div>
+
+数据库文件在根目录database文件夹下，密码知道吗？<br>
+<br>
+打开hmailserver安装目录下的bin目录，找到hMailServer.INI文件。<br>
+<br>
+打开查找下，[Database]字段下有个Password，将=后面的字符串复制下来，这就是密码，不过是加密的。<br>
+<br>
+打开hmailserver安装目录的Addons\Utilities目录，里面有几个VBS文件，双击运行DecryptBlowfish.vbs。<br>
+<br>
+提示你输入管理员密码，然后提示输入加密后的密码，就是刚才复制的那串字符，最后一个对话框上会显示一串字符，就是数据库的连接密码。<br>
+<br>
+第一次发，先占位，后续修改。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hMailServer的SQL Server CE数据库管理密码和工具</h3>
+				<div class="date">发表于 : <strong>2015年5月11日, 16:25</strong></div>
+				<div class="author">由 <strong>Fate_master</strong></div>
+				<div class="content">按照你说的做了~  但是输入加密后的密码那个框，得输入两次！而且出来的密码不对（我是知道数据库密码的=-=）</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="http://www.hmailserver.org/">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=44&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:47 GMT -->
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=89&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; 邮件附件上传大小要注意修改四个地方</title>
+
+<link href="https://www.hmailserver.org/styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="https://www.hmailserver.org/">https://www.hmailserver.org/</a></p>
+
+		<h2>邮件附件上传大小要注意修改四个地方</h2>
+		<p><a href="https://www.hmailserver.org/viewtopic.php?f=3&amp;t=89">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=89</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>邮件附件上传大小要注意修改四个地方</h3>
+				<div class="date">发表于 : <strong>2015年4月15日, 15:51</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">1、php.ini <br>
+2、roundcube 的.htaccess。 <br>
+3、hmailserver域的邮件限制。 <br>
+4、hmailserver的SMTP邮件限制</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 邮件附件上传大小要注意修改四个地方</h3>
+				<div class="date">发表于 : <strong>2015年4月15日, 17:29</strong></div>
+				<div class="author">由 <strong>sycow1981</strong></div>
+				<div class="content">好东西，一定要收藏</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 邮件附件上传大小要注意修改四个地方</h3>
+				<div class="date">发表于 : <strong>2015年4月17日, 10:52</strong></div>
+				<div class="author">由 <strong>sycow1981</strong></div>
+				<div class="content">邮件附件上传大小修改两个地方  在php.ini中设置确认file_uploads = on。修改post_max_size单个邮件最大尺寸upload_max_filesize附件大小memory_limit内存限制按照memory_limit&gt;post_max_size&gt; upload_max_filesized的原则。 max_execution_time = 600 ;每个PHP页面运行的最大时间值(秒)默认30秒。   max_input_time = 600 ;每个PHP页面接收数据所需的最大时间默认60秒。   修改roundCube目录下的.htaccess文件 php_value upload_max_filesize 10M 上傳文件大小 php_value post_max_size 11M php_value memory_limit 128M 可用内存大小  关于hmailserver的反垃圾和病毒控制方面可</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 邮件附件上传大小要注意修改四个地方</h3>
+				<div class="date">发表于 : <strong>2016年12月28日, 19:00</strong></div>
+				<div class="author">由 <strong>mower</strong></div>
+				<div class="content">这样修改后发送大文件，提示超时并且打开邮件无附件</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 邮件附件上传大小要注意修改四个地方</h3>
+				<div class="date">发表于 : <strong>2017年6月23日, 15:27</strong></div>
+				<div class="author">由 <strong>jumio</strong></div>
+				<div class="content">2012r2 iis8 php5.6.30 mysql5.7.11 环境下设置完后 大附件发送接收都没问题。但是在2008r2 iis7.5 php5.6.30 mysql5.7.11下同样配置后，附件最大只能50M，超过了这个范围，上传和发送都是成功的，接收到的却是空白邮件，无主题无收发件人信息。</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="http://www.hmailserver.org/">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=89&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:51 GMT -->
+</html>

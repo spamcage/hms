@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=573&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; hMailServer在线注册用户php教程</title>
+
+<link href="https://www.hmailserver.org/styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="https://www.hmailserver.org/">https://www.hmailserver.org/</a></p>
+
+		<h2>hMailServer在线注册用户php教程</h2>
+		<p><a href="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=573">https://www.hmailserver.org/viewtopic.php?f=4&amp;t=573</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>hMailServer在线注册用户php教程</h3>
+				<div class="date">发表于 : <strong>2016年3月18日, 17:40</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">此代码是一个PHP网页，用户自己注册账号，已经做过部分提示汉化。<br>
+
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>&lt;?php 
+error_reporting(E_ALL &amp; ~E_NOTICE);
+//MySQL database connection information 
+//MySQL connection information: 
+$mysql_host = "localhost"; //Host Name 
+$mysql_user = "root"; //数据库用户名 
+$mysql_pass = "数据库密码"; //填写数据库密码
+$mysql_db = "数据库名"; //填写数据库名 
+
+//General Configuration: 
+$form_title = "电子邮件注册"; //Name for this form 
+$account_max = "1";  //Maximum size per account (1000000 = 1MB -&gt; Do not uses spaces or commas!) 
+$admin_notify = "1"; //1 = yes &amp; 0 = no  是否需要通知
+$admin_email = "service@hmailserver.net"; //Administrators email to send notifications) 
+$admin_default_activate = "0"; //1 = yes &amp; 0 = no -&gt; If no, the administrator has to authorise the account 
+$accountisad = 0; // account is AD-account? 0 = no (default), 1 = yws;
+$encryption = 2; //Password encryption level - 2 means md5;
+$domain = 'hmailserver.net'; // 这里填写自己的域名。
+
+$serv_webmail_url = 'http://mail.hmailserver.org/webadmin/'; // WEBMAIL的路径。
+
+$url = $_SERVER["HTTP_HOST"]; 
+$domain = (empty($domain))? $_SERVER["HTTP_HOST"] : $domain; 
+$domain = (substr($domain,0,4) == "www.")? strstr($domain, ".") : $domain;
+
+// Protect database entries and use MD5 encryption 
+$strName    = (isset($_POST['name']))? addslashes( $_POST['name'] ) : ''; 
+$strUser    = (isset($_POST['user']))? addslashes( $_POST['user'] ) : ''; 
+
+$strDomain  = addslashes( "$domain" ); 
+$strPass1   = (isset($_POST['pass1']))? addslashes( $_POST['pass1'] ) : ''; 
+ 
+//Connect to database using information from above 
+$open = mysql_connect($mysql_host, $mysql_user, $mysql_pass); 
+$select = mysql_select_db($mysql_db); 
+
+if (!$open || !$select) 
+{ 
+  echo "Unable to open database, contact your administrator!"; 
+} else { 
+  echo "&lt;font size=\"+1\"&gt;$form_title&lt;/font&gt;&lt;br&gt;&lt;br&gt;"; 
+   
+  if ( isset($_POST['submit']) &amp;&amp;  $_POST['submit'] == 'create account' )
+  { 
+    $domain_res = mysql_query("SELECT * FROM `hm_domains` WHERE `domainname` = '{$strDomain}' LIMIT 1"); 
+      if (!$domain_res) 
+      {
+        die('Error while selecting data: ' . mysql_error());
+       }
+      $domain_info = mysql_fetch_array($domain_res, MYSQL_ASSOC);
+
+    //Check to see if email account exists, if not process signup 
+    $account_res = mysql_query("SELECT * FROM `hm_accounts` WHERE `accountaddress` = '{$strUser}@$strDomain' LIMIT 1"); 
+    $v1 = mysql_num_rows($account_res); 
+        
+    If ($v1 &gt;= 1) 
+    { 
+       echo "这封电子邮件的用户已经存在！!&lt;br&gt;&lt;br&gt;请点击 &lt;a href=\"javascript:history.go(-1)\"&gt;这里&lt;/a&gt; 返回。"; 
+       return false;
+    } else { 
+      if ( !$_POST['pass1'] || !$_POST['pass2'] ) 
+      { 
+         echo "你没有输入密码!&lt;br&gt;&lt;br&gt;请点击 &lt;a href=\"javascript:history.go(-1)\"&gt;这里&lt;/a&gt; 返回."; 
+      } 
+      elseif ( $_POST['pass1'] != $_POST['pass2'] ) 
+      { 
+         echo "输入的密码不匹配!&lt;br&gt;&lt;br&gt;请点击 &lt;a href=\"javascript:history.go(-1)\"&gt;这里&lt;/a&gt; 返回."; 
+      } else { 
+         $domain_id = $domain_info['domainid'];
+         $account_pass = ($encryption == 2)? md5( $strPass1 ) : $strPass1;
+         
+        $account_add = mysql_query("INSERT INTO `hm_accounts` (`accountdomainid`,`accountaddress`,`accountpassword`,`accountactive`,`accountisad`,`accountmaxsize`,`accountpwencryption`) VALUES ('$domain_id','$strUser@$strDomain','$account_pass','$admin_Default_activate','$accountisad','$account_max','$encryption')"); 
+      } 
+    } 
+    
+    if (!$account_add) 
+      {
+        die('&lt;br&gt;&lt;br&gt;数据库错误，无法添加帐户。请与您的管理员联系！&lt;br&gt; ' . mysql_error());
+       }
+        
+    If ($admin_Default_activate == 0) 
+    { 
+       echo "您的帐户已创建，但 &lt;b&gt;需要管理员激活.&lt;/b&gt;"; 
+      echo "一旦你的申请被批准，你将收到一个确认信息。&lt;br&gt;&lt;br&gt;"; 
+    } else { 
+      echo "您的帐户已创建，并已准备好使用!&lt;br&gt;&lt;br&gt;"; 
+      echo "Username: $strUser@$strDomain&lt;br&gt;&lt;br&gt;"; 
+      if ( !empty($serv_webmail_url) ) echo "Webmail: &lt;a href=\"$serv_webmail_url\"&gt;www.$strDomain/webmail&lt;/a&gt;&lt;br&gt;"; 
+      echo "POP3: mail.$strDomain&lt;br&gt;"; 
+      echo "IMAP: mail.$strDomain&lt;br&gt;&lt;br&gt;"; 
+      echo "SMTP: mail.$strDomain"; 
+        
+      $subject = "Welcome To $strDomain Email!"; 
+      $message = "这是确认您的帐户已创建。您可以登录到您的帐户，并开始使用它."; 
+
+      mail("{$_POST['user']}@$strDomain", $subject, $message); //Send welcome message 
+    } 
+        
+    if ($admin_Default_activate == 0 &amp;&amp; $admin_notIfy == 1) 
+    { 
+      $admin_mail_subject = "Account Requires Activation!"; 
+      $admin_mail_message = "The email account {$_POST['user']}@$strDomain has been created by {$_POST['name']} and requires administration activation!\r\n\r\nPlease login to the admin control panel to verIfy and activate user account.\r\n\r\n"; 
+      mail($admin_email, $admin_mail_subject, $admin_mail_message); 
+    } 
+    elseif ($admin_Default_activate == 1 &amp;&amp; $admin_notIfy == 1) 
+    { 
+      $admin_mail_subject = "New Account Created!"; 
+      $admin_mail_message = "{$_POST['user']}@$strDomain has been created by {$_POST['name']}!"; 
+      mail($admin_email, $admin_mail_subject, $admin_mail_message); 
+    } 
+  }
+}
+   
+   //Email account signup page 
+  echo " 
+     &lt;table width=\"350\" border=\"0\" cellpadding=\"0\" cellspacing=\"2\"&gt; 
+    &lt;form action=\"\" method=\"POST\"&gt; 
+       &lt;tr&gt;&lt;td&gt;姓名:&lt;/td&gt;&lt;td&gt;&lt;input type=\"text\" name=\"name\" size=\"21\"&gt;&lt;/td&gt;&lt;/tr&gt; 
+      &lt;tr&gt;&lt;td&gt;E-Mail:&lt;/td&gt;&lt;td&gt;&lt;input type=\"text\" name=\"user\" size=\"21\"&gt; @ ".$domain."&lt;/td&gt;&lt;/tr&gt; 
+      &lt;tr&gt;&lt;td&gt;密码:&lt;/td&gt;&lt;td&gt;&lt;input type=\"password\" name=\"pass1\" size=\"21\"&gt;&lt;/td&gt;&lt;/tr&gt; 
+      &lt;tr&gt;&lt;td&gt;密码:&lt;/td&gt;&lt;td&gt;&lt;input type=\"password\" name=\"pass2\" size=\"21\"&gt; (确认)&lt;/td&gt;&lt;/tr&gt; 
+      &lt;tr&gt;&lt;td colspan=\"2\" align=\"center\"&gt;&lt;input type=\"submit\" name=\"submit\" value=\"create account\" style=\"width: 98%\"&gt;&lt;/td&gt;&lt;/tr&gt; 
+    &lt;/form&gt; 
+    &lt;/table&gt;"; 
+?&gt;</code></pre></div>
+
+来源于<a href="https://www.hmailserver.com/forum/viewtopic.php?p=45008#p45008" class="postlink">hms官网</a> <br>
+<br>
+测试后发现用注册的账户登录会提示错误<br>
+<br>
+解决方法是在roundcubemail\config\config.inc.php 加入
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>$config['junk_mbox'] = 'INBOX.spam';
+ $config['create_default_folders'] = true;</code></pre></div></div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hMailServer在线注册用户php教程</h3>
+				<div class="date">发表于 : <strong>2016年10月10日, 16:46</strong></div>
+				<div class="author">由 <strong>黑衣超人</strong></div>
+				<div class="content">您好，我用的是afterlogic,用您的代码成功注册用户了，管理员也可以成功激活用户，但是该用户登录上之后邮件列表刷不出来，报错信息为：Data transfer has failed, probably due to server error. Please contact system administrator.我看了您下面那两行代码，但是不知道该往哪里添加，因为我用的是afterlogic不是roundcubemail，配置文件不一样，我找到了三个叫config.php的文件，不知道往哪里添加。请指教！谢谢！</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hMailServer在线注册用户php教程</h3>
+				<div class="date">发表于 : <strong>2016年10月13日, 09:47</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">估计没修过完。数据库连接错误。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hMailServer在线注册用户php教程</h3>
+				<div class="date">发表于 : <strong>2016年10月13日, 10:04</strong></div>
+				<div class="author">由 <strong>黑衣超人</strong></div>
+				<div class="content">不应该啊，我看到hmailserver中都出现注册账号了，而且可以登录上去，只是邮件列表没办法刷新。</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="http://www.hmailserver.org/">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=573&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:45 GMT -->
+</html>

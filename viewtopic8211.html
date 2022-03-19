@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=15&t=2208&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:35:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; postfix 配置DKIM</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>postfix 配置DKIM</h2>
+		<p><a href="viewtopic11a9.html?f=15&amp;t=2208">https://www.hmailserver.org/viewtopic.php?f=15&amp;t=2208</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>postfix 配置DKIM</h3>
+				<div class="date">发表于 : <strong>2018年6月18日, 15:28</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">安装 opendkim
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>yum -y install opendkim</code></pre></div>
+创建 opendkim 配置文件
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>vi /etc/opendkim.conf</code></pre></div>
+一键<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>wget https://www.boxmail.cn/download/postfixmv/opendkim.tar.gz &amp;&amp; tar xvf opendkim.tar.gz &amp;&amp; mv -f opendkim.conf /etc</code></pre></div>
+修改成以下内容：
+<blockquote class="uncited"><div>Canonicalization        relaxed/relaxed<br>
+ExternalIgnoreList      refile:/etc/opendkim/TrustedHosts<br>
+InternalHosts           refile:/etc/opendkim/TrustedHosts<br>
+KeyTable                refile:/etc/opendkim/KeyTable<br>
+LogWhy                  Yes<br>
+MinimumKeyBits          1024<br>
+Mode                    sv<br>
+PidFile                 /var/run/opendkim/opendkim.pid<br>
+SigningTable            refile:/etc/opendkim/SigningTable<br>
+Socket                  inet:8891@127.0.0.1<br>
+Syslog                  Yes<br>
+SyslogSuccess           Yes<br>
+TemporaryDirectory      /var/tmp<br>
+UMask                   022<br>
+UserID                  opendkim:opendkim</div></blockquote>
+创建密钥
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>mkdir /etc/opendkim/keys/hmailserver.org
+opendkim-genkey -D /etc/opendkim/keys/hmailserver.org/ -d hmailserver.org -s default</code></pre></div>
+创建完毕后，将其添加到 /etc/opendkim/KeyTable 中
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>default._domainkey.hmailserver.org hmailserver.org:default:/etc/opendkim/keys/hmailserver.org/default.private</code></pre></div>
+然后添加 /etc/opendkim/SigningTable
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>*@hmailserver.org default._domainkey.hmailserver.org</code></pre></div>
+设置允许进行签名的主机 到 /etc/opendkim/TrustedHosts 中，一般情况下都是本机发信，我们将 127.0.0.1 也可加入主机名 mail.hmailserver.org（不用改，默认有127.0.0.1）<br>
+<br>
+设置 DNS 记录<br>
+到 /etc/opendkim/keys/YourDomain.com/default.txt 可以找到你的 key 。<br>
+记录类型 TXT 子域名 default._domainkey ，记录内容就是 default.txt 里面从 v=DKIM1 开始的内容。<br>
+打开 Postfix 的 main.cf 配置文件，到达底部，添加如下内容
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>smtpd_milters           = inet:127.0.0.1:8891
+non_smtpd_milters       = inet:127.0.0.1:8891
+milter_protocol         = 2
+milter_default_action   = accept</code></pre></div>
+
+ /etc/postfix/master.cf
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>127.0.0.1:10025 inet    n       -       -       -       -       smtpd
+  -o content_filter=
+  -o local_recipient_maps=
+  -o relay_recipient_maps=
+  -o smtpd_restriction_classes=
+  -o smtpd_delay_reject=no
+  -o smtpd_client_restrictions=permit_mynetworks,reject
+  -o smtpd_helo_restrictions=
+  -o smtpd_sender_restrictions=
+  -o smtpd_recipient_restrictions=permit_mynetworks,reject
+  -o smtpd_data_restrictions=reject_unauth_pipelining
+  -o smtpd_end_of_data_restrictions=
+  -o mynetworks=127.0.0.0/8
+  -o smtpd_error_sleep_time=0
+  -o smtpd_soft_error_limit=1001
+  -o smtpd_hard_error_limit=1000
+  -o smtpd_client_connection_count_limit=0
+  -o smtpd_client_connection_rate_limit=0
+  -o receive_override_options=no_header_body_checks,no_unknown_recipient_checks,no_milters</code></pre></div>
+执行权限
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code> cd /etc/opendkim/keys/hmailserver.org
+ chown opendkim default.private</code></pre></div>
+
+启动邮件服务器
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>service opendkim start
+chkconfig opendkim on</code></pre></div>
+
+测试<br>
+向 <a href="mailto:check-auth@verifier.port25.com">check-auth@verifier.port25.com</a> 发送一封邮件<br>
+<a href="http://mxtoolbox.com/diagnostic.aspx" class="postlink">http://mxtoolbox.com/diagnostic.aspx</a><br>
+<br>
+可参考：<a href="http://www.ichiayi.com/wiki/tech/install_spf_dkim" class="postlink">http://www.ichiayi.com/wiki/tech/install_spf_dkim</a></div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=15&t=2208&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:35:21 GMT -->
+</html>

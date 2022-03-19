@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=673&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; config.inc.php</title>
+
+<link href="https://www.hmailserver.org/styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="https://www.hmailserver.org/">https://www.hmailserver.org/</a></p>
+
+		<h2>config.inc.php</h2>
+		<p><a href="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=673">https://www.hmailserver.org/viewtopic.php?f=4&amp;t=673</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>config.inc.php</h3>
+				<div class="date">发表于 : <strong>2016年5月22日, 16:41</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">一段大概的。部分已经去掉。
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>$config['db_dsnw'] = 'mysql://root:文字修改成mysql密码@localhost/roundcubemail';
+
+
+// IMAP
+$config['default_host'] = '127.0.0.1';
+$config['default_port'] = 143;
+$config['imap_auth_type'] = 'LOGIN';
+$config['imap_delimiter'] = '/';
+$config['imap_conn_options'] = array(
+    'ssl' =&gt; array(
+        'verify_peer'  =&gt; false,
+        'verify_peer_name' =&gt; false,
+    ),
+);
+
+// SMTP
+$config['smtp_server'] = '127.0.0.1';
+$config['smtp_port'] = 25;
+$config['smtp_user'] = '%u';
+$config['smtp_pass'] = '%p';
+$config['smtp_auth_type'] = 'login';
+$config['smtp_conn_options'] = array(
+    'ssl' =&gt; array(
+        'verify_peer'      =&gt; false,
+        'verify_peer_name' =&gt; false,
+    ),
+);
+
+// provide an URL where a user can get support for this Roundcube installation
+// PLEASE DO NOT LINK TO THE ROUNDCUBE.NET WEBSITE HERE!
+$config['support_url'] = '';
+
+
+$config['username_domain'] = '自己的域名';
+
+// Name your service. This is displayed on the login screen and in the window title
+$config['product_name'] = '邮件系统';
+
+// ----------------------------------
+// PLUGINS
+// ----------------------------------
+// List of active plugins (in plugins/ directory)
+$config['plugins'] = array('password');
+
+// the default locale setting (leave empty for auto-detection)
+// RFC1766 formatted language name like en_US, de_DE, de_CH, fr_FR, pt_BR
+$config['language'] = 'zh_cn';
+$config['default_imap_folders'] = array('INBOX', 'INBOX.Drafts', 'INBOX.Sent', 'INBOX.Junk', 'INBOX.Trash');
+$config['auto_create_user'] = true;
+$config['create_default_folders'] = true;
+</code></pre></div>
+
+参考：<a href="https://github.com/roundcube/roundcubemail/wiki/Configuration" class="postlink">https://github.com/roundcube/roundcubem ... figuration</a></div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="http://www.hmailserver.org/">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=673&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:46 GMT -->
+</html>

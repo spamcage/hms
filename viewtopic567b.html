@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=2169&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:38:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; hmail，黑客是怎么注入发邮件的？</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>hmail，黑客是怎么注入发邮件的？</h2>
+		<p><a href="viewtopicfa41.html?f=3&amp;t=2169">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=2169</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>hmail，黑客是怎么注入发邮件的？</h3>
+				<div class="date">发表于 : <strong>2017年12月26日, 17:50</strong></div>
+				<div class="author">由 <strong>dan_zz9</strong></div>
+				<div class="content">好象打开了数据库还是什么同步功能，就可以从25端口发送大量垃圾邮件。下面这个本地info帐号,我并未建立，也能绕过本地SMTP认证发送，如下日志： 高手帮看看<br>
+<br>
+"TCPIP"	1872	"2017-12-26 06:30:30.192"	"TCP - 107.173.219.18 connected to 10.3.21.5:25."<br>
+"DEBUG"	1872	"2017-12-26 06:30:30.192"	"TCP connection started for session 38696"<br>
+"SMTPD"	1872	38696	"2017-12-26 06:30:30.192"	"107.173.219.18"	"SENT: 220 mail.zenicom.com.cn ESMTP"<br>
+"SMTPD"	1056	38696	"2017-12-26 06:30:30.552"	"107.173.219.18"	"RECEIVED: HELO User"<br>
+"SMTPD"	1056	38696	"2017-12-26 06:30:30.552"	"107.173.219.18"	"SENT: 250 Hello."<br>
+"SMTPD"	5968	38696	"2017-12-26 06:30:30.927"	"107.173.219.18"	"RECEIVED: RSET"<br>
+"SMTPD"	5968	38696	"2017-12-26 06:30:30.927"	"107.173.219.18"	"SENT: 250 OK"<br>
+"SMTPD"	5656	38696	"2017-12-26 06:30:33.598"	"107.173.219.18"	"RECEIVED: MAIL FROM:&lt;<a href="mailto:info@zacom.com.cn">info@zacom.com.cn</a>&gt;"<br>
+"TCPIP"	5656	"2017-12-26 06:30:33.614"	"DNS lookup: 18.219.173.107.zen.spamhaus.org, 1 addresses found: 127.0.0.4, Match: True"<br>
+"TCPIP"	5656	"2017-12-26 06:30:33.614"	"DNS lookup: 18.219.173.107.bl.spamcop.net, 0 addresses found: (none), Match: False"<br>
+"DEBUG"	5656	"2017-12-26 06:30:33.614"	"Spam test: SpamTestDNSBlackLists, Score: 3"<br>
+"DEBUG"	5656	"2017-12-26 06:30:35.880"	"Spam test: SpamTestHeloHost, Score: 2"<br>
+"DEBUG"	5656	"2017-12-26 06:30:36.051"	"Spam test: SpamTestMXRecords, Score: 0"<br>
+"DEBUG"	5656	"2017-12-26 06:30:36.051"	"Total spam score: 5"<br>
+"SMTPD"	5656	38696	"2017-12-26 06:30:36.051"	"107.173.219.18"	"SENT: 250 OK"<br>
+"SMTPD"	1056	38696	"2017-12-26 06:30:36.911"	"107.173.219.18"	"RECEIVED: RCPT TO:&lt;<a href="mailto:pan76409@gmail.com">pan76409@gmail.com</a>&gt;"<br>
+"SMTPD"	1056	38696	"2017-12-26 06:30:36.911"	"107.173.219.18"	"SENT: 250 OK"<br>
+"SMTPD"	5940	38696	"2017-12-26 06:30:37.270"	"107.173.219.18"	"RECEIVED: RCPT TO:&lt;<a href="mailto:peterpan510@rocketmail.com">peterpan510@rocketmail.com</a>&gt;"<br>
+"SMTPD"	5940	38696	"2017-12-26 06:30:37.270"	"107.173.219.18"	"SENT: 250 OK"<br>
+"SMTPD"	6124	38696	"2017-12-26 06:30:37.645"	"107.173.219.18"	"RECEIVED: RCPT TO:&lt;<a href="mailto:peterpanpeterpanpeterpan71@hotmail.com">peterpanpeterpanpeterpan71@hotmail.com</a>&gt;"<br>
+"SMTPD"	6124	38696	"2017-12-26 06:30:37.645"	"107.173.219.18"	"SENT: 250 OK"<br>
+"SMTPD"	3468	38696	"2017-12-26 06:30:40.145"	"107.173.219.18"	"RECEIVED: DATA"<br>
+"SMTPD"	3468	38696	"2017-12-26 06:30:40.145"	"107.173.219.18"	"SENT: 354 OK, send."<br>
+"DEBUG"	6124	"2017-12-26 06:30:45.270"	"Adding task AsynchronousTask to work queue Asynchronous task queue"<br>
+"DEBUG"	3320	"2017-12-26 06:30:45.286"	"Executing task AsynchronousTask in work queue Asynchronous task queue"<br>
+"DEBUG"	3320	"2017-12-26 06:30:45.286"	"SURBL: Execute"<br>
+"DEBUG"	3320	"2017-12-26 06:30:45.286"	"SURBL: Match not found"<br>
+"DEBUG"	3320	"2017-12-26 06:30:45.286"	"Spam test: SpamTestSURBL, Score: 0"<br>
+"DEBUG"	3320	"2017-12-26 06:30:45.286"	"Total spam score: 0"<br>
+"DEBUG"	3320	"2017-12-26 06:30:45.286"	"Saving message: {DFD50D58-0192-4F96-9416-7B85E4CF7360}.eml"<br>
+"DEBUG"	3320	"2017-12-26 06:30:45.286"	"Requesting SMTPDeliveryManager to start message delivery"<br>
+"SMTPD"	3320	38696	"2017-12-26 06:30:45.286"	"107.173.219.18"	"SENT: 250 Queued (5.248 seconds)"<br>
+"DEBUG"	5588	"2017-12-26 06:30:45.286"	"Adding task DeliveryTask to work queue SMTP delivery queue"<br>
+"DEBUG"	1628	"2017-12-26 06:30:45.286"	"Executing task DeliveryTask in work queue SMTP delivery queue"<br>
+"DEBUG"	1628	"2017-12-26 06:30:45.286"	"Delivering message..."<br>
+"APPLICATION"	1628	"2017-12-26 06:30:45.286"	"SMTPDeliverer - Message 131207: Delivering message from <a href="mailto:info@zenicom.com.cn">info@zenicom.com.cn</a> to <a href="mailto:pan76409@gmail.com">pan76409@gmail.com</a>, <a href="mailto:peterpan510@rocketmail.com">peterpan510@rocketmail.com</a>, <a href="mailto:peterpanpeterpanpeterpan71@hotmail.com">peterpanpeterpanpeterpan71@hotmail.com</a>. File: d:\hMailServer\Data\{DFD50D58-0192-4F96-9416-7B85E4CF7360}.eml"<br>
+"DEBUG"	1628	"2017-12-26 06:30:45.286"	"Applying rules"<br>
+"DEBUG"	1628	"2017-12-26 06:30:45.286"	"Copying mail contents"<br>
+"DEBUG"	1628	"2017-12-26 06:30:45.286"	"Saving message: {C29A5EA1-AEAE-4D1F-9817-31F2B6AB8623}.eml"<br>
+"DEBUG"	1628	"2017-12-26 06:30:45.286"	"Requesting SMTPDeliveryManager to start message delivery"<br>
+"DEBUG"	1628	"2017-12-26 06:30:45.286"	"Performing local delivery"<br>
+"DEBUG"	1628	"2017-12-26 06:30:45.286"	"Local delivery completed"<br>
+"TCPIP"	1628	"2017-12-26 06:30:45.286"	"DNS MX lookup: hotmail.com"<br>
+"DEBUG"	5588	"2017-12-26 06:30:45.286"	"Adding task DeliveryTask to work queue SMTP delivery queue"<br>
+"DEBUG"	5492	"2017-12-26 06:30:45.286"	"Executing task DeliveryTask in work queue SMTP delivery queue"<br>
+"DEBUG"	5492	"2017-12-26 06:30:45.286"	"Delivering message..."<br>
+"APPLICATION"	5492	"2017-12-26 06:30:45.286"	"SMTPDeliverer - Message 131208: Delivering message from <a href="mailto:info@zenicom.com.cn">info@zenicom.com.cn</a> to <a href="mailto:Backup@zenicom.com.cn">Backup@zenicom.com.cn</a>. File: d:\hMailServer\Data\{C29A5EA1-AEAE-4D1F-9817-31F2B6AB8623}.eml"<br>
+"DEBUG"	5492	"2017-12-26 06:30:45.286"	"Applying rules"<br>
+"DEBUG"	5492	"2017-12-26 06:30:45.286"	"Performing local delivery"<br>
+"DEBUG"	5492	"2017-12-26 06:30:45.286"	"Applying rules"<br>
+"DEBUG"	5492	"2017-12-26 06:30:45.301"	"Saving message: {C29A5EA1-AEAE-4D1F-9817-31F2B6AB8623}.eml"<br>
+"DEBUG"	5492	"2017-12-26 06:30:45.301"	"AWStats::LogDeliverySuccess"<br>
+"DEBUG"	5492	"2017-12-26 06:30:45.301"	"Local delivery completed"<br>
+"APPLICATION"	5492	"2017-12-26 06:30:45.301"	"SMTPDeliverer - Message 131208: Message delivery thread completed."<br>
+"TCPIP"	1628	"2017-12-26 06:30:45.411"	"DNS - MX Result: 2 IP addresses were found."<br>
+"DEBUG"	1628	"2017-12-26 06:30:45.411"	"Starting external delivery process. Server: hotmail-com.olc.protection.outlook.com (104.47.2.33), Port: 25, Security: 2, User name: "<br>
+"DEBUG"	1628	"2017-12-26 06:30:45.411"	"Creating session 38698"<br>
+"TCPIP"	1628	"2017-12-26 06:30:45.411"	"Connecting to 104.47.2.33:25..."<br>
+"DEBUG"	5656	"2017-12-26 06:30:45.629"	"TCP connection started for session 38698"<br>
+"SMTPD"	6124	38696	"2017-12-26 06:30:45.661"	"107.173.219.18"	"RECEIVED: QUIT"<br>
+"SMTPD"	6124	38696	"2017-12-26 06:30:45.661"	"107.173.219.18"	"SENT: 221 goodbye"</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=2169&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:38:26 GMT -->
+</html>

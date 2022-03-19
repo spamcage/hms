@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=15&t=84&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; 垃圾邮件报告</title>
+
+<link href="https://www.hmailserver.org/styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="https://www.hmailserver.org/">https://www.hmailserver.org/</a></p>
+
+		<h2>垃圾邮件报告</h2>
+		<p><a href="https://www.hmailserver.org/viewtopic.php?f=15&amp;t=84">https://www.hmailserver.org/viewtopic.php?f=15&amp;t=84</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>垃圾邮件报告</h3>
+				<div class="date">发表于 : <strong>2015年4月8日, 09:53</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">使用下面的脚本，运行后总结垃圾邮件，该脚本可以调用任务计划程序每天或者一周一次。这个看你自己。<br>
+<br>
+SpamReport.vbs
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>Option Explicit
+
+'   #### CONFIG START ####
+   
+    Const MESSAGES_FOLDER = "SPAM"                  ' Folder to delete from, case insensitive. Multiple folders can be separated by PIPE | symbol
+    Const IMAP_DELIMITER = "."                      ' This needs to be same as what u used above for subfodlers based on delimiter
+                                                    ' setting in hmailserver
+    Const HMSADMINUSER = "Administrator"            ' Admin username
+    Const HMSADMINPWD = "yoursecretpassword"        ' Admin password
+    Const HMSSERVER = "localhost"                   ' hMailServer Server (DCOM)
+    Const FROM_EMAIL = "system@yourdomain.com"      ' Replace this with the email address you want the Spam Report to come FROM
+    Const REPORT_TO_ADMIN = TRUE                    ' Admin receives copy of all users Spam Reports (TRUE or FALSE)
+    Const REPORT_TO_EMAIL = "admin@yourdomain.com"  ' Replace this with the ADMIN email address you want the Spam Report to be sent a copy to
+   '   #### CONFIG END ####
+
+'   Objects
+    Dim oApp, oDomains, oDomain, oAccounts, oAccount, oMessages, oMessage
+
+'   Numeric
+    Dim NumMsgs, NumChecked, x, y, z, MessageID
+
+'   Strings / arrays
+    Dim SearchFolders, FindFolders, FoundFolder, AtLeastFound, FolderList, aFolder, SpamFolder
+    Dim Message, CreateGUIDval, OutputMsg, OutputMsgList, w
+
+'   Flags
+    Dim ReturnValue : ReturnValue = 0
+
+'    On Error Resume Next
+
+    SearchFolders = Split(MESSAGES_FOLDER, "|")
+
+    Set oApp = CreateObject("hMailServer.Application", HMSSERVER)
+    Call oApp.Authenticate(HMSADMINUSER, HMSADMINPWD)
+
+    For x = 0 To oApp.Domains.Count - 1
+        Set oDomain = oApp.Domains.Item(x)
+        If oDomain.Active Then
+            For y = 0 To oDomain.Accounts.Count - 1
+                Set oAccount = oDomain.Accounts.Item(y)
+                If oAccount.Active Then
+                    AtLeastFound = False
+                    Set Message = CreateObject("hMailServer.Message", HMSSERVER)
+                    OutputMsgList = ""
+                    NumChecked = 0
+                    For Each SpamFolder in SearchFolders
+                        NumMsgs = 0
+                        NumChecked = 0
+                        Set FindFolders = oAccount.IMAPFolders
+                        FoundFolder = False
+                        FolderList = ListFolders(FindFolders, 0, "")
+                        aFolder = Split(Left(FolderList, Len(FolderList) - 1), "|")
+                        For Each z in aFolder
+                            If UCase(z) = UCase(Trim(SpamFolder)) Then
+                                AtleastFound = True
+                                FoundFolder = True
+                                SpamFolder = z
+                                Exit For
+                            End If
+                        Next
+                        If FoundFolder Then
+                            Set oMessages  = GetInsideFolders(oAccount.IMAPFolders, SpamFolder)
+                            Do While oMessages.Count &gt; (NumChecked)
+                                Set oMessage = oMessages.Item(NumChecked)
+                                NumMsgs = oMessages.Count
+                                NumChecked = NumChecked + 1
+                                If CLng(oMessage.ID) &gt; 0 Then
+                                   OutputMsgList = OutputMsgList &amp; "&lt;tr&gt;&lt;td&gt;" &amp; oMessage.FromAddress &amp; "&lt;/td&gt;"
+                                   OutputMsgList = OutputMsgList &amp; "&lt;td&gt;" &amp; oMessage.Date &amp; "&lt;/td&gt;"
+                                   OutputMsgList = OutputMsgList &amp; "&lt;td&gt;" &amp; oMessage.Subject &amp; "&lt;/td&gt;&lt;/tr&gt;"
+                                End If
+                            Loop
+                        End If
+                    Next
+                    If AtLeastFound then
+                        OutputMsg = "&lt;font face=""Calibri""&gt;Account: " &amp; oAccount.Address &amp; "&lt;br&gt;&lt;br&gt;The following " &amp; NumChecked &amp; _
+                        " messages are currently held in your Spam mail folder """ &amp; MESSAGES_FOLDER &amp; """.&lt;br&gt;&lt;br&gt;"
+                        If NumChecked &gt; 0 then
+                            OutputMsg = OutputMsg &amp; "&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;From&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Date&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Subject&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;" &amp; vbCrLf &amp; OutputMsgList
+                            OutputMsg = OutputMsg &amp; "&lt;/table&gt;" &amp; vbCrLf
+                        End If
+                    Else
+                        OutputMsg = "&lt;tr&gt;""" &amp; MESSAGES_FOLDER &amp; """ folder Not Found in account " &amp; oAccount.Address   &amp; "&lt;/tr&gt;"
+                    End If
+                    Message.HeaderValue("Message-ID") = "&lt;" &amp; CreateGUID &amp; "&gt;"
+                    Message.FromAddress = FROM_EMAIL
+                    Message.From = "Spam Report Daemon &lt;"&amp; FROM_EMAIL &amp; "&gt;"
+                    If REPORT_TO_ADMIN then
+                        Message.AddRecipient "System Administrator", REPORT_TO_EMAIL
+                    End If
+                    Message.AddRecipient oAccount.Address , oAccount.Address
+                    Message.Subject = "Spam Report - " &amp; oAccount.Address
+                    Message.HTMLBody = OutputMsg
+                    Message.Save
+                End If
+            Next
+        End If
+    Next
+
+    Wscript.Quit ReturnValue
+
+    Function ShowError(strMessage)
+        WScript.Echo strMessage
+        WScript.Echo Err.Number &amp; " Srce: " &amp; Err.Source &amp; " Desc: " &amp;  Err.Description
+        ReturnValue = Err.Number
+      Err.Clear
+    End Function
+
+    Function ListFolders(obFolders, iRecursion, rootFolder)
+        iRecursion = iRecursion + 1
+        Dim sMessage
+        Dim i
+        For i = 0 To obFolders.Count -1
+            Dim obFolder
+            Set obFolder = obFolders.Item(i)
+            If iRecursion &gt; 1 Then
+                sMessage = sMessage &amp; rootFolder &amp; IMAP_DELIMITER &amp; obFolder.Name &amp; "|"
+            Else
+                sMessage = sMessage &amp; obFolder.Name &amp; "|"
+            End If
+            sMessage = sMessage &amp; ListFolders(obFolder.SubFolders, iRecursion,  obFolder.Name)
+        Next
+        iRecursion = iRecursion -1
+        ListFolders = sMessage
+    End Function
+
+    Function GetInsideFolders(obFolders2, subFolders)
+        Dim iRecursion2
+        iRecursion2 = 1
+        Dim SeprateFodlers
+        SeprateFodlers = Split(subFolders, IMAP_DELIMITER)
+        For Each w in SeprateFodlers
+            If iRecursion2 = 1 Then
+                Set obFolders2 = obFolders2.ItemByName(w)
+                iRecursion2 = iRecursion2 + 1
+            Else
+                Set obFolders2 = obFolders2.SubFolders.ItemByName(w)
+            End If
+        Next
+        Set GetInsideFolders = obFolders2.Messages
+    End Function
+
+    Function CreateGUID()
+        ' Generate a random string.
+        With CreateObject("hMailServer.Utilities", HMSSERVER)
+            CreateGUID = Mid(.GenerateGUID, 2, 36) &amp; "@randommail"
+        End With
+    End Function
+</code></pre></div></div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 垃圾邮件报告</h3>
+				<div class="date">发表于 : <strong>2015年4月8日, 15:36</strong></div>
+				<div class="author">由 <strong>jimmy</strong></div>
+				<div class="content">期待你整个自动识别垃圾邮件方法出来，自带的用不习惯</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 垃圾邮件报告</h3>
+				<div class="date">发表于 : <strong>2015年5月8日, 09:12</strong></div>
+				<div class="author">由 <strong>jasonshaw</strong></div>
+				<div class="content">不知道怎么用，现在好不容易能收发邮件了<br>
+但是现在仅能收外部邮件，却不能发送外部邮件</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="http://www.hmailserver.org/">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=15&t=84&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:48 GMT -->
+</html>

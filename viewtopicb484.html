@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?t=98 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>脚本删除超过X天的邮件 - hMailServer中文论坛</title>
+
+	<link rel="alternate" type="application/atom+xml" title="Feed - hMailServer中文论坛" href="https://www.hmailserver.org/app.php/feed">			<link rel="alternate" type="application/atom+xml" title="Feed - 新主题" href="https://www.hmailserver.org/app.php/feed/topics">		<link rel="alternate" type="application/atom+xml" title="Feed - 版面 - 五十一区" href="https://www.hmailserver.org/app.php/feed/forum/15">	<link rel="alternate" type="application/atom+xml" title="Feed - 主题 - 脚本删除超过X天的邮件" href="https://www.hmailserver.org/app.php/feed/topic/98">	
+	<link rel="canonical" href="https://www.hmailserver.org/viewtopic.php?t=98">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="https://www.hmailserver.org/assets/css/font-awesome.min.css?assets_version=928" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/stylesheet.css?assets_version=928" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/zh_cmn_hans/stylesheet.css?assets_version=928" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/prosilver/theme/tweaks.css?assets_version=928" rel="stylesheet">
+<![endif]-->
+
+	
+<link href="https://www.hmailserver.org/ext/phpbb/boardannouncements/styles/all/theme/boardannouncements.css?assets_version=928" rel="stylesheet" media="screen" />
+<link href="https://www.hmailserver.org/ext/phpbb/ads/styles/all/theme/phpbbads.css?assets_version=928" rel="stylesheet" media="screen" />
+
+
+
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+				<a id="logo" class="logo" href="https://www.hmailserver.org/index.php" title="论坛首页"><span class="site_logo"></span></a>
+				<h1>hMailServer中文论坛</h1>
+				<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。</p>
+				<p class="skiplink"><a href="#start_here">跳到内容</a></p>
+			</div>
+
+									<div id="search-box" class="search-box search-header" role="search">
+				<form action="https://www.hmailserver.org/search.php" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="按关键词搜索" class="inputbox search tiny" size="20" value="" placeholder="搜索……" />
+					<button class="button button-search" type="submit" title="搜索">
+						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+					</button>
+					<a href="https://www.hmailserver.org/search.php" class="button button-search-end" title="高级搜索">
+						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+					</a>
+					
+				</fieldset>
+				</form>
+			</div>
+						
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>快捷链接</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+											<li class="separator"></li>
+																									<li>
+								<a href="https://www.hmailserver.org/search.php?search_id=unanswered" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>查看没有回复的主题</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.hmailserver.org/search.php?search_id=active_topics" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>查看活跃的主题</span>
+								</a>
+							</li>
+							<li class="separator"></li>
+							<li>
+								<a href="https://www.hmailserver.org/search.php" role="menuitem">
+									<i class="icon fa-search fa-fw" aria-hidden="true"></i><span>搜索</span>
+								</a>
+							</li>
+					
+										<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="https://www.hmailserver.org/ucp.php?mode=login" title="登录" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>登录</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="https://www.hmailserver.org/ucp.php?mode=register" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>注册</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+				
+		
+		<li class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+
+			
+							<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope><a itemprop="item" href="https://www.hmailserver.org/index.php" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="name">论坛首页</span></a><meta itemprop="position" content="1" /></span>
+
+											
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="12"><a itemprop="item" href="https://www.hmailserver.org/viewforum.php?f=12"><span itemprop="name">讨论</span></a><meta itemprop="position" content="2" /></span>
+															
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="15"><a itemprop="item" href="https://www.hmailserver.org/viewforum.php?f=15"><span itemprop="name">五十一区</span></a><meta itemprop="position" content="3" /></span>
+							
+					</li>
+
+		
+					<li class="rightside responsive-search">
+				<a href="https://www.hmailserver.org/search.php" title="查看高级搜索选项" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+				<div id="phpbb_announcement">
+		<a href="https://www.hmailserver.org/app.php/boardannouncements/close?hash=dc7c24e5" data-ajax="close_announcement" data-overlay="false" class="close clearfix" title="Close announcement"></a>		<div><span style="color:#0000FF">hMailServer中文论坛 QQ群：80049760</span></div>
+	</div>
+
+<h2 class="topic-title"><a href="https://www.hmailserver.org/viewtopic.php?f=15&amp;t=98">脚本删除超过X天的邮件</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">与hMailServer脚本相关，戳此进入。<br /></div>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="https://www.hmailserver.org/posting.php?mode=reply&amp;f=15&amp;t=98" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="https://www.hmailserver.org/viewtopic.php?f=15&amp;t=98&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="https://www.hmailserver.org/search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="查找这个主题……" />
+				<button class="button button-search" type="submit" title="搜索">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</button>
+				<a href="https://www.hmailserver.org/search.php" class="button button-search-end" title="高级搜索">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+				</a>
+				<input type="hidden" name="t" value="98" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			1 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+		</div>
+
+
+
+
+			<div id="p227" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile227">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=2" class="avatar"><img class="avatar" src="https://www.hmailserver.org/download/file.php?avatar=2_1421286644.png" width="100" height="100" alt="头像" /></a>														</div>
+								<a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>							</dt>
+
+						<dd class="profile-rank">网站管理员<br /><img src="https://www.hmailserver.org/images/ranks/administrator.png" alt="网站管理员" title="网站管理员" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="https://www.hmailserver.org/search.php?author_id=2&amp;sr=posts">335</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2014年11月26日, 12:41</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>地址:</strong> 上海</dd>
+												
+							<dd class="profile-contact">
+				<strong>联系:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="#" class="dropdown-trigger" title="联系 Hsia">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">联系 Hsia</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="http://www.hmailserver.org/" title="网站" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">网站</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content227">
+
+						<h3 class="first"><a href="https://www.hmailserver.org/viewtopic.php?p=227#p227">脚本删除超过X天的邮件</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://www.hmailserver.org/posting.php?mode=quote&amp;f=15&amp;p=227" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="https://www.hmailserver.org/viewtopic.php?p=227#p227" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a></strong> &raquo; </span><time datetime="2015-04-20T15:45:02+00:00">2015年4月20日, 23:45</time>
+			</p>
+			
+			
+			
+			<div class="content">hMailServer用脚本删除超过X天的邮件，并发送邮件告知。<br>
+使用说明：保存为 XX.VBS<br>
+变量修改：<br>
+Const DAYS_TO_KEEP_MESSAGES = "3"    超过多少天？<br>
+Const MESSAGES_FOLDER = "trash"    "spam|trash|deleted messages|deleted items|junk e-mail"<br>
+Const HMSADMINUSER = "Administrator"            ' Admin username<br>
+Const HMSADMINPWD = "888888"               ' Admin password<br>
+Const FROM_EMAIL 发送的邮箱<br>
+Const REPORT_TO_EMAIL  收通知的邮件地址<br>
+
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>'  Routine empties the TRASH folders (Zero days retained) and is called by scheduler
+'  in the backup script
+
+Option Explicit
+
+'   Routine empties the TRASH folders (Zero days retained) and is called by scheduler in the backup script
+
+'   #### CONFIG START ####
+    Const DAYS_TO_KEEP_MESSAGES = "3"            ' Days old to keep mails
+    Const MESSAGES_FOLDER = "trash"               ' Folder to delete from, case insensitive, subfolder delimiter needs to be as
+                                                    ' below (.) based on ur delimiter setting in hmailserver, multiple fodlers can
+                                                    ' be specified seprated by | (pipe)  eg: "spam|trash|deleted messages|deleted
+                                                    ' items|junk e-mail"
+    Const IMAP_DELIMITER = "."                      ' This needs to be same as what u used above for subfodlers based on delimiter
+                                                    ' setting in hmailserver
+    Const HMSADMINUSER = "Administrator"            ' Admin username
+    Const HMSADMINPWD = "888888"               ' Admin password
+    Const HMSSERVER = "localhost"           ' hMailServer Server (DCOM)
+    Const FROM_EMAIL = "system@hmailserver.net"       ' Replace this with the email address you want the report to come from
+    Const REPORT_TO_EMAIL = "admin@hmailserver.net"   ' Replace this with the email address you want the report to be sent to
+'   #### CONFIG END ####
+
+
+'   Objects
+    Dim oApp, oDomains, oDomain, oAccounts, oAccount, oMessages, oMessage
+
+'   Numeric
+    Dim AccountSize, NumMsgs, NumDeleted, iMessages, x, y, z, MessageID, DeleteCount, LoopCount
+
+'   Strings / arrays
+    Dim SearchFolders, FindFolders, FoundFolder, FolderList, aFolder, SpamFolder
+    Dim Message, CreateGUIDval, OutputMsg, w
+
+'   Flags
+    Dim Skipped, ReturnValue : ReturnValue = 0
+
+'   Date / time
+    Dim MessageDate
+
+'    On Error Resume Next
+
+    SearchFolders = Split(MESSAGES_FOLDER, "|")
+
+    Set oApp = CreateObject("hMailServer.Application", HMSSERVER)
+    Call oApp.Authenticate(HMSADMINUSER, HMSADMINPWD)
+
+    For x = 0 To oApp.Domains.Count - 1
+        Set oDomain = oApp.Domains.Item(x)
+        If oDomain.Active Then
+            For y = 0 To oDomain.Accounts.Count - 1
+                Set oAccount = oDomain.Accounts.Item(y)
+                OutputMsg = OutputMsg &amp; "&lt;tr&gt;&lt;td colspan=" &amp; Chr(34) &amp; "5" &amp; Chr(34) &amp; "&gt;&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;" &amp; vbCrLf
+                If oAccount.Active Then
+                    Skipped = ""
+                    For Each SpamFolder in SearchFolders
+                        AccountSize = 0
+                        NumMsgs = 0
+                        NumDeleted = 0
+                        Set FindFolders = oAccount.IMAPFolders
+                        FoundFolder = False
+                        FolderList = ListFolders(FindFolders, 0, "")
+                        aFolder = Split(Left(FolderList, Len(FolderList) - 1), "|")
+                        For Each z in aFolder
+                            If UCase(z) = UCase(Trim(SpamFolder)) Then
+                                FoundFolder = True
+                                SpamFolder = z
+                                Exit For
+                            End If
+                        Next
+                        If FoundFolder Then
+                            Set oMessages  = GetInsideFolders(oAccount.IMAPFolders, SpamFolder)
+                            NumMsgs = oMessages.Count
+                            iMessages = 0
+                            DeleteCount = 0
+                            LoopCount = 0
+                            Do While oMessages.Count &gt; (LoopCount - DeleteCount)
+                                Set oMessage = oMessages.Item(iMessages)
+                                AccountSize = AccountSize + oMessage.Size
+                                MessageDate = oMessage.InternalDate
+                                If (MessageDate &lt; CDate(Now - DAYS_TO_KEEP_MESSAGES)) Then
+                                    If CLng(oMessage.ID) &gt; 0 Then
+                                        NumDeleted = NumDeleted + 1
+                                        DeleteCount = DeleteCount + 1
+                                        WScript.Echo "Executing oMessages.DeleteByDBID(oMessage.ID) :: iMessages = " &amp; iMessages &amp; " oMessage.ID = " &amp; CLng(oMessage.ID)
+                                        oMessages.DeleteByDBID(oMessage.ID)
+                                    Else
+                                        WScript.Echo "iMessages = " &amp; iMessages &amp; " oMessage.ID = " &amp; CLng(oMessage.ID)
+                                        Skipped = " *"
+                                        ShowError("---&gt;  Delete failed  &lt;---")
+                                    End If
+                                Else
+                                    iMessages = iMessages + 1
+                                End If
+                                If oMessages.Count = (NumMsgs - DeleteCount) Then
+                                    LoopCount = LoopCount + 1
+                                Else
+                                    NumMsgs = oMessages.Count
+                                    iMessages = 0
+                                    DeleteCount = 0
+                                    LoopCount = 0
+                                End If
+                            Loop
+
+                            WScript.Echo "Removed " &amp; NumDeleted &amp; " message(s) from " &amp; SpamFolder &amp; " folder in account " &amp; oAccount.Address &amp; vbCrLf
+                            OutputMsg = OutputMsg &amp; "&lt;tr&gt;&lt;td&gt;" &amp; oAccount.Address &amp; "&lt;/td&gt;"
+                            OutputMsg = OutputMsg &amp; "&lt;td&gt;" &amp; SpamFolder &amp; "&lt;/td&gt;"
+                            OutputMsg = OutputMsg &amp; "&lt;td align=" &amp; Chr(34) &amp; "right" &amp; Chr(34) &amp; "&gt;" &amp; FormatNumber(NumMsgs, 0, True, False, True) &amp; "&lt;/td&gt;"
+                            OutputMsg = OutputMsg &amp; "&lt;td align=" &amp; Chr(34) &amp; "right" &amp; Chr(34) &amp; "&gt;" &amp; FormatNumber(AccountSize, 0, True, False, True) &amp; "K&lt;/td&gt;"
+                            OutputMsg = OutputMsg &amp; "&lt;td align=" &amp; Chr(34) &amp; "right" &amp; Chr(34) &amp; "&gt;" &amp; FormatNumber(NumDeleted, 0, True, False, True) &amp; Skipped &amp; "&lt;/td&gt;&lt;/tr&gt;" &amp; vbCrLf
+                        Else
+                            WScript.Echo SpamFolder &amp; " folder Not Found in account " &amp; oAccount.Address
+                        End If
+                    Next
+                End If
+            Next
+        End If
+    Next
+
+    OutputMsg = "&lt;font face=" &amp; Chr(34) &amp; "Calibri" &amp; Chr(34) &amp; "&gt;&lt;table border=" &amp; Chr(34) &amp; "1" &amp; Chr(34) &amp; "&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Email Account&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Folder&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Mail Count&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Mail Size&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Deleted&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;" &amp; vbCrLf &amp; OutputMsg
+    OutputMsg = OutputMsg &amp; "&lt;/table&gt;" &amp; vbCrLf
+
+    Set Message = CreateObject("hMailServer.Message", HMSSERVER)
+    Message.HeaderValue("Message-ID") = "&lt;" &amp; CreateGUID &amp; "&gt;"
+    Message.FromAddress = FROM_EMAIL
+    Message.From = "Email Clearup Daemon &lt;"&amp; FROM_EMAIL &amp; "&gt;"
+    Message.AddRecipient "System Administrator", REPORT_TO_EMAIL 
+    Message.Subject = "Email Clearup deletion report"
+    Message.HTMLBody = OutputMsg
+    Message.Save
+
+    Wscript.Quit ReturnValue
+
+    Function ShowError(strMessage)
+        WScript.Echo strMessage
+        WScript.Echo Err.Number &amp; " Srce: " &amp; Err.Source &amp; " Desc: " &amp;  Err.Description
+        ReturnValue = Err.Number
+   Err.Clear
+    End Function
+
+    Function ListFolders(obFolders, iRecursion, rootFolder)
+        iRecursion = iRecursion + 1
+        Dim sMessage
+        Dim i
+        For i = 0 To obFolders.Count -1
+            Dim obFolder
+            Set obFolder = obFolders.Item(i)
+            If iRecursion &gt; 1 Then
+                sMessage = sMessage &amp; rootFolder &amp; IMAP_DELIMITER &amp; obFolder.Name &amp; "|"
+            Else
+                sMessage = sMessage &amp; obFolder.Name &amp; "|"
+            End If
+            sMessage = sMessage &amp; ListFolders(obFolder.SubFolders, iRecursion,  obFolder.Name)
+        Next
+        iRecursion = iRecursion -1
+        ListFolders = sMessage
+    End Function
+
+    Function GetInsideFolders(obFolders2, subFolders)
+        Dim iRecursion2
+        iRecursion2 = 1
+        Dim SeprateFodlers
+        SeprateFodlers = Split(subFolders, IMAP_DELIMITER)
+        For Each w in SeprateFodlers
+            If iRecursion2 = 1 Then
+                Set obFolders2 = obFolders2.ItemByName(w)
+                iRecursion2 = iRecursion2 + 1
+            Else
+                Set obFolders2 = obFolders2.SubFolders.ItemByName(w)
+            End If
+        Next
+        Set GetInsideFolders = obFolders2.Messages
+    End Function
+
+    Function CreateGUID()
+        ' Generate a random string.
+        With CreateObject("hMailServer.Utilities", HMSSERVER)
+            CreateGUID = Mid(.GenerateGUID, 2, 36) &amp; "@randommail"
+        End With
+    End Function</code></pre></div>
+<a href="https://www.hmailserver.com/forum/viewtopic.php?p=173428#p173428" class="postlink">原文</a></div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="https://www.hmailserver.org/posting.php?mode=reply&amp;f=15&amp;t=98" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="https://www.hmailserver.org/viewtopic.php?f=15&amp;t=98&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+	
+	
+	
+			<div class="pagination">
+			1 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="https://www.hmailserver.org/viewforum.php?f=15" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>回到 “五十一区”</span>
+		</a>
+	</p>
+	
+		<br /><br />
+	</div>
+
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="https://www.hmailserver.org/index.php" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>论坛首页</span></a></span>					</li>
+		
+				<li class="rightside">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr></li>
+							<li class="rightside">
+				<a href="https://www.hmailserver.org/ucp.php?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>删除全部论坛cookie</span>
+				</a>
+			</li>
+														</ul>
+
+	</div>
+</div>
+<!--
+<h3 style="padding-top: 8px;">advertisements</h3>
+
+-->
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持</span>
+		</p>
+				<p class="footer-row">
+			<span class="footer-copyright">Copyright © 2014-2015 <a href="http://www.hmailserver.org/">hMailServer中文论坛</a></span>
+		</p>
+				
+				
+		
+				
+	</div>
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="错误" data-l-timeout-processing-req="请求超时。">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+
+<script src="https://www.hmailserver.org/assets/javascript/jquery.min.js?assets_version=928"></script>
+<script src="https://www.hmailserver.org/assets/javascript/core.js?assets_version=928"></script>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	</div>
+
+<script src="https://www.hmailserver.org/assets/javascript/jquery.min.js?assets_version=928"></script>
+<script src="https://www.hmailserver.org/assets/javascript/core.js?assets_version=928"></script>
+
+
+
+
+
+<script src="https://www.hmailserver.org/ext/phpbb/boardannouncements/styles/all/template/js/boardannouncements.js?assets_version=928"></script>
+<script src="https://www.hmailserver.org/styles/prosilver/template/forum_fn.js?assets_version=928"></script>
+<script src="https://www.hmailserver.org/styles/prosilver/template/ajax.js?assets_version=928"></script>
+
+
+
+
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?t=98 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:48 GMT -->
+</html>

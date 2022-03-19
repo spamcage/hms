@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=587&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; AfterLogic Webmail免域名登录</title>
+
+<link href="https://www.hmailserver.org/styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="https://www.hmailserver.org/">https://www.hmailserver.org/</a></p>
+
+		<h2>AfterLogic Webmail免域名登录</h2>
+		<p><a href="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=587">https://www.hmailserver.org/viewtopic.php?f=4&amp;t=587</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>AfterLogic Webmail免域名登录</h3>
+				<div class="date">发表于 : <strong>2016年4月3日, 09:06</strong></div>
+				<div class="author">由 <strong>Royjohn</strong></div>
+				<div class="content">找到AfterLogic Webmail安装目录下的data\settings\<span style="color:#FF0000">settings.xml </span>  文件<br>
+<br>
+再修改以下几项<br>
+&lt;UseLoginAsEmailAddress&gt;Off&lt;/UseLoginAsEmailAddress&gt;	<span style="color:#FF0000">【这一项有些版本没有，我这个版本就没有】</span><br>
+<br>
+&lt;LoginFormType&gt;<span style="color:#FF0000">Email</span>&lt;/LoginFormType&gt;<br>
+Email改成Login<br>
+&lt;LoginFormType&gt;<span style="color:#FF0000">Login</span>&lt;/LoginFormType&gt;   <br>
+<br>
+&lt;LoginAtDomainValue /&gt;<br>
+添加一个域名，也就是邮箱@后面的主机名，再添加结束标识<br>
+&lt;LoginAtDomainValue&gt;<span style="color:#FF0000">XXX.com</span>&lt;/LoginAtDomainValue&gt;<br>
+<br>
+&lt;UseLoginWithoutDomain&gt;<span style="color:#FF0000">Off</span>&lt;/UseLoginWithoutDomain&gt;<br>
+Off是关的意思 ，改成On<br>
+&lt;UseLoginWithoutDomain&gt;<span style="color:#FF0000">On</span>&lt;/UseLoginWithoutDomain&gt;<br>
+<br>
+<br>
+修改完成之后再保存，到邮箱登录界面刷新一下试试，下面就是这个效果
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=228" class="postimage" alt="2.jpg" onclick="viewableArea(this);" /></dt>
+						<dd>2.jpg (7.96 KiB) 查看 22595 次</dd>
+		</dl>
+		
+		
+		
+			</div></div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: AfterLogic Webmail免域名登录</h3>
+				<div class="date">发表于 : <strong>2016年4月3日, 10:54</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">有点意思，听说afterlogic 有漏洞，不知道修复没.</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: AfterLogic Webmail免域名登录</h3>
+				<div class="date">发表于 : <strong>2016年4月3日, 11:51</strong></div>
+				<div class="author">由 <strong>Royjohn</strong></div>
+				<div class="content"><blockquote><div><cite>Hsia 写了:</cite>有点意思，听说afterlogic 有漏洞，不知道修复没.</div></blockquote>
+已经修复了，我看了网上的帖子，说是泄露后台数据，包括数据库的用户名和密码，用MD5码可以直接登录SQL后来验证了一下，新版本的已经修复</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: AfterLogic Webmail免域名登录</h3>
+				<div class="date">发表于 : <strong>2016年4月27日, 14:18</strong></div>
+				<div class="author">由 <strong>yonaling</strong></div>
+				<div class="content">对照设置了一下，已有的邮箱用户可以免域名，但是如果在hmail服务器上新增加的用户会提示用户名错误。有解决办法吗？</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: AfterLogic Webmail免域名登录</h3>
+				<div class="date">发表于 : <strong>2016年4月29日, 00:00</strong></div>
+				<div class="author">由 <strong>yonaling</strong></div>
+				<div class="content"><blockquote><div><cite>yonaling 写了:</cite>对照设置了一下，已有的邮箱用户可以免域名，但是如果在hmail服务器上新增加的用户会提示用户名错误。有解决办法吗？</div></blockquote>
+ <br>
+ 进入Setting - Advanced，添加默认域名，问题解决。 <img class="smilies" src="https://www.hmailserver.org/images/smilies/icon_lol.gif" width="15" height="17" alt=":lol:" title="大笑"></div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: AfterLogic Webmail免域名登录</h3>
+				<div class="date">发表于 : <strong>2016年7月27日, 10:41</strong></div>
+				<div class="author">由 <strong>Tangshuai</strong></div>
+				<div class="content">通过webmail登录hmailserver 登录不稳定，经常提示密码错误，请问有解决方案吗？</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="http://www.hmailserver.org/">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=587&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:45 GMT -->
+</html>

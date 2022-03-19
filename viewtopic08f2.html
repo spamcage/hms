@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=49&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; 关于修改Afterlogic webmail上传附件的大小.</title>
+
+<link href="https://www.hmailserver.org/styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="https://www.hmailserver.org/">https://www.hmailserver.org/</a></p>
+
+		<h2>关于修改Afterlogic webmail上传附件的大小.</h2>
+		<p><a href="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=49">https://www.hmailserver.org/viewtopic.php?f=4&amp;t=49</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>关于修改Afterlogic webmail上传附件的大小.</h3>
+				<div class="date">发表于 : <strong>2015年2月17日, 14:38</strong></div>
+				<div class="author">由 <strong>goldhs</strong></div>
+				<div class="content">hMailServer发送附件大小限制有以下几个地方：<br>
+<br>
+一、php配置 参考<br>
+<br>
+1.post_max_size = 10M 表单提交最大数据为10M.此项不是限制上传单个文件的大小,而是针对整个表单的提交数据进行限制的.<br>
+2.file_uploads = On 是否允许上传文件,如果为OFF您将不能上传文件.<br>
+3.upload_tmp_dir = "D:/PHP/uploadtemp/" 上传文件时系统使用的缓存目录.如果此目录所在磁盘空间不足的话您将不能上传文件.<br>
+4.upload_max_filesize = 2M 最大上传文件大小,此项针对上传文件时单个文件的大小.<br>
+与post_max_size之间的关系:<br>
+在论坛发表贴子时,您post_max_size 设为10M,而此项设成了2M,那么您只能上传最大为2M的附件,且可以同时上传5个.<br>
+注意:很多人遇到修改php.ini后重应WEB服务后仍然不能生效.这种情况应该先确认一下所改的php.ini是不是当前PHP所使用的.<br>
+您可以在WEB目录下建立一个php文件,内容很简单就一句话<br>
+<br>
+二、hMailServer配置<br>
+<br>
+hMailServer需要配置SMTP的限制大小。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 关于修改Afterlogic webmail上传附件的大小.</h3>
+				<div class="date">发表于 : <strong>2015年2月25日, 10:31</strong></div>
+				<div class="author">由 <strong>goldhs</strong></div>
+				<div class="content">hMailServer 附件大小限制<br>
+<br>
+修改php.ini文件<br>
+<br>
+1.post_max_size = 10M 表单提交最大数据为10M.此项不是限制上传单个文件的大小,而是针对整个表单的提交数据进行限制的.<br>
+2.file_uploads = On 是否允许上传文件,如果为OFF您将不能上传文件.<br>
+3.upload_tmp_dir = "D:/PHP/uploadtemp/" 上传文件时系统使用的缓存目录.如果此目录所在磁盘空间不足的话您将不能上传文件.<br>
+4.upload_max_filesize = 2M 最大上传文件大小,此项针对上传文件时单个文件的大小.<br>
+与post_max_size之间的关系:<br>
+在论坛发表贴子时,您post_max_size 设为10M,而此项设成了2M,那么您只能上传最大为2M的附件,且可以同时上传5个.<br>
+注意:很多人遇到修改php.ini后重应WEB服务后仍然不能生效.这种情况应该先确认一下所改的php.ini是不是当前PHP所使用的.<br>
+您可以在WEB目录下建立一个php文件,内容很简单就一句话<br>
+代码: &lt;?phpphpinfo();?&gt;浏览器中查看此文件, Configuration File (php.ini) Path 此项对应的就是您的PHP当前正在使用的php.ini文件了.<br>
+再修改hmailserver设置里域下STMP设置中的值，重启服务，就OK了</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="http://www.hmailserver.org/">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=49&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:47 GMT -->
+</html>

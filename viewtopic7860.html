@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?p=3448 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>ClamAV反病毒配置方法 - hMailServer中文论坛</title>
+
+	<link rel="alternate" type="application/atom+xml" title="Feed - hMailServer中文论坛" href="https://www.hmailserver.org/app.php/feed">			<link rel="alternate" type="application/atom+xml" title="Feed - 新主题" href="https://www.hmailserver.org/app.php/feed/topics">		<link rel="alternate" type="application/atom+xml" title="Feed - 版面 - 教程发布" href="https://www.hmailserver.org/app.php/feed/forum/4">	<link rel="alternate" type="application/atom+xml" title="Feed - 主题 - ClamAV反病毒配置方法" href="https://www.hmailserver.org/app.php/feed/topic/105">	
+	<link rel="canonical" href="https://www.hmailserver.org/viewtopic.php?t=105">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="https://www.hmailserver.org/assets/css/font-awesome.min.css?assets_version=928" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/stylesheet.css?assets_version=928" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/zh_cmn_hans/stylesheet.css?assets_version=928" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/prosilver/theme/tweaks.css?assets_version=928" rel="stylesheet">
+<![endif]-->
+
+	
+<link href="https://www.hmailserver.org/ext/phpbb/boardannouncements/styles/all/theme/boardannouncements.css?assets_version=928" rel="stylesheet" media="screen" />
+<link href="https://www.hmailserver.org/ext/phpbb/ads/styles/all/theme/phpbbads.css?assets_version=928" rel="stylesheet" media="screen" />
+
+
+
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+				<a id="logo" class="logo" href="https://www.hmailserver.org/index.php" title="论坛首页"><span class="site_logo"></span></a>
+				<h1>hMailServer中文论坛</h1>
+				<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。</p>
+				<p class="skiplink"><a href="#start_here">跳到内容</a></p>
+			</div>
+
+									<div id="search-box" class="search-box search-header" role="search">
+				<form action="https://www.hmailserver.org/search.php" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="按关键词搜索" class="inputbox search tiny" size="20" value="" placeholder="搜索……" />
+					<button class="button button-search" type="submit" title="搜索">
+						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+					</button>
+					<a href="https://www.hmailserver.org/search.php" class="button button-search-end" title="高级搜索">
+						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+					</a>
+					
+				</fieldset>
+				</form>
+			</div>
+						
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>快捷链接</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+											<li class="separator"></li>
+																									<li>
+								<a href="https://www.hmailserver.org/search.php?search_id=unanswered" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>查看没有回复的主题</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.hmailserver.org/search.php?search_id=active_topics" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>查看活跃的主题</span>
+								</a>
+							</li>
+							<li class="separator"></li>
+							<li>
+								<a href="https://www.hmailserver.org/search.php" role="menuitem">
+									<i class="icon fa-search fa-fw" aria-hidden="true"></i><span>搜索</span>
+								</a>
+							</li>
+					
+										<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="https://www.hmailserver.org/ucp.php?mode=login" title="登录" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>登录</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="https://www.hmailserver.org/ucp.php?mode=register" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>注册</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+				
+		
+		<li class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+
+			
+							<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope><a itemprop="item" href="https://www.hmailserver.org/index.php" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="name">论坛首页</span></a><meta itemprop="position" content="1" /></span>
+
+											
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="12"><a itemprop="item" href="https://www.hmailserver.org/viewforum.php?f=12"><span itemprop="name">讨论</span></a><meta itemprop="position" content="2" /></span>
+															
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="4"><a itemprop="item" href="https://www.hmailserver.org/viewforum.php?f=4"><span itemprop="name">教程发布</span></a><meta itemprop="position" content="3" /></span>
+							
+					</li>
+
+		
+					<li class="rightside responsive-search">
+				<a href="https://www.hmailserver.org/search.php" title="查看高级搜索选项" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+				<div id="phpbb_announcement">
+		<a href="https://www.hmailserver.org/app.php/boardannouncements/close?hash=dc7c24e5" data-ajax="close_announcement" data-overlay="false" class="close clearfix" title="Close announcement"></a>		<div><span style="color:#0000FF">hMailServer中文论坛 QQ群：80049760</span></div>
+	</div>
+
+<h2 class="topic-title"><a href="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=105">ClamAV反病毒配置方法</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">hMailServer教程相关文章。<br /></div>
+<p>
+	<strong>版主:</strong> <a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>
+</p>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="https://www.hmailserver.org/posting.php?mode=reply&amp;f=4&amp;t=105" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=105&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="https://www.hmailserver.org/search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="查找这个主题……" />
+				<button class="button button-search" type="submit" title="搜索">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</button>
+				<a href="https://www.hmailserver.org/search.php" class="button button-search-end" title="高级搜索">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+				</a>
+				<input type="hidden" name="t" value="105" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			7 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+		</div>
+
+
+
+
+			<div id="p263" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile263">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=2" class="avatar"><img class="avatar" src="https://www.hmailserver.org/download/file.php?avatar=2_1421286644.png" width="100" height="100" alt="头像" /></a>														</div>
+								<a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>							</dt>
+
+						<dd class="profile-rank">网站管理员<br /><img src="https://www.hmailserver.org/images/ranks/administrator.png" alt="网站管理员" title="网站管理员" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="https://www.hmailserver.org/search.php?author_id=2&amp;sr=posts">335</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2014年11月26日, 12:41</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>地址:</strong> 上海</dd>
+												
+							<dd class="profile-contact">
+				<strong>联系:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="#" class="dropdown-trigger" title="联系 Hsia">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">联系 Hsia</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="http://www.hmailserver.org/" title="网站" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">网站</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content263">
+
+						<h3 class="first"><a href="https://www.hmailserver.org/viewtopic.php?p=263#p263">ClamAV反病毒配置方法</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://www.hmailserver.org/posting.php?mode=quote&amp;f=4&amp;p=263" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="https://www.hmailserver.org/viewtopic.php?p=263#p263" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a></strong> &raquo; </span><time datetime="2015-04-30T14:59:24+00:00">2015年4月30日, 22:59</time>
+			</p>
+			
+			
+			
+			<div class="content">由于ClamAV是多线程的，因此它有效的较低了系统资源以及更快的处理能力。此方法依靠ClamWin做为服务，也就是说，我们必须要先安装ClamWin，但是直接用ClamWin，占用系统资源较多，不建议直接用ClamWin来做为反病毒软件。下面的方法请仔细阅读，不打算写太多。<br>
+<strong class="text-strong"><span style="color:#FF0000">一、</span></strong>下载并安装ClamWin  <a href="http://sourceforge.net/projects/clamwin/?source=typ_redirect" class="postlink">戳这里下载</a><br>
+<strong class="text-strong"><span style="color:#FF0000">二、</span></strong>下载ClamAV移植文件<div class="inline-attachment">
+			
+		
+		
+				<dl class="file">
+			<dt><span class="imageset icon_topic_attach"></span> <a class="postlink" href="https://www.hmailserver.org/download/file.php?id=344">ClamD_099.zip</a></dt>
+						<dd>(44.02 KiB) 下载 278 次</dd>
+		</dl>
+		
+		
+			</div>
+    1.将下载的ClamAV移植文件解压。<br>
+    2.修改解压后的ClamAV移植文件复制到 C:\Program Files (x86)\ClamWin\bin\     （路径自定义）<br>
+    3.修改ClamAV移植文件中的clamd.conf <br>
+LogFile C:\Program Files (x86)\ClamWin\bin\clamd.log<br>
+DatabaseDirectory C:\ProgramData\.clamwin\db<br>
+<strong class="text-strong"><span style="color:#FF0000">三、</span></strong>运行Cmd，进入C:\Program Files (x86)\ClamWin\bin  （路径自定义），执行这个命令：clamd.exe --install<br>
+<strong class="text-strong"><span style="color:#FF0000">四、</span></strong>进入服务 services.msc 将ClamWin Free Antivirus Scanner Service改为自动启动，然后启动服务。<br>
+<strong class="text-strong"><span style="color:#FF0000">五、</span></strong>在hmailserver 管理界面 -防病毒选项，启用ClamAV,勾选，然后测试，测试通过则成功。此时你不必启用ClamWin。<br>
+我们现在做的就是利用ClamWin来做的ClamAV,记住ClamAV是多线程的。不多说。<br>
+<br>
+备注：服务器在2017年5月15日升级导致部分附件不能下载，上面的修复了下，文件包对不对自己测试下，很久没用hmailserver。方法大概就这样。</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				
+			<div id="p264" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile264">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=63" class="username">mk84</a>							</dt>
+
+						<dd class="profile-rank">Level 2<br /><img src="https://www.hmailserver.org/images/ranks/rank2.png" alt="Level 2" title="Level 2" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="https://www.hmailserver.org/search.php?author_id=63&amp;sr=posts">7</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2015年1月4日, 16:35</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content264">
+
+						<h3 ><a href="https://www.hmailserver.org/viewtopic.php?p=264#p264">Re: ClamAV反病毒配置方法</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://www.hmailserver.org/posting.php?mode=quote&amp;f=4&amp;p=264" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="https://www.hmailserver.org/viewtopic.php?p=264#p264" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=63" class="username">mk84</a></strong> &raquo; </span><time datetime="2015-04-30T17:30:55+00:00">2015年5月1日, 01:30</time>
+			</p>
+			
+			
+			
+			<div class="content">第四点不是将hmailserver改为自动，是将ClamWin Free Antivirus Scanner Service改为自动，我这里是这个服务（是不是版主故意写错的？）<br>
+还有，开了这个之后在hmail里把防病毒选项里的clamwin关闭就行了吗？系统windows任务栏右下角的clamwin要退出吗？</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p265" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile265">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=2" class="avatar"><img class="avatar" src="https://www.hmailserver.org/download/file.php?avatar=2_1421286644.png" width="100" height="100" alt="头像" /></a>														</div>
+								<a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>							</dt>
+
+						<dd class="profile-rank">网站管理员<br /><img src="https://www.hmailserver.org/images/ranks/administrator.png" alt="网站管理员" title="网站管理员" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="https://www.hmailserver.org/search.php?author_id=2&amp;sr=posts">335</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2014年11月26日, 12:41</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>地址:</strong> 上海</dd>
+												
+							<dd class="profile-contact">
+				<strong>联系:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="#" class="dropdown-trigger" title="联系 Hsia">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">联系 Hsia</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="http://www.hmailserver.org/" title="网站" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">网站</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content265">
+
+						<h3 ><a href="https://www.hmailserver.org/viewtopic.php?p=265#p265">Re: ClamAV反病毒配置方法</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://www.hmailserver.org/posting.php?mode=quote&amp;f=4&amp;p=265" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="https://www.hmailserver.org/viewtopic.php?p=265#p265" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a></strong> &raquo; </span><time datetime="2015-05-01T01:36:25+00:00">2015年5月1日, 09:36</time>
+			</p>
+			
+			
+			
+			<div class="content"><blockquote><div><cite>mk84 写了:</cite>第四点不是将hmailserver改为自动，是将ClamWin Free Antivirus Scanner Service改为自动，我这里是这个服务（是不是版主故意写错的？）<br>
+还有，开了这个之后在hmail里把防病毒选项里的clamwin关闭就行了吗？系统windows任务栏右下角的clamwin要退出吗？</div></blockquote>
+
+我的意思就是将ClamWin Free Antivirus Scanner Service 改为自动，确实写错了。<br>
+在hmail里的防病毒选项不用Clamwin，直接用ClamAV,系统windows任务栏右下角的clamwin不能退出，这是ClamAV移植版。</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p282" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile282">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=190" class="username">jasonshaw</a>							</dt>
+
+						<dd class="profile-rank">Level 3<br /><img src="https://www.hmailserver.org/images/ranks/rank3.png" alt="Level 3" title="Level 3" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="https://www.hmailserver.org/search.php?author_id=190&amp;sr=posts">34</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2015年5月6日, 11:16</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content282">
+
+						<h3 ><a href="https://www.hmailserver.org/viewtopic.php?p=282#p282">Re: ClamAV反病毒配置方法</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://www.hmailserver.org/posting.php?mode=quote&amp;f=4&amp;p=282" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="https://www.hmailserver.org/viewtopic.php?p=282#p282" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=190" class="username">jasonshaw</a></strong> &raquo; </span><time datetime="2015-05-06T03:36:57+00:00">2015年5月6日, 11:36</time>
+			</p>
+			
+			
+			
+			<div class="content">mark一下，稍后过来在学习</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p3447" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3447">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=1129" class="username">hardywong</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="https://www.hmailserver.org/images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="https://www.hmailserver.org/search.php?author_id=1129&amp;sr=posts">3</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2018年4月7日, 02:16</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3447">
+
+						<h3 ><a href="https://www.hmailserver.org/viewtopic.php?p=3447#p3447">Re: ClamAV反病毒配置方法</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://www.hmailserver.org/posting.php?mode=quote&amp;f=4&amp;p=3447" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="https://www.hmailserver.org/viewtopic.php?p=3447#p3447" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=1129" class="username">hardywong</a></strong> &raquo; </span><time datetime="2018-04-06T18:18:38+00:00">2018年4月7日, 02:18</time>
+			</p>
+			
+			
+			
+			<div class="content"><div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=361" class="postimage" alt="QQ截图20180407021748.jpg" onclick="viewableArea(this);" /></dt>
+						<dd>QQ截图20180407021748.jpg (13.19 KiB) 查看 29861 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+
+搞笑了。我的提示这个。</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p3448" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3448">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=1129" class="username">hardywong</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="https://www.hmailserver.org/images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="https://www.hmailserver.org/search.php?author_id=1129&amp;sr=posts">3</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2018年4月7日, 02:16</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3448">
+
+						<h3 ><a href="https://www.hmailserver.org/viewtopic.php?p=3448#p3448">Re: ClamAV反病毒配置方法</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://www.hmailserver.org/posting.php?mode=quote&amp;f=4&amp;p=3448" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="https://www.hmailserver.org/viewtopic.php?p=3448#p3448" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=1129" class="username">hardywong</a></strong> &raquo; </span><time datetime="2018-04-06T18:25:48+00:00">2018年4月7日, 02:25</time>
+			</p>
+			
+			
+			
+			<div class="content">我尝试用bat也不行。没反应。。。。怎么回事？<br>
+<br>
+@ECHO OFF<br>
+C:\Program Files (x86)\ClamWin\bin\clamd.exe -install<br>
+net start ClamWin Free Antivirus Scanner Service<br>
+<br>
+<br>
+手动进去打开clamd.exe测试可用。但是这样重启或者关闭左边的clamd窗口就不行了。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=362" class="postimage" alt="QQ截图20180407022707.jpg" onclick="viewableArea(this);" /></dt>
+						<dd>QQ截图20180407022707.jpg (98.41 KiB) 查看 29861 次</dd>
+		</dl>
+		
+		
+		
+			</div></div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p3569" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3569">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=205" class="username">jumio</a>							</dt>
+
+						<dd class="profile-rank">Level 2<br /><img src="https://www.hmailserver.org/images/ranks/rank2.png" alt="Level 2" title="Level 2" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="https://www.hmailserver.org/search.php?author_id=205&amp;sr=posts">6</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2015年6月2日, 15:17</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3569">
+
+						<h3 ><a href="https://www.hmailserver.org/viewtopic.php?p=3569#p3569">Re: ClamAV反病毒配置方法</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://www.hmailserver.org/posting.php?mode=quote&amp;f=4&amp;p=3569" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="https://www.hmailserver.org/viewtopic.php?p=3569#p3569" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=205" class="username">jumio</a></strong> &raquo; </span><time datetime="2020-01-06T04:19:19+00:00">2020年1月6日, 12:19</time>
+			</p>
+			
+			
+			
+			<div class="content"><blockquote><div><cite><a href="https://www.hmailserver.org/memberlist.php?mode=viewprofile&amp;u=1129">hardywong</a> 写了: <a href="https://www.hmailserver.org/viewtopic.php?p=3448#p3448" data-post-id="3448" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">2018年4月7日, 02:25</div></cite>
+我尝试用bat也不行。没反应。。。。怎么回事？<br>
+<br>
+@ECHO OFF<br>
+C:\Program Files (x86)\ClamWin\bin\clamd.exe -install<br>
+net start ClamWin Free Antivirus Scanner Service<br>
+<br>
+<br>
+手动进去打开clamd.exe测试可用。但是这样重启或者关闭左边的clamd窗口就不行了。<br>
+QQ截图20180407022707.jpg
+</div></blockquote>
+
+这是因为 压缩包里的 “ClamD .exe” 在“.exe”前面有一个空格，删掉空格你就可以注册服务了。</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+			
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="https://www.hmailserver.org/posting.php?mode=reply&amp;f=4&amp;t=105" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=105&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=105">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="SORT_OPTIONS" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>显示: <select name="st" id="st"><option value="0" selected="selected">全部帖子</option><option value="1">1天</option><option value="7">7天</option><option value="14">2周</option><option value="30">1个月</option><option value="90">3个月</option><option value="180">6个月</option><option value="365">1年</option></select></label>
+								<label>排序: <select name="sk" id="sk"><option value="a">作者</option><option value="t" selected="selected">发表时间</option><option value="s">标题</option></select></label>
+				<label>SORT_DIRECTION: <select name="sd" id="sd"><option value="a" selected="selected">升序</option><option value="d">降序</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="去" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			7 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="https://www.hmailserver.org/viewforum.php?f=4" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>回到 “教程发布”</span>
+		</a>
+	</p>
+	
+		<br /><br />
+	</div>
+
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="https://www.hmailserver.org/index.php" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>论坛首页</span></a></span>					</li>
+		
+				<li class="rightside">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr></li>
+							<li class="rightside">
+				<a href="https://www.hmailserver.org/ucp.php?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>删除全部论坛cookie</span>
+				</a>
+			</li>
+														</ul>
+
+	</div>
+</div>
+<!--
+<h3 style="padding-top: 8px;">advertisements</h3>
+
+-->
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持</span>
+		</p>
+				<p class="footer-row">
+			<span class="footer-copyright">Copyright © 2014-2015 <a href="http://www.hmailserver.org/">hMailServer中文论坛</a></span>
+		</p>
+				
+				
+		
+				
+	</div>
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="错误" data-l-timeout-processing-req="请求超时。">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+
+<script src="https://www.hmailserver.org/assets/javascript/jquery.min.js?assets_version=928"></script>
+<script src="https://www.hmailserver.org/assets/javascript/core.js?assets_version=928"></script>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	</div>
+
+<script src="https://www.hmailserver.org/assets/javascript/jquery.min.js?assets_version=928"></script>
+<script src="https://www.hmailserver.org/assets/javascript/core.js?assets_version=928"></script>
+
+
+
+
+
+<script src="https://www.hmailserver.org/ext/phpbb/boardannouncements/styles/all/template/js/boardannouncements.js?assets_version=928"></script>
+<script src="https://www.hmailserver.org/styles/prosilver/template/forum_fn.js?assets_version=928"></script>
+<script src="https://www.hmailserver.org/styles/prosilver/template/ajax.js?assets_version=928"></script>
+
+
+
+
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?p=3448 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:44 GMT -->
+</html>

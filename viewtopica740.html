@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=26&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; hmailserver ssl openssl教程</title>
+
+<link href="https://www.hmailserver.org/styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="https://www.hmailserver.org/">https://www.hmailserver.org/</a></p>
+
+		<h2>hmailserver ssl openssl教程</h2>
+		<p><a href="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=26">https://www.hmailserver.org/viewtopic.php?f=4&amp;t=26</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>hmailserver ssl openssl教程</h3>
+				<div class="date">发表于 : <strong>2014年12月22日, 01:29</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">有关hmailserver ssl证书加密连接，这东西我搞了很久，hmailserver openssl在中文网上很少的教程，我都是个半桶水的，并不是专业的技术。以下设置有问题请在评论说明.<br>
+工具都给大家准备好了，<div class="inline-attachment">
+			
+		
+		
+				<dl class="file">
+			<dt><span class="imageset icon_topic_attach"></span> <a class="postlink" href="https://www.hmailserver.org/download/file.php?id=72">hMailServer_SSL_0_9_8j.rar</a></dt>
+						<dd>(2.8 MiB) 下载 3337 次</dd>
+		</dl>
+		
+		
+			</div>
+
+教程一。<br>
+下载后先安装vcredist_x86.exe 再安装Win32OpenSSL_Light-0_9_8j.exe （默认安装c盘）<br>
+然后把剩下的三个文件复制到c:\openssl\bin  <br>
+<br>
+打开命令窗口<br>
+输入： cd c:\openssl\bin  <br>
+1.私密KEY    openssl genrsa -des3 -out hm_org.key 2048 需要输入密码<br>
+2.证书  openssl req -new -key hm_org.key -out hm.req  需要输入你的相关资料。如下：<br>
+<br>
+Country Name (2 letter code) [XX]:cn    <br>
+State or Province Name (full name) []:yunnan<br>
+Locality Name (eg, city) [Default City]:kunming<br>
+Organization Name (eg, company) [Default Company Ltd]:hmailserver.org Co., Ltd.<br>
+Organizational Unit Name (eg, section) []:egg<br>
+Common Name (eg, your name or your server's hostname) []:（填域名）<br>
+Email Address []:  （你的邮件，不用翻译了吧）<br>
+please enter the following ”extra" attributes <br>
+to be sent with your certificate request <br>
+a challenge password ： （这里的挑战密码是指：“挑战密码”请求作为CSR生成的一部分，用于将保密密钥加密的密码（在请求的密钥生成的时间时，或当一个明文密钥加密后 - 然后每次再次请求启用了SSL的服务使用它启动时），是两个单独的和不同的事情。）你看着办。<br>
+An optional company name []: 这里是公司名。<br>
+<br>
+3. 自签证书  openssl x509 -req -days 3650 -sha1 -extfile C:\OpenSSL\bin\openssl.cfg -extensions v3_ca -signkey hm_org.key -in hm.req -out hm.crt<br>
+4.通俗的讲，去除key的密码 openssl rsa -in hm_org.key -out hm.key
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=68" class="postimage" alt="hmailserverssl1.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailserverssl1.png (30.91 KiB) 查看 31870 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=69" class="postimage" alt="hmailserverssl2.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailserverssl2.png (28.93 KiB) 查看 31870 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=70" class="postimage" alt="hmailserverssl3.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailserverssl3.png (47.88 KiB) 查看 31870 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+教程一完毕。<br>
+<br>
+教程二：<br>
+<br>
+我不知道这个有什么区别，但是这样子也能连接上，同样也可以收发信，当然要设置25端口。不然就不能收信。<br>
+<br>
+ 文字说明同上。<br>
+<br>
+openssl genrsa -out key.pem 2048<br>
+openssl req -new -key key.pem -out request.csr<br>
+openssl x509 -req -days 365 -in request.csr -signkey key.pem -out certificate.pem
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="https://www.hmailserver.org/download/file.php?id=71" class="postimage" alt="hmailserverssl4.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailserverssl4.png (25.27 KiB) 查看 31870 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+
+后面的端口按照上面的图那样设置。完毕。<br>
+<br>
+总结：上面的弄好后还没完。在高级设置里面，TCP/IP端口，其中smtp:25,pop3:110,imap:143,smtp:587 应该选择STARTTLS(Optional)，其他端口如：smtp:465,imap:993,pop3:995，应该选择ssl/tls 。<br>
+如果你想在外部始终用ssl连接，请在IP范围-internet中勾选“需要ssl/tls进行身份验证”。那么TCP/IP端口就不用设置那么多了。<br>
+完毕。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hmailserver ssl 证书教程</h3>
+				<div class="date">发表于 : <strong>2014年12月22日, 17:21</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">官方给我的回答是25端口必须打开，smtp:465 , imap:993,995   其它端口选择STARTTLS Optional，大概意思是如果可能加密就会加密，25、587、110 应选择STARTTLS Optional.</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hmailserver ssl openssl教程</h3>
+				<div class="date">发表于 : <strong>2015年5月8日, 10:15</strong></div>
+				<div class="author">由 <strong>jasonshaw</strong></div>
+				<div class="content">完全按照你的教程设置之后，似乎是可以了，但是在foxmail里面设置 增加ssl就无法收发邮件，不知道是哪里有问题<br>
+同时，我现在参考你的所有教程，现在的情况是 能对内网对内网收发，收到外网的邮件，但是无法发送到外网，紧急求救啊！</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hmailserver ssl openssl教程</h3>
+				<div class="date">发表于 : <strong>2017年7月27日, 17:30</strong></div>
+				<div class="author">由 <strong>hamil_tony</strong></div>
+				<div class="content">有没有64位的 包啊。我用你提供的32位的包安装 执行到自签证书：openssl x509 -req -days 3650 -sha1 -extfile C:\OpenSSL\bin\openssl.cfg -extensions v3_ca -signkey hm_org.key -in hm.req -out hm.crt  这一句的时候 一直失败， 我想可能是32位的原因。求大神给个解决方案  有劳了</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="http://www.hmailserver.org/">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=26&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:43 GMT -->
+</html>

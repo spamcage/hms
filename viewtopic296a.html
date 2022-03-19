@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=674&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:38:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; 关于DMARC协议</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>关于DMARC协议</h2>
+		<p><a href="viewtopic6794.html?f=4&amp;t=674">https://www.hmailserver.org/viewtopic.php?f=4&amp;t=674</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>关于DMARC协议</h3>
+				<div class="date">发表于 : <strong>2016年5月23日, 10:31</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">DMARC.org联盟的成员有来自全球的大型的邮件服务提供商AOL，谷歌，微软，网易，雅虎；金融机构和金融服务提供商Bank of America，Fidelity Investments，JPMorgan Chase &amp; Co，PayPal；大型电子贺卡厂商American Greetings；大型社交网络提供商Facebook，LinkedIn以及邮件安全解决方案提供商Agari，Cloudmark，Return Path和Trusted Domain Project。<br>
+<br>
+<strong class="text-strong">目的</strong>：主要是识别并拦截钓鱼邮件，从而确保用户的个人信息安全。<br>
+<strong class="text-strong">原理</strong>：由发送方在DNS里声明自己采用该协议，接收方收到该域发送过来的邮件时，则进行DMARC校验，从而判断当前邮件来源是否合法。<br>
+<strong class="text-strong">DMARC校验的核心过程</strong>：<br>
+    1）从信头提取From字段的domain，称域名A。此字段只存在一个域名。<br>
+    2）查询DNS，获取域名A的DMARC记录。若该域无设置DMARC记录，忽略本次DMARC校验。<br>
+    3）校验DKIM，若验证成功，则获取DKIM签名中的“d=”字段值，称域名B。信头中如果有多个DKIM签名验证通过，则域名B会存在多个。<br>
+    4）校验SPF，若验证成功，则获取本次SMTP会话中MAIL FROM字段的domain，称域名C。此字段只存在一个域名。<br>
+注意：DMARC是基于DKIM和SPF的，所以开启DMARC必须先开启DKIM或SPF任意一种。<br>
+<br>
+例如：<blockquote class="uncited"><div>v=DMARC1; p=none; fo=1; ruf=mailto:<a href="mailto:dmarc@qiye.com">dmarc@qiye.com</a>; rua=mailto:<a href="mailto:dmarc_report@qiye.com">dmarc_report@qiye.com</a></div></blockquote>
+例如：<blockquote class="uncited"><div>v=DMARC1;p=none;pct=100;rua=mailto:<a href="mailto:service@qiye.com">service@qiye.com</a></div></blockquote>
+主机记录值：_dmarc<br>
+如下图DNSPOD设置方法：
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/file8c3c.png?id=234" class="postimage" alt="dmarc.png" onclick="viewableArea(this);" /></dt>
+						<dd>dmarc.png (21.79 KiB) 查看 25240 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+p：用于告知收件方，当检测到某邮件存在伪造我（发件人）的情况，收件方要做出什么处理，处理方式从轻到重依次为：none为不作任何处理；quarantine为将邮件标记为垃圾邮件；reject为拒绝该邮件。初期建议设置为none。<br>
+sp：DMARC记录对子域名生效，同时声明子域名在有被伪造时，收件方须做出的处理方式。<br>
+rua：用于在收件方检测后，将一段时间的汇总报告，发送到哪个邮箱地址。<br>
+ruf：用于当检测到伪造邮件时，收件方须将该伪造信息的报告发送到哪个邮箱地址。</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=674&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:38:47 GMT -->
+</html>

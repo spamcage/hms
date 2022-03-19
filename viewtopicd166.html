@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=881&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; 向数据库insert用户的问题</title>
+
+<link href="https://www.hmailserver.org/styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="https://www.hmailserver.org/">https://www.hmailserver.org/</a></p>
+
+		<h2>向数据库insert用户的问题</h2>
+		<p><a href="https://www.hmailserver.org/viewtopic.php?f=3&amp;t=881">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=881</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>向数据库insert用户的问题</h3>
+				<div class="date">发表于 : <strong>2016年7月4日, 14:28</strong></div>
+				<div class="author">由 <strong>leon</strong></div>
+				<div class="content">我搭建的数据库是sql server2008的版本，下面是插入用户的语句，用户表里能够增加相应记录，admin页面也能显示相应账户，但是用户在登录的时候提示:<br>
+无法连接POP3服务器，请检查POP3设置。<br>
+请大神指导一下如何操作，跪谢~<br>
+insert into hm_accounts(accountdomainid,accountadminlevel,accountaddress,accountactive,accountmaxsize,accountvacationmessageon,<br>
+accountpersonlastname,accountpassword,accountisad,accountaddomain,accountadusername,accountvacationmessage,accountvacationsubject,<br>
+accountpwencryption,accountforwardenabled,accountforwardaddress,accountforwardkeeporiginal,accountenablesignature,accountsignatureplaintext,<br>
+accountsignaturehtml,accountlastlogontime,accountvacationexpires,accountvacationexpiredate,accountpersonfirstname)<br>
+select 1,0,accountaddress,1,0,0,USER_NAME,'e3b62f52c93758b1ec6da8b64003b24a81be66c4d78265fd350eaacecb877d99c7aee9',0,'','','','',<br>
+3,0,'',0,0,'','',GETDATE(),0,GETDATE(),USER_NAME from #accounts</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 向数据库insert用户的问题</h3>
+				<div class="date">发表于 : <strong>2016年7月25日, 18:05</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">这数据库我搭建过，建立数据库的时候选择本机验证？</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 向数据库insert用户的问题</h3>
+				<div class="date">发表于 : <strong>2019年6月28日, 11:03</strong></div>
+				<div class="author">由 <strong>hzx</strong></div>
+				<div class="content">楼主解决了吗？</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="http://www.hmailserver.org/">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=881&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:38 GMT -->
+</html>

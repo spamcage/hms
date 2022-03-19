@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=1274&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; 调用官方文档API vb脚本修改用户密码问题</title>
+
+<link href="https://www.hmailserver.org/styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="https://www.hmailserver.org/styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="https://www.hmailserver.org/">https://www.hmailserver.org/</a></p>
+
+		<h2>调用官方文档API vb脚本修改用户密码问题</h2>
+		<p><a href="https://www.hmailserver.org/viewtopic.php?f=3&amp;t=1274">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=1274</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>调用官方文档API vb脚本修改用户密码问题</h3>
+				<div class="date">发表于 : <strong>2016年9月9日, 16:21</strong></div>
+				<div class="author">由 <strong>380036207@qq.com</strong></div>
+				<div class="content">通过调用官方文档vb脚本修改用户密码，系统提示修改成功，查看数据库发现，密码已修改，但是怎么就登录不上去呢？一直提示：验证失败，错误的登陆名或密码。有朋友能帮忙解决下吗？<br>
+<br>
+********************************      官方脚本    ******************************************************<br>
+<br>
+Function ModifyHmailPassWordAccount(domainName,userName,password,adminName,adminPassword)<br>
+     Dim obApp<br>
+   Set obApp = CreateObject("hMailServer.Application")<br>
+<br>
+   ' Authenticate. Without doing this, we won't have permission<br>
+   ' to change any server settings or add any objects to the<br>
+   ' installation.   <br>
+   Call obApp.Authenticate(adminName, adminPassword)<br>
+   <br>
+   ' Locate the domain we want to add the account to<br>
+   Dim obDomain<br>
+   Set obDomain = obApp.Domains.ItemByName(domainName)<br>
+   <br>
+   Dim obAccount<br>
+   Set obAccount = obDomain.Accounts.ItemByAddress(userName)<br>
+   <br>
+   ' Set the password to "secret"   <br>
+   obAccount.Password = password   <br>
+<br>
+   obAccount.Save<br>
+End Function<br>
+<br>
+<br>
+**********************************************************************************************************************</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 调用官方文档API vb脚本修改用户密码问题</h3>
+				<div class="date">发表于 : <strong>2017年10月13日, 09:01</strong></div>
+				<div class="author">由 <strong>maomaoniu112</strong></div>
+				<div class="content">我遇到相同问题，不仅仅是用vb脚本，C#代码一样，任何修改密码的途径都会导致webmail-lite-master7.7.5客户端提示“验证失败，错误的登陆名或密码。”。<br>
+最甚至是直接通过hmailserver自己的管理工具修改，也同样会导致该问题。<br>
+<br>
+目前正在找原因</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 调用官方文档API vb脚本修改用户密码问题</h3>
+				<div class="date">发表于 : <strong>2017年10月14日, 21:16</strong></div>
+				<div class="author">由 <strong>maomaoniu112</strong></div>
+				<div class="content">花了几天时间没找到原因。<br>
+但发现当通过各种方式修改密码后（我是通过hmailserver自己的管理工具修改的密码，或者直接update  hm_accounts表的accountpassword字段），<br>
+隔几个小时（具体隔多久不清楚，但我是间隔了3个小时多），就完可以登录了。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 调用官方文档API vb脚本修改用户密码问题</h3>
+				<div class="date">发表于 : <strong>2017年10月14日, 22:32</strong></div>
+				<div class="author">由 <strong>maomaoniu112</strong></div>
+				<div class="content">问题已解决<br>
+<br>
+把“高级”--“自动停用”禁用。<br>
+VBS代码应该没问题，我尝试多次修改密码，不会导致“验证失败，错误的登陆名或密码。”<br>
+   Dim obApp<br>
+   Set obApp = CreateObject("hMailServer.Application")<br>
+<br>
+   ' Authenticate. Without doing this, we won't have permission<br>
+   ' to change any server settings or add any objects to the<br>
+   ' installation.   <br>
+   Call obApp.Authenticate("Administrator", "admin!123")<br>
+   <br>
+   ' Locate the domain we want to add the account to<br>
+   Dim obDomain<br>
+   Set obDomain = obApp.Domains.ItemByName("goldfish.com")<br>
+   <br>
+   Dim obAccount<br>
+   Set obAccount = obDomain.Accounts.ItemByAddress("<a href="mailto:yyfan@goldfish.com">yyfan@goldfish.com</a>")<br>
+   <br>
+   ' Set the password to "secret"   <br>
+   obAccount.Password = "secret"   <br>
+<br>
+   obAccount.Save<br>
+<br>
+同时提供一个C#版本的代码<br>
+        /// &lt;summary&gt;<br>
+        /// 修改密码方法<br>
+        /// &lt;/summary&gt;<br>
+        /// &lt;param name="userName"&gt;邮件服务器管理账户，一般为administrator&lt;/param&gt;<br>
+        /// &lt;param name="password"&gt;邮件服务器管理账户密码&lt;/param&gt;<br>
+        /// &lt;param name="domainName"&gt;域名&lt;/param&gt;<br>
+        /// &lt;param name="accountAddress"&gt;邮件地址&lt;/param&gt;<br>
+        /// &lt;param name="newAccountPassword"&gt;邮件地址新密码&lt;/param&gt;<br>
+        /// &lt;returns&gt;&lt;/returns&gt;<br>
+        public bool ChangePassword(string userName, string password, string domainName, string accountAddress, string newAccountPassword)<br>
+        {<br>
+            try<br>
+            {<br>
+                hMailServer.Application hMailApp = Authenticate(userName, password);<br>
+                hMailServer.Domain myDomain = hMailApp.Domains.get_ItemByName(domainName);<br>
+<br>
+                hMailServer.Account account = myDomain.Accounts.get_ItemByAddress(accountAddress);<br>
+                account.Password = newAccountPassword;<br>
+<br>
+                account.Save();<br>
+                return true;<br>
+            }<br>
+            catch (System.Exception)<br>
+            {<br>
+                throw;<br>
+<br>
+            }<br>
+        }</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="http://www.hmailserver.org/">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=1274&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 14:49:41 GMT -->
+</html>
