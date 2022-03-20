@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=97&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:24:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; hmailserver的密码是怎么加密的？</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>hmailserver的密码是怎么加密的？</h2>
+		<p><a href="viewtopic00f7.html?f=3&amp;t=97">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=97</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>hmailserver的密码是怎么加密的？</h3>
+				<div class="date">发表于 : <strong>2015年4月20日, 16:41</strong></div>
+				<div class="author">由 <strong>qunhoo</strong></div>
+				<div class="content">比如我设定设定用户密码是123456789，,然后看到数据库表hm_accounts里的密码就是比如55cf4970f529355ab2469aa5f48d5224acd6857fd17daddb21607eeae47878484ffe22这样的一大串，而且每次重新修改输入123456789，这个一大串的还会改变。<br>
+我想了解这个是这么加密的，不知道论坛有没有大神知道呢？</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hmailserver的密码是怎么加密的？</h3>
+				<div class="date">发表于 : <strong>2015年4月20日, 16:44</strong></div>
+				<div class="author">由 <strong>qunhoo</strong></div>
+				<div class="content">百度搜索到了，这问题问的有点太草率了，不好意思。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hmailserver的密码是怎么加密的？</h3>
+				<div class="date">发表于 : <strong>2015年4月21日, 09:15</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">MD5???</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hmailserver的密码是怎么加密的？</h3>
+				<div class="date">发表于 : <strong>2015年4月21日, 13:05</strong></div>
+				<div class="author">由 <strong>qunhoo</strong></div>
+				<div class="content"><a href="http://lqixv.iteye.com/blog/833194" class="postlink">http://lqixv.iteye.com/blog/833194</a><br>
+<br>
+<br>
+    随机生成一个6位长的字符串，假设生成的随机字符串是：8et5p9，假设密码是：123456；<br>
+    将“随机字符串”和“密码”连起来：8et5p9123456；<br>
+    将连起来的新字符串，用SHA256加密，如：hash("sha256","8et5p9123456")，得到的密文是：2dc34747955a3546b0c71459c4be8b56a998aa32bc0f5e546872157d665d14c1<br>
+    将“随机字符串”与“SHA256加密后的密文”连起来，得到新密文：8et5p92dc34747955a3546b0c71459c4be8b56a998aa32bc0f5e546872157d665d14c1，这就是保存在数据库表中的密码字段里的值</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=97&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:24:08 GMT -->
+</html>

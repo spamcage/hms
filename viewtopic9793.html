@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=83&p=337 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:25:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答 - hMailServer中文论坛</title>
+
+	<link rel="alternate" type="application/atom+xml" title="Feed - hMailServer中文论坛" href="app.php/feed.html">			<link rel="alternate" type="application/atom+xml" title="Feed - 新主题" href="app.php/feed/topics.html">		<link rel="alternate" type="application/atom+xml" title="Feed - 版面 - 综合讨论" href="app.php/feed/forum/3.html">	<link rel="alternate" type="application/atom+xml" title="Feed - 主题 - 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答" href="app.php/feed/topic/83.html">	
+	<link rel="canonical" href="viewtopic50cf.html?t=83">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="assets/css/font-awesome.min871b.css?assets_version=936" rel="stylesheet">
+<link href="styles/prosilver/theme/stylesheet871b.css?assets_version=936" rel="stylesheet">
+<link href="styles/prosilver/theme/zh_cmn_hans/stylesheet871b.html?assets_version=936" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/prosilver/theme/tweaks.css?assets_version=936" rel="stylesheet">
+<![endif]-->
+
+	
+<link href="ext/phpbb/boardannouncements/styles/all/theme/boardannouncements871b.css?assets_version=936" rel="stylesheet" media="screen" />
+<link href="ext/phpbb/ads/styles/all/theme/phpbbads871b.css?assets_version=936" rel="stylesheet" media="screen" />
+
+
+
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+				<a id="logo" class="logo" href="index-2.html" title="论坛首页"><span class="site_logo"></span></a>
+				<h1>hMailServer中文论坛</h1>
+				<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。</p>
+				<p class="skiplink"><a href="#start_here">跳到内容</a></p>
+			</div>
+
+									<div id="search-box" class="search-box search-header" role="search">
+				<form action="https://www.hmailserver.org/search.php" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="按关键词搜索" class="inputbox search tiny" size="20" value="" placeholder="搜索……" />
+					<button class="button button-search" type="submit" title="搜索">
+						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+					</button>
+					<a href="search.html" class="button button-search-end" title="高级搜索">
+						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+					</a>
+					
+				</fieldset>
+				</form>
+			</div>
+						
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>快捷链接</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+											<li class="separator"></li>
+																									<li>
+								<a href="search33a7.html?search_id=unanswered" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>查看没有回复的主题</span>
+								</a>
+							</li>
+							<li>
+								<a href="search526f.html?search_id=active_topics" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>查看活跃的主题</span>
+								</a>
+							</li>
+							<li class="separator"></li>
+							<li>
+								<a href="search.html" role="menuitem">
+									<i class="icon fa-search fa-fw" aria-hidden="true"></i><span>搜索</span>
+								</a>
+							</li>
+					
+										<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="ucp26c3.html?mode=login" title="登录" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>登录</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="ucp8319.html?mode=register" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>注册</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+				
+		
+		<li class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+
+			
+							<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope><a itemprop="item" href="index-2.html" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="name">论坛首页</span></a><meta itemprop="position" content="1" /></span>
+
+											
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="12"><a itemprop="item" href="viewforum01c9.html?f=12"><span itemprop="name">讨论</span></a><meta itemprop="position" content="2" /></span>
+															
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="3"><a itemprop="item" href="viewforum4d6b.html?f=3"><span itemprop="name">综合讨论</span></a><meta itemprop="position" content="3" /></span>
+							
+					</li>
+
+		
+					<li class="rightside responsive-search">
+				<a href="search.html" title="查看高级搜索选项" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+				<div id="phpbb_announcement">
+		<a href="app.php/boardannouncements/close3ef5.html?hash=dc7c24e5" data-ajax="close_announcement" data-overlay="false" class="close clearfix" title="Close announcement"></a>		<div><span style="color:#0000FF">hMailServer中文论坛 QQ群：80049760</span></div>
+	</div>
+
+<h2 class="topic-title"><a href="viewtopic4bc8.html?f=3&amp;t=83">服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">hMailServer的综合讨论。包括安装、使用、webmail等问题。<br /></div>
+<p>
+	<strong>版主:</strong> <a href="memberlistd942.html?mode=viewprofile&amp;u=49" class="username">jimmy</a>, <a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>
+</p>
+
+	<div class="rules">
+		<div class="inner">
+
+					<strong>版面规则</strong><br />
+			hMailServer中文论坛 已经开通QQ群：80049760
+		
+		</div>
+	</div>
+
+<div class="action-bar bar-top">
+	
+			<a href="postingcc93.html?mode=reply&amp;f=3&amp;t=83" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="viewtopica946.html?f=3&amp;t=83&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="https://www.hmailserver.org/search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="查找这个主题……" />
+				<button class="button button-search" type="submit" title="搜索">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</button>
+				<a href="search.html" class="button button-search-end" title="高级搜索">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+				</a>
+				<input type="hidden" name="t" value="83" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			10 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+		</div>
+
+
+
+
+			<div id="p198" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile198">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist781b.html?mode=viewprofile&amp;u=147" class="username">wings1224</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="searcha0c2.html?author_id=147&amp;sr=posts">1</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2015年4月6日, 21:10</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content198">
+
+						<h3 class="first"><a href="viewtopicd1c3.html?p=198#p198">服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting1f57.html?mode=quote&amp;f=3&amp;p=198" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopicd1c3.html?p=198#p198" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlist781b.html?mode=viewprofile&amp;u=147" class="username">wings1224</a></strong> &raquo; </span><time datetime="2015-04-06T13:12:53+00:00">2015年4月6日, 21:12</time>
+			</p>
+			
+			
+			
+			<div class="content">Test: Test outbound port<br>
+SMTP relayer not in use. Attempting mail.hmailserver.com:25...<br>
+Local address is 115.159.69.55.<br>
+Trying to connect to host mail.hmailserver.com...<br>
+<span style="color:#FF0000">Trying to connect to TCP/IP address 46.163.109.39 on port 25.<br>
+ERROR: Unable to bind to address 115.159.69.55.</span></div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				
+			<div id="p200" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile200">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" class="avatar"><img class="avatar" src="download/file1d88.png?avatar=2_1421286644.png" width="100" height="100" alt="头像" /></a>														</div>
+								<a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>							</dt>
+
+						<dd class="profile-rank">网站管理员<br /><img src="images/ranks/administrator.png" alt="网站管理员" title="网站管理员" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search51e1.html?author_id=2&amp;sr=posts">335</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2014年11月26日, 12:41</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>地址:</strong> 上海</dd>
+												
+							<dd class="profile-contact">
+				<strong>联系:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="#" class="dropdown-trigger" title="联系 Hsia">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">联系 Hsia</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="index.html" title="网站" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">网站</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content200">
+
+						<h3 ><a href="viewtopicdc0d.html?p=200#p200">Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="postinga37d.html?mode=quote&amp;f=3&amp;p=200" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopicdc0d.html?p=200#p200" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a></strong> &raquo; </span><time datetime="2015-04-08T03:36:31+00:00">2015年4月8日, 11:36</time>
+			</p>
+			
+			
+			
+			<div class="content">1.缺少MX-记录<br>
+2.在DNS记录不正确<br>
+3.你的IP是不是符合您的SPF记录。<br>
+4.在HELO不正确的主机名<br>
+在hMailServer SMTP设置，您需要指定运行hMailServer计算机的主机名。这应该是它有一个A记录的指向你的电脑的IP地址在DNS主机名。如果你输入一些其他的主机名，如本地主机，mycomputername，许多服务器将您的服务器拒绝的电子邮件。<br>
+5.您的IP地址被列入黑名单。</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p311" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile311">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlistb003.html?mode=viewprofile&amp;u=190" class="username">jasonshaw</a>							</dt>
+
+						<dd class="profile-rank">Level 3<br /><img src="images/ranks/rank3.png" alt="Level 3" title="Level 3" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search0cc3.html?author_id=190&amp;sr=posts">34</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2015年5月6日, 11:16</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content311">
+
+						<h3 ><a href="viewtopic2e31.html?p=311#p311">Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting421a.html?mode=quote&amp;f=3&amp;p=311" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic2e31.html?p=311#p311" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistb003.html?mode=viewprofile&amp;u=190" class="username">jasonshaw</a></strong> &raquo; </span><time datetime="2015-05-08T03:37:44+00:00">2015年5月8日, 11:37</time>
+			</p>
+			
+			
+			
+			<div class="content">问题一样<br>
+诊断只有 test outbound port 报错<br>
+一样 unable to bind to address  xxx.xxx.xxx.xxx</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p320" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile320">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" class="avatar"><img class="avatar" src="download/file1d88.png?avatar=2_1421286644.png" width="100" height="100" alt="头像" /></a>														</div>
+								<a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>							</dt>
+
+						<dd class="profile-rank">网站管理员<br /><img src="images/ranks/administrator.png" alt="网站管理员" title="网站管理员" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search51e1.html?author_id=2&amp;sr=posts">335</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2014年11月26日, 12:41</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>地址:</strong> 上海</dd>
+												
+							<dd class="profile-contact">
+				<strong>联系:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="#" class="dropdown-trigger" title="联系 Hsia">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">联系 Hsia</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="index.html" title="网站" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">网站</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content320">
+
+						<h3 ><a href="viewtopice513.html?p=320#p320">Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting0332.html?mode=quote&amp;f=3&amp;p=320" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopice513.html?p=320#p320" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a></strong> &raquo; </span><time datetime="2015-05-08T08:23:37+00:00">2015年5月8日, 16:23</time>
+			</p>
+			
+			
+			
+			<div class="content">telnet mail.xxx.com 25 通不通，防火墙放行端口。</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p327" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile327">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlistfcd6.html?mode=viewprofile&amp;u=109" class="username">john29</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search7706.html?author_id=109&amp;sr=posts">3</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2015年3月16日, 16:55</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content327">
+
+						<h3 ><a href="viewtopic5355.html?p=327#p327">Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="postingec51.html?mode=quote&amp;f=3&amp;p=327" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic5355.html?p=327#p327" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistfcd6.html?mode=viewprofile&amp;u=109" class="username">john29</a></strong> &raquo; </span><time datetime="2015-05-09T00:57:56+00:00">2015年5月9日, 08:57</time>
+			</p>
+			
+			
+			
+			<div class="content">你的问题应该跟https://<a href="viewtopic6ff4.html?f=3&amp;t=99" class="postlink">www.hmailserver.org/viewtopic.php?f=3&amp;t=99</a>  一样 ，检查一下smtp相关的设定</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p332" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile332">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlistb003.html?mode=viewprofile&amp;u=190" class="username">jasonshaw</a>							</dt>
+
+						<dd class="profile-rank">Level 3<br /><img src="images/ranks/rank3.png" alt="Level 3" title="Level 3" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search0cc3.html?author_id=190&amp;sr=posts">34</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2015年5月6日, 11:16</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content332">
+
+						<h3 ><a href="viewtopic221f.html?p=332#p332">Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting1e2b.html?mode=quote&amp;f=3&amp;p=332" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic221f.html?p=332#p332" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistb003.html?mode=viewprofile&amp;u=190" class="username">jasonshaw</a></strong> &raquo; </span><time datetime="2015-05-10T19:48:48+00:00">2015年5月11日, 03:48</time>
+			</p>
+			
+			
+			
+			<div class="content">他的也没有解决方法啊<br>
+继续求大神指点</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p337" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile337">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlistb003.html?mode=viewprofile&amp;u=190" class="username">jasonshaw</a>							</dt>
+
+						<dd class="profile-rank">Level 3<br /><img src="images/ranks/rank3.png" alt="Level 3" title="Level 3" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search0cc3.html?author_id=190&amp;sr=posts">34</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2015年5月6日, 11:16</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content337">
+
+						<h3 ><a href="viewtopicf6a9.html?p=337#p337">Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting3c78.html?mode=quote&amp;f=3&amp;p=337" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopicf6a9.html?p=337#p337" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistb003.html?mode=viewprofile&amp;u=190" class="username">jasonshaw</a></strong> &raquo; </span><time datetime="2015-05-11T09:03:36+00:00">2015年5月11日, 17:03</time>
+			</p>
+			
+			
+			
+			<div class="content">已经解决了，但是不小心删掉了数据库<br>
+结果重新配置，出现新的问题，就是能发到外部邮箱，不能收到外部邮件<br>
+foxmail收到退信：<br>
+无法发送到 <a href="mailto:admin@mobbiz.net">admin@mobbiz.net</a><br>
+退信原因	 未知原因 <br>
+host mail.mobbiz.net[58.247.123.98] said: 550 Delivery is not allowed to this address. (in reply to RCPT TO command)</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p338" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile338">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" class="avatar"><img class="avatar" src="download/file1d88.png?avatar=2_1421286644.png" width="100" height="100" alt="头像" /></a>														</div>
+								<a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>							</dt>
+
+						<dd class="profile-rank">网站管理员<br /><img src="images/ranks/administrator.png" alt="网站管理员" title="网站管理员" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search51e1.html?author_id=2&amp;sr=posts">335</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2014年11月26日, 12:41</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>地址:</strong> 上海</dd>
+												
+							<dd class="profile-contact">
+				<strong>联系:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="#" class="dropdown-trigger" title="联系 Hsia">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">联系 Hsia</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="index.html" title="网站" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">网站</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content338">
+
+						<h3 ><a href="viewtopicbcd6.html?p=338#p338">Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting1850.html?mode=quote&amp;f=3&amp;p=338" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopicbcd6.html?p=338#p338" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a></strong> &raquo; </span><time datetime="2015-05-11T09:21:53+00:00">2015年5月11日, 17:21</time>
+			</p>
+			
+			
+			
+			<div class="content">550邮箱无法使用：<br>
+hMailServer从未生成该错误消息。如果hMailServer试图提供一个电子邮件到另一台服务器，但收件人的帐户不能在该服务器上发现，收件人服务器可能会发出此错误消息。<br>
+该错误消息表明您发送电子邮件到一个不正确的地址。如果您确定地址是正确的，它可能会在收件人DNS配置有问题。<br>
+550发件人验证失败：<br>
+当hMailServer提供一个电子邮件到另一台服务器，接收SMTP服务器可以尝试验证的电子邮件发件人是否真的存在。如果验证失败，则可能会错误消息来响应“发件人验证失败”。在这种情况下，电子邮件会被退回给发件人。此验证的工作方式如下：<br>
+hMailServer连接到收件人SMTP服务器<br>
+hMailServer告诉收件人SMTP服务器的电子邮件从<a href="mailto:example@example.com">example@example.com</a><br>
+收件人SMTP服务器查找域example.com MX记录。<br>
+收件人SMTP服务器连接到在MX记录中指定的主机 - 在您的hMailServer服务器如果MX记录设置正确运行的可能。<br>
+在此之后，收件人SMTP服务器发出的命令HELO，MAIL FROM &lt;&gt;和RCPT TO：<br>
+如果hMailServer确认收件人<a href="mailto:example@example.com">example@example.com</a>存在，收件人的SMTP服务器将允许在上面的步骤2开始的输送。<br>
+有几件事情，可以去错在这些步骤：<br>
+如果MX记录域example.com设置不正确，收件人SMTP服务器可能会纠正不正确的SMTP主机和发件人地址验证将失败。<br>
+如果该帐户<a href="mailto:example@example.com">example@example.com</a>不存在时，发送者验证将失败。<br>
+如果您已禁用允许空发件人地址，发件人验证将失败，因为收件人SMTP服务器尝试验证通过使用空发件人地址。</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p339" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile339">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlistb003.html?mode=viewprofile&amp;u=190" class="username">jasonshaw</a>							</dt>
+
+						<dd class="profile-rank">Level 3<br /><img src="images/ranks/rank3.png" alt="Level 3" title="Level 3" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search0cc3.html?author_id=190&amp;sr=posts">34</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2015年5月6日, 11:16</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content339">
+
+						<h3 ><a href="viewtopicb247.html?p=339#p339">Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="postingf814.html?mode=quote&amp;f=3&amp;p=339" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopicb247.html?p=339#p339" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistb003.html?mode=viewprofile&amp;u=190" class="username">jasonshaw</a></strong> &raquo; </span><time datetime="2015-05-12T02:32:22+00:00">2015年5月12日, 10:32</time>
+			</p>
+			
+			
+			
+			<div class="content">真是怪事，现在诊断，全部绿色通过<br>
+但是收发全部没反应<br>
+每次提示也没有报错，日志里面也没有报错呢<br>
+现在收发，无论内网，外网全部都无法使用</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p340" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile340">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlistb003.html?mode=viewprofile&amp;u=190" class="username">jasonshaw</a>							</dt>
+
+						<dd class="profile-rank">Level 3<br /><img src="images/ranks/rank3.png" alt="Level 3" title="Level 3" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search0cc3.html?author_id=190&amp;sr=posts">34</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2015年5月6日, 11:16</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content340">
+
+						<h3 ><a href="viewtopic80a3.html?p=340#p340">Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting4a1e.html?mode=quote&amp;f=3&amp;p=340" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic80a3.html?p=340#p340" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistb003.html?mode=viewprofile&amp;u=190" class="username">jasonshaw</a></strong> &raquo; </span><time datetime="2015-05-12T04:18:39+00:00">2015年5月12日, 12:18</time>
+			</p>
+			
+			
+			
+			<div class="content">已经解决，诡异的，删除foxmail客户端的账号，然后重新建立一个一模一样的，就ok了！<br>
+晕死<br>
+另外，hmailserver 我重新安装了几次，最后一次安装前，到注册表里面将里面hmailserver相关的所有项都删掉了</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+			
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="postingcc93.html?mode=reply&amp;f=3&amp;t=83" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="viewtopica946.html?f=3&amp;t=83&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="https://www.hmailserver.org/viewtopic.php?f=3&amp;t=83">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="SORT_OPTIONS" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>显示: <select name="st" id="st"><option value="0" selected="selected">全部帖子</option><option value="1">1天</option><option value="7">7天</option><option value="14">2周</option><option value="30">1个月</option><option value="90">3个月</option><option value="180">6个月</option><option value="365">1年</option></select></label>
+								<label>排序: <select name="sk" id="sk"><option value="a">作者</option><option value="t" selected="selected">发表时间</option><option value="s">标题</option></select></label>
+				<label>SORT_DIRECTION: <select name="sd" id="sd"><option value="a" selected="selected">升序</option><option value="d">降序</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="去" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			10 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="viewforum4d6b.html?f=3" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>回到 “综合讨论”</span>
+		</a>
+	</p>
+	
+		<br /><br />
+	</div>
+
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="index-2.html" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>论坛首页</span></a></span>					</li>
+		
+				<li class="rightside">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr></li>
+							<li class="rightside"><a href="viewtopic928e.html?f=5&amp;t=13">hMailServer汉化文件</a>
+				<a href="ucp033a.html?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem"><a href="viewtopic6053.html?f=4&amp;t=2300">邮件查询工具</a>
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>删除全部论坛cookie</span>
+				</a>
+			</li>
+														</ul>
+
+	</div>
+</div>
+<!--
+<h3 style="padding-top: 8px;">advertisements</h3>
+
+-->
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持</span>
+		</p>
+				<p class="footer-row">
+			<span class="footer-copyright">Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a></span>
+		</p>
+				
+				
+		
+				
+	</div>
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="错误" data-l-timeout-processing-req="请求超时。">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+
+<script src="assets/javascript/jquery.min871b.js?assets_version=936"></script>
+<script src="assets/javascript/core871b.js?assets_version=936"></script>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	</div>
+
+<script src="assets/javascript/jquery.min871b.js?assets_version=936"></script>
+<script src="assets/javascript/core871b.js?assets_version=936"></script>
+
+
+
+
+
+<script src="ext/phpbb/boardannouncements/styles/all/template/js/boardannouncements871b.js?assets_version=936"></script>
+<script src="styles/prosilver/template/forum_fn871b.js?assets_version=936"></script>
+<script src="styles/prosilver/template/ajax871b.js?assets_version=936"></script>
+
+
+
+
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=83&p=337 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:25:01 GMT -->
+</html>

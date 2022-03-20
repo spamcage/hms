@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=6&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:18:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; hMailServer配置图文详细教程</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>hMailServer配置图文详细教程</h2>
+		<p><a href="viewtopic1132.html?f=4&amp;t=6">https://www.hmailserver.org/viewtopic.php?f=4&amp;t=6</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>3</strong></div>
+					<div class="post">
+				<h3>hMailServer配置图文详细教程</h3>
+				<div class="date">发表于 : <strong>2014年11月27日, 17:08</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">在配置hMailServer之前，我把英文的汉化了，我英文不好，看起来不舒服。汉化的教程已经写过了，<a href="viewtopic7b57.html?f=4&amp;t=13" class="postlink">hMailServer汉化文件</a> 进去就有汉化文件及教程。<br>
+接下来我们讲讲怎么配置hMailServer,由于之前已经写了篇英文的配置教程，折腾了半天，没有效果，原因是Mx记录的Ip地址写错一个数字，关于Mx记录在文章后面会写到。<br>
+<br>
+添加域名:(自己填写，不做截图）
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/file784c.png?id=340" class="postimage" alt="zhuyao.png" onclick="viewableArea(this);" /></dt>
+						<dd>zhuyao.png (72.9 KiB) 查看 40364 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+设置 -协议-SMTP
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/file190a.png?id=17" class="postimage" alt="hph2.png" onclick="viewableArea(this);" /></dt>
+						<dd>hph2.png (31.13 KiB) 查看 61538 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+进去 “邮件递交” 填写“本地主机名”。(参考这篇文章<a href="viewtopic3e75.html?f=4&amp;t=568" class="postlink">viewtopic.php?f=4&amp;t=568</a>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/file3234.png?id=90" class="postimage" alt="hph3.png" onclick="viewableArea(this);" /></dt>
+						<dd>hph3.png (25.85 KiB) 查看 61363 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+在反垃圾邮件可以设置成下面这个，这个是次要的，至于这个反垃圾邮件的设置，你可以设置，也可以不设置，这个中文都是能看懂的。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/filee5cc.png?id=20" class="postimage" alt="hph5.png" onclick="viewableArea(this);" /></dt>
+						<dd>hph5.png (34.3 KiB) 查看 61538 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+咱进入“高级”设置  ip范围。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/file8bdf.png?id=337" class="postimage" alt="ipfanwei1.png" onclick="viewableArea(this);" /></dt>
+						<dd>ipfanwei1.png (66.9 KiB) 查看 40369 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/fileec01.png?id=338" class="postimage" alt="ipfanwei2.png" onclick="viewableArea(this);" /></dt>
+						<dd>ipfanwei2.png (68.84 KiB) 查看 40369 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+TCP/IP端口下，修改相应的Ip地址。这里有三个，分别是SMTP、Pop3、IMAP，IP地址分别填入。只截了一张图。所看到的是我填好的。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/filee106.png?id=144" class="postimage" alt="hp7.png" onclick="viewableArea(this);" /></dt>
+						<dd>hp7.png (28.34 KiB) 查看 58852 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+配置已经差不多了，然后我们就来添加账号。关于这个添加账号，也可以在前面第一步，添加域名后做，都是一样的。<br>
+添加账号和密码，然后保存。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/file9c8a.png?id=23" class="postimage" alt="hph8.png" onclick="viewableArea(this);" /></dt>
+						<dd>hph8.png (25.98 KiB) 查看 61538 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+需要注意的是备份目录，如果不设置，检测的时候会有红灯。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/file9329.png?id=339" class="postimage" alt="beifen.png" onclick="viewableArea(this);" /></dt>
+						<dd>beifen.png (66.03 KiB) 查看 40368 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+有关域名解析请按下图操作。（我用的dnspod平台）
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/file95dc.png?id=29" class="postimage" alt="hph14.png" onclick="viewableArea(this);" /></dt>
+						<dd>hph14.png (29.44 KiB) 查看 61538 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+基本的收发可以了，如果要设置你的邮件不被当作垃圾邮件处理，还需要设置<a href="viewtopicb540.html?f=4&amp;t=12" class="postlink">DKIM</a>，<a href="viewtopic8eb6.html?f=4&amp;t=26" class="postlink">SSL</a>，</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hMailServer配置图文详细教程</h3>
+				<div class="date">发表于 : <strong>2014年11月27日, 19:21</strong></div>
+				<div class="author">由 <strong>jimmy</strong></div>
+				<div class="content">我没设置“外部帐号”，外部帐号应该是指该邮箱代收另外一个帐号的邮件;<br>
+第二张图，目测本地主机名打错了。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hMailServer配置图文详细教程</h3>
+				<div class="date">发表于 : <strong>2014年11月27日, 22:20</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content"><blockquote><div><cite>jimmy 写了:</cite>我没设置“外部帐号”，外部帐号应该是指该邮箱代收另外一个帐号的邮件;<br>
+第二张图，目测本地主机名打错了。</div></blockquote>
+真的打错了！！！</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hMailServer配置图文详细教程</h3>
+				<div class="date">发表于 : <strong>2014年11月28日, 11:02</strong></div>
+				<div class="author">由 <strong>Ching</strong></div>
+				<div class="content">- -</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hMailServer配置图文详细教程</h3>
+				<div class="date">发表于 : <strong>2014年12月24日, 11:19</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">外部帐号  -是指通过pop3连接其他邮箱，比如你的QQ邮箱，当你的QQ邮箱有邮件，就会下载到你的hmailserver的邮箱，邮件代收的意思。可以不用添加，</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hMailServer配置图文详细教程</h3>
+				<div class="date">发表于 : <strong>2015年2月13日, 21:46</strong></div>
+				<div class="author">由 <strong>goldhs</strong></div>
+				<div class="content">我有个问题，我的邮件服务器部在局域网内，是通过网关把服务器的SMTP端口出去的，请问SMTP应该绑定内网地址还是公网地址。？</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hMailServer配置图文详细教程</h3>
+				<div class="date">发表于 : <strong>2015年2月14日, 13:20</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content"><blockquote><div><cite>goldhs 写了:</cite>我有个问题，我的邮件服务器部在局域网内，是通过网关把服务器的SMTP端口出去的，请问SMTP应该绑定内网地址还是公网地址。？</div></blockquote>
+
+<br>
+只涉及到内网，在内网收发就内网。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hMailServer配置图文详细教程</h3>
+				<div class="date">发表于 : <strong>2015年2月15日, 11:30</strong></div>
+				<div class="author">由 <strong>goldhs</strong></div>
+				<div class="content">我指的对内网和外网的用户都提供邮件服务，是要绑定的是哪个地址（局域网地址，公网地址，还是0.0.0.0）  ，邮件服务器在局域网内，通过网关使邮件服务器提供网外服务的！</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hMailServer配置图文详细教程</h3>
+				<div class="date">发表于 : <strong>2015年2月16日, 16:32</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content"><blockquote><div><cite>goldhs 写了:</cite>我指的对内网和外网的用户都提供邮件服务，是要绑定的是哪个地址（局域网地址，公网地址，还是0.0.0.0）  ，邮件服务器在局域网内，通过网关使邮件服务器提供网外服务的！</div></blockquote>
+?貌似你应该用外网的IP 。设置成0.0.0.0</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hMailServer配置图文详细教程</h3>
+				<div class="date">发表于 : <strong>2015年3月21日, 18:37</strong></div>
+				<div class="author">由 <strong>q9007308</strong></div>
+				<div class="content">一切都配置好了，就是没有做DNS解析</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>3</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=6&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:18:35 GMT -->
+</html>

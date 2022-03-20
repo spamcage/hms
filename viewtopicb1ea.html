@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=63&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:24:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; 无法获取PTR记录，邮件延迟几小时</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>无法获取PTR记录，邮件延迟几小时</h2>
+		<p><a href="viewtopic5671.html?f=3&amp;t=63">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=63</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>无法获取PTR记录，邮件延迟几小时</h3>
+				<div class="date">发表于 : <strong>2015年3月13日, 17:04</strong></div>
+				<div class="author">由 <strong>chen_hh2</strong></div>
+				<div class="content">以前一直发送邮件很正常，最近出现发送邮件延迟好几个小时的情况，邮件日志如下，日志中可以看到"Could not retrieve PTR record for IP (false)! 223.xxx.xxx.140"，然后就加入了异步发送队列，所以延迟很久。<br>
+发送邮件的服务器上查询PTR都是有的，为啥还提示无法获取PTR记录呢，请高手指点<br>
+<br>
+我的邮件服务器IP比如： 223.xxx.xxx.169，邮件域名：mail.xxxxxxx.com<br>
+<br>
+PTR记录查询结果：<br>
+C:\Users\yb&gt;nslookup -qt=ptr 223.xxx.xxx.xxx<br>
+服务器:  UnKnown<br>
+Address:  172.16.56.11<br>
+<br>
+非权威应答:<br>
+169.xxx.xxx.223.in-addr.arpa      name = mail.xxxxxxx.com<br>
+<br>
+3.xxx.223.in-addr.arpa  nameserver = ns1.xgslb.net<br>
+3.xxx.223.in-addr.arpa  nameserver = ns2.xgslb.net<br>
+3.xxx.223.in-addr.arpa  nameserver = ns3.xgslb.net<br>
+3.xxx.223.in-addr.arpa  nameserver = ns4.xgslb.net<br>
+ns1.xgslb.net   internet address = 42.159.134.192<br>
+ns2.xgslb.net   internet address = 42.159.8.176<br>
+ns3.xgslb.net   internet address = 42.159.8.176<br>
+<br>
+<br>
+邮件日志：<br>
+"DEBUG"	1796	"2015-03-13 00:01:51.649"	"Creating session 140768"<br>
+"TCPIP"	1796	"2015-03-13 00:01:51.649"	"TCP - 223.xxx.xxx.140 connected to 10.124.153.251:25."<br>
+"DEBUG"	1796	"2015-03-13 00:01:51.651"	"TCP connection started for session 140757"<br>
+"SMTPD"	1796	140757	"2015-03-13 00:01:51.651"	"223.xxx.xxx.140"	"SENT: 220 mail.xxx.com ESMTP"<br>
+"SMTPD"	4504	140757	"2015-03-13 00:01:51.652"	"223.xxx.xxx.140"	"RECEIVED: EHLO YB-WEB"<br>
+"SMTPD"	4504	140757	"2015-03-13 00:01:51.652"	"223.xxx.xxx.140"	"SENT: 250-mail.xxx.com[nl]250-SIZE 20480000[nl]250 AUTH LOGIN"<br>
+"SMTPD"	3472	140757	"2015-03-13 00:01:51.653"	"223.xxx.xxx.140"	"RECEIVED: AUTH LOGIN"<br>
+"SMTPD"	3472	140757	"2015-03-13 00:01:51.653"	"223.xxx.xxx.140"	"SENT: 334 VXNlcm5hbWU6"<br>
+"SMTPD"	4352	140757	"2015-03-13 00:01:51.654"	"223.xxx.xxx.140"	"RECEIVED: aW5mb0B5YW9mYW5nd2FuZy5jb20="<br>
+"SMTPD"	4352	140757	"2015-03-13 00:01:51.654"	"223.xxx.xxx.140"	"SENT: 334 UGFzc3dvcmQ6"<br>
+"SMTPD"	3472	140757	"2015-03-13 00:01:51.654"	"223.xxx.xxx.140"	"RECEIVED: ***"<br>
+"SMTPD"	3472	140757	"2015-03-13 00:01:51.657"	"223.xxx.xxx.140"	"SENT: 235 authenticated."<br>
+"SMTPD"	1796	140757	"2015-03-13 00:01:51.657"	"223.xxx.xxx.140"	"RECEIVED: MAIL FROM:&lt;<a href="mailto:info@xxxxxx.com">info@xxxxxx.com</a>&gt;"<br>
+"SMTPD"	1796	140757	"2015-03-13 00:01:51.658"	"223.xxx.xxx.140"	"SENT: 250 OK"<br>
+"SMTPD"	4504	140757	"2015-03-13 00:01:51.659"	"223.xxx.xxx.140"	"RECEIVED: RCPT TO:&lt;<a href="mailto:xxxx@qq.com">xxxx@qq.com</a>&gt;"<br>
+"SMTPD"	4504	140757	"2015-03-13 00:01:51.661"	"223.xxx.xxx.140"	"SENT: 250 OK"<br>
+"SMTPD"	4352	140757	"2015-03-13 00:01:51.661"	"223.xxx.xxx.140"	"RECEIVED: DATA"<br>
+"SMTPD"	4352	140757	"2015-03-13 00:01:51.662"	"223.xxx.xxx.140"	"SENT: 354 OK, send."<br>
+"DEBUG"	4504	"2015-03-13 00:01:51.663"	"<strong class="text-strong"><span style="color:#FF0000">Could not retrieve PTR record for IP (false)! 223.xxx.xxx.140</span></strong>"<br>
+"DEBUG"	4504	"2015-03-13 00:01:51.664"	"Adding task AsynchronousTask to work queue Asynchronous task queue"<br>
+"DEBUG"	2368	"2015-03-13 00:01:51.664"	"Executing task AsynchronousTask in work queue Asynchronous task queue"<br>
+"DEBUG"	2368	"2015-03-13 00:01:51.664"	"Saving message: {1870D8C8-CF8A-4888-A856-77A850273E9B}.eml"<br>
+"DEBUG"	2368	"2015-03-13 00:01:51.667"	"Requesting SMTPDeliveryManager to start message delivery"<br>
+"SMTPD"	2368	140757	"2015-03-13 00:01:51.667"	"223.xxx.xxx.140"	"SENT: 250 Queued (0.000 seconds)"<br>
+"SMTPD"	1796	140757	"2015-03-13 00:01:51.668"	"223.xxx.xxx.140"	"RECEIVED: QUIT"<br>
+"SMTPD"	1796	140757	"2015-03-13 00:01:51.668"	"223.xxx.xxx.140"	"SENT: 221 goodbye"<br>
+"DEBUG"	4352	"2015-03-13 00:01:51.668"	"Ending session 140757"</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 无法获取PTR记录，邮件延迟几小时</h3>
+				<div class="date">发表于 : <strong>2015年3月13日, 22:42</strong></div>
+				<div class="author">由 <strong>Ching</strong></div>
+				<div class="content">诊断 有无问题？</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 无法获取PTR记录，邮件延迟几小时</h3>
+				<div class="date">发表于 : <strong>2015年3月16日, 14:46</strong></div>
+				<div class="author">由 <strong>chen_hh2</strong></div>
+				<div class="content">诊断的话没有问题，PTR记录都有<br>
+PTR记录查询结果：<br>
+C:\Users\yb&gt;nslookup -qt=ptr 223.xxx.xxx.xxx<br>
+服务器: UnKnown<br>
+Address: 172.16.56.11<br>
+<br>
+非权威应答:<br>
+169.xxx.xxx.223.in-addr.arpa name = mail.xxxxxxx.com<br>
+<br>
+3.xxx.223.in-addr.arpa nameserver = ns1.xgslb.net<br>
+3.xxx.223.in-addr.arpa nameserver = ns2.xgslb.net<br>
+3.xxx.223.in-addr.arpa nameserver = ns3.xgslb.net<br>
+3.xxx.223.in-addr.arpa nameserver = ns4.xgslb.net<br>
+ns1.xgslb.net internet address = 42.159.134.192<br>
+ns2.xgslb.net internet address = 42.159.8.176<br>
+ns3.xgslb.net internet address = 42.159.8.176</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 无法获取PTR记录，邮件延迟几小时</h3>
+				<div class="date">发表于 : <strong>2015年3月16日, 15:47</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">DKIM</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=63&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:24:23 GMT -->
+</html>

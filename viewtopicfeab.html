@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?p=1021 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:19:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>roudcube webmail全局通讯录折叠、展开分组,已更新为插件形式 - hMailServer中文论坛</title>
+
+	<link rel="alternate" type="application/atom+xml" title="Feed - hMailServer中文论坛" href="app.php/feed.html">			<link rel="alternate" type="application/atom+xml" title="Feed - 新主题" href="app.php/feed/topics.html">		<link rel="alternate" type="application/atom+xml" title="Feed - 版面 - 教程发布" href="app.php/feed/forum/4.html">	<link rel="alternate" type="application/atom+xml" title="Feed - 主题 - roudcube webmail全局通讯录折叠、展开分组,已更新为插件形式" href="app.php/feed/topic/569.html">	
+	<link rel="canonical" href="viewtopicc112.html?t=569">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="assets/css/font-awesome.min871b.css?assets_version=936" rel="stylesheet">
+<link href="styles/prosilver/theme/stylesheet871b.css?assets_version=936" rel="stylesheet">
+<link href="styles/prosilver/theme/zh_cmn_hans/stylesheet871b.html?assets_version=936" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/prosilver/theme/tweaks.css?assets_version=936" rel="stylesheet">
+<![endif]-->
+
+	
+<link href="ext/phpbb/boardannouncements/styles/all/theme/boardannouncements871b.css?assets_version=936" rel="stylesheet" media="screen" />
+<link href="ext/phpbb/ads/styles/all/theme/phpbbads871b.css?assets_version=936" rel="stylesheet" media="screen" />
+
+
+
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+				<a id="logo" class="logo" href="index-2.html" title="论坛首页"><span class="site_logo"></span></a>
+				<h1>hMailServer中文论坛</h1>
+				<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。</p>
+				<p class="skiplink"><a href="#start_here">跳到内容</a></p>
+			</div>
+
+									<div id="search-box" class="search-box search-header" role="search">
+				<form action="https://www.hmailserver.org/search.php" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="按关键词搜索" class="inputbox search tiny" size="20" value="" placeholder="搜索……" />
+					<button class="button button-search" type="submit" title="搜索">
+						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+					</button>
+					<a href="search.html" class="button button-search-end" title="高级搜索">
+						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+					</a>
+					
+				</fieldset>
+				</form>
+			</div>
+						
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>快捷链接</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+											<li class="separator"></li>
+																									<li>
+								<a href="search33a7.html?search_id=unanswered" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>查看没有回复的主题</span>
+								</a>
+							</li>
+							<li>
+								<a href="search526f.html?search_id=active_topics" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>查看活跃的主题</span>
+								</a>
+							</li>
+							<li class="separator"></li>
+							<li>
+								<a href="search.html" role="menuitem">
+									<i class="icon fa-search fa-fw" aria-hidden="true"></i><span>搜索</span>
+								</a>
+							</li>
+					
+										<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="ucp26c3.html?mode=login" title="登录" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>登录</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="ucp8319.html?mode=register" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>注册</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+				
+		
+		<li class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+
+			
+							<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope><a itemprop="item" href="index-2.html" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="name">论坛首页</span></a><meta itemprop="position" content="1" /></span>
+
+											
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="12"><a itemprop="item" href="viewforum01c9.html?f=12"><span itemprop="name">讨论</span></a><meta itemprop="position" content="2" /></span>
+															
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="4"><a itemprop="item" href="viewforum31e6.html?f=4"><span itemprop="name">教程发布</span></a><meta itemprop="position" content="3" /></span>
+							
+					</li>
+
+		
+					<li class="rightside responsive-search">
+				<a href="search.html" title="查看高级搜索选项" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+				<div id="phpbb_announcement">
+		<a href="app.php/boardannouncements/close3ef5.html?hash=dc7c24e5" data-ajax="close_announcement" data-overlay="false" class="close clearfix" title="Close announcement"></a>		<div><span style="color:#0000FF">hMailServer中文论坛 QQ群：80049760</span></div>
+	</div>
+
+<h2 class="topic-title"><a href="viewtopiccf63.html?f=4&amp;t=569">roudcube webmail全局通讯录折叠、展开分组,已更新为插件形式</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">hMailServer教程相关文章。<br /></div>
+<p>
+	<strong>版主:</strong> <a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>
+</p>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="posting29a7.html?mode=reply&amp;f=4&amp;t=569" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="viewtopicb86e.html?f=4&amp;t=569&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="https://www.hmailserver.org/search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="查找这个主题……" />
+				<button class="button button-search" type="submit" title="搜索">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</button>
+				<a href="search.html" class="button button-search-end" title="高级搜索">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+				</a>
+				<input type="hidden" name="t" value="569" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			7 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+		</div>
+
+
+
+
+			<div id="p1021" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1021">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlistccd7.html?mode=viewprofile&amp;u=408" class="username">ainiyli2008</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="searchb449.html?author_id=408&amp;sr=posts">4</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2016年3月14日, 16:35</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1021">
+
+						<h3 class="first"><a href="viewtopicfeab.html?p=1021#p1021">roudcube webmail全局通讯录折叠、展开分组,已更新为插件形式</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting6b39.html?mode=quote&amp;f=4&amp;p=1021" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopicfeab.html?p=1021#p1021" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistccd7.html?mode=viewprofile&amp;u=408" class="username">ainiyli2008</a></strong> &raquo; </span><time datetime="2016-03-14T08:55:22+00:00">2016年3月14日, 16:55</time>
+			</p>
+			
+			
+			
+			<div class="content">官网提供的全局通讯录，在写邮件的时候，左侧联系人并不按照分组 分别存放，而是一股脑放在一起，比较蛋疼，之前这篇帖子介绍过怎么按分组显示，是修改的源码和模版，太笨拙了，严重有悖于roundcube的可扩展性。。后来研究了一下，我做成了插件，，，本来寻思修改官网的globaladdressbook插件。。可是工作太忙没时间研究，，就自己另写了一个插件。。本插件依赖于globaladdressbook插件。。。如果之前按照本教程修改过，得把  /skins/模版/templates/compose.html下的添加过的3个tongxunlu.js tongxunlu.php tongxunlu.css引用文件删了。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/filed919.png?id=342" class="postimage" alt="360截图20170515150346500.png" onclick="viewableArea(this);" /></dt>
+						<dd>360截图20170515150346500.png (17.22 KiB) 查看 22681 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+2016-11-03<br>
+修改了一个bug。。在代码中直接自动获取邮件域名，从而正确获取联系人分组、人员<br>
+2016-11-26<br>
+部分用户使用了PHP5以上版本。导致了数据库链接不能使用，在此更新问mysqli连接方式。<br>
+<br>
+2017-05-15<br>
+之前一个群友，问我这个插件怎么不好用，我通过远程看他的配置，发现没有问题。我又仔细看了看globaladdressbook的配置，是有错误的。。他的情况是这样：他部署了2个域，一个aaa.com,一个bbb.com。globaladdressbook的配置文件下有一个地方：$config['globaladdressbook_user'] = '[global_addressbook@%d]';    问题就在于%d。我看有的教程写成了$config['globaladdressbook_user'] = '[global_addressbook@user]';等各种各样。。。反正如果你是多域的，这个地方就要写%d，以便来动态获取。怎么配置多域可以参考下http://blog.dvxj.com/pandola/roundcube-webmail-plugins.html<br>
+2017-07-20<br>
+我妥协了。。哈哈大部分人使用的是论坛的教程，把global_addressbook@d写死成global_addressbook_user，所以我插件里动态获取就不好用了。这里也把我插件里的动态获取的地方写死。 应该就可以用了。如果有人反而是按标准配的global_addressbook@%d，那就把global_addressbook_fenzu.php 48、50行改为：<br>
+48： $fenzu="select * from contactgroups a where user_id in (SELECT b.user_id from users b where b.username='[global_addressbook@".$rcmail-&gt;user-&gt;get_username('domain')."]')";//构建查询语句<br>
+50： $query="select * from contacts a where user_id in (SELECT b.user_id from users b where b.username='[global_addressbook@".$rcmail-&gt;user-&gt;get_username('domain')."]')";//构建查询语句 <br>
+等后面有时间我把依赖的global_addressbook插件也重写，把global_addressbook和global_addressbook_fenzu融合成一个。。</div>
+
+			
+							<dl class="attachbox">
+					<dt>
+						附件
+					</dt>
+											<dd>
+			
+		
+		
+				<dl class="file">
+			<dt><span class="imageset icon_topic_attach"></span> <a class="postlink" href="download/filef1d7.php?id=347">globaladdressbook_fenzu.rar</a></dt>
+						<dd>(47.38 KiB) 下载 169 次</dd>
+		</dl>
+		
+		
+			</dd>
+									</dl>
+			
+													<div class="notice">
+					上次由 <a href="memberlistccd7.html?mode=viewprofile&amp;u=408" class="username">ainiyli2008</a> 在 2017年7月20日, 10:43，总共编辑 11 次。
+									</div>
+			
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				
+			<div id="p1022" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1022">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlistc29e.html?mode=viewprofile&amp;u=405" class="username">lqh280</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search900d.html?author_id=405&amp;sr=posts">3</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2016年3月10日, 11:05</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1022">
+
+						<h3 ><a href="viewtopicb703.html?p=1022#p1022">Re: roudcube webmail全局通讯录折叠、展开分组</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="postingf429.html?mode=quote&amp;f=4&amp;p=1022" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopicb703.html?p=1022#p1022" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistc29e.html?mode=viewprofile&amp;u=405" class="username">lqh280</a></strong> &raquo; </span><time datetime="2016-03-14T09:13:39+00:00">2016年3月14日, 17:13</time>
+			</p>
+			
+			
+			
+			<div class="content">这个不错，感谢分享</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p1023" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1023">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" class="avatar"><img class="avatar" src="download/file1d88.png?avatar=2_1421286644.png" width="100" height="100" alt="头像" /></a>														</div>
+								<a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>							</dt>
+
+						<dd class="profile-rank">网站管理员<br /><img src="images/ranks/administrator.png" alt="网站管理员" title="网站管理员" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search51e1.html?author_id=2&amp;sr=posts">335</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2014年11月26日, 12:41</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>地址:</strong> 上海</dd>
+												
+							<dd class="profile-contact">
+				<strong>联系:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="#" class="dropdown-trigger" title="联系 Hsia">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">联系 Hsia</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="index.html" title="网站" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">网站</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1023">
+
+						<h3 ><a href="viewtopicf884.html?p=1023#p1023">Re: roudcube webmail全局通讯录折叠、展开分组</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting62d9.html?mode=quote&amp;f=4&amp;p=1023" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopicf884.html?p=1023#p1023" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a></strong> &raquo; </span><time datetime="2016-03-14T10:53:38+00:00">2016年3月14日, 18:53</time>
+			</p>
+			
+			
+			
+			<div class="content">这个写得不错。看似说得有些复杂，其实就是加个网页进去。写得很详细。</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p3003" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3003">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist6d6e.html?mode=viewprofile&amp;u=791" class="username">吴所谓</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="searchd7b8.html?author_id=791&amp;sr=posts">3</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2016年10月16日, 22:06</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3003">
+
+						<h3 ><a href="viewtopic544d.html?p=3003#p3003">Re: roudcube webmail全局通讯录折叠、展开分组,已更新为插件形式</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="postingebf3.html?mode=quote&amp;f=4&amp;p=3003" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic544d.html?p=3003#p3003" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlist6d6e.html?mode=viewprofile&amp;u=791" class="username">吴所谓</a></strong> &raquo; </span><time datetime="2016-11-25T11:58:58+00:00">2016年11月25日, 19:58</time>
+			</p>
+			
+			
+			
+			<div class="content">实际运用不起作用</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p3363" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3363">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist348c.html?mode=viewprofile&amp;u=981" class="username">feng52499</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search4ee6.html?author_id=981&amp;sr=posts">2</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2017年3月10日, 09:06</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3363">
+
+						<h3 ><a href="viewtopic628e.html?p=3363#p3363">Re: roudcube webmail全局通讯录折叠、展开分组,已更新为插件形式</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="postingea42.html?mode=quote&amp;f=4&amp;p=3363" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic628e.html?p=3363#p3363" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlist348c.html?mode=viewprofile&amp;u=981" class="username">feng52499</a></strong> &raquo; </span><time datetime="2017-03-23T05:48:56+00:00">2017年3月23日, 13:48</time>
+			</p>
+			
+			
+			
+			<div class="content">我把全局通讯录 插件和这个插件都加载了 还是不起作用啊</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p3364" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3364">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist348c.html?mode=viewprofile&amp;u=981" class="username">feng52499</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search4ee6.html?author_id=981&amp;sr=posts">2</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2017年3月10日, 09:06</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3364">
+
+						<h3 ><a href="viewtopic9e5d.html?p=3364#p3364">Re: roudcube webmail全局通讯录折叠、展开分组,已更新为插件形式</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting5362.html?mode=quote&amp;f=4&amp;p=3364" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic9e5d.html?p=3364#p3364" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlist348c.html?mode=viewprofile&amp;u=981" class="username">feng52499</a></strong> &raquo; </span><time datetime="2017-03-24T07:55:52+00:00">2017年3月24日, 15:55</time>
+			</p>
+			
+			
+			
+			<div class="content"><blockquote><div><cite>feng52499 写了:</cite>我把全局通讯录 插件和这个插件都加载了 还是不起作用啊</div></blockquote>
+加1</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p3445" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3445">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlistafb6.html?mode=viewprofile&amp;u=1110" class="username">csheng</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="searchf034.html?author_id=1110&amp;sr=posts">1</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2018年2月27日, 16:31</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3445">
+
+						<h3 ><a href="viewtopic07c0.html?p=3445#p3445">Re: roudcube webmail全局通讯录折叠、展开分组,已更新为插件形式</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting5b92.html?mode=quote&amp;f=4&amp;p=3445" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic07c0.html?p=3445#p3445" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistafb6.html?mode=viewprofile&amp;u=1110" class="username">csheng</a></strong> &raquo; </span><time datetime="2018-02-27T08:35:52+00:00">2018年2月27日, 16:35</time>
+			</p>
+			
+			
+			
+			<div class="content">没看懂要怎么使用，直接copy过去吗？</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+			
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="posting29a7.html?mode=reply&amp;f=4&amp;t=569" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="viewtopicb86e.html?f=4&amp;t=569&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=569">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="SORT_OPTIONS" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>显示: <select name="st" id="st"><option value="0" selected="selected">全部帖子</option><option value="1">1天</option><option value="7">7天</option><option value="14">2周</option><option value="30">1个月</option><option value="90">3个月</option><option value="180">6个月</option><option value="365">1年</option></select></label>
+								<label>排序: <select name="sk" id="sk"><option value="a">作者</option><option value="t" selected="selected">发表时间</option><option value="s">标题</option></select></label>
+				<label>SORT_DIRECTION: <select name="sd" id="sd"><option value="a" selected="selected">升序</option><option value="d">降序</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="去" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			7 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="viewforum31e6.html?f=4" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>回到 “教程发布”</span>
+		</a>
+	</p>
+	
+		<br /><br />
+	</div>
+
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="index-2.html" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>论坛首页</span></a></span>					</li>
+		
+				<li class="rightside">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr></li>
+							<li class="rightside"><a href="viewtopic928e.html?f=5&amp;t=13">hMailServer汉化文件</a>
+				<a href="ucp033a.html?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem"><a href="viewtopic6053.html?f=4&amp;t=2300">邮件查询工具</a>
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>删除全部论坛cookie</span>
+				</a>
+			</li>
+														</ul>
+
+	</div>
+</div>
+<!--
+<h3 style="padding-top: 8px;">advertisements</h3>
+
+-->
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持</span>
+		</p>
+				<p class="footer-row">
+			<span class="footer-copyright">Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a></span>
+		</p>
+				
+				
+		
+				
+	</div>
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="错误" data-l-timeout-processing-req="请求超时。">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+
+<script src="assets/javascript/jquery.min871b.js?assets_version=936"></script>
+<script src="assets/javascript/core871b.js?assets_version=936"></script>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	<img src="cron78d2.gif?cron_type=cron.task.core.tidy_sessions" width="1" height="1" alt="cron" /></div>
+
+<script src="assets/javascript/jquery.min871b.js?assets_version=936"></script>
+<script src="assets/javascript/core871b.js?assets_version=936"></script>
+
+
+
+
+
+<script src="ext/phpbb/boardannouncements/styles/all/template/js/boardannouncements871b.js?assets_version=936"></script>
+<script src="styles/prosilver/template/forum_fn871b.js?assets_version=936"></script>
+<script src="styles/prosilver/template/ajax871b.js?assets_version=936"></script>
+
+
+
+
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?p=1021 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:19:28 GMT -->
+</html>

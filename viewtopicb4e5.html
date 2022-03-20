@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=111&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:23:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; 配置好可以收到外网发来的邮件，但是发邮件到外网失败，急求救</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>配置好可以收到外网发来的邮件，但是发邮件到外网失败，急求救</h2>
+		<p><a href="viewtopic1aa8.html?f=3&amp;t=111">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=111</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>2</strong></div>
+					<div class="post">
+				<h3>配置好可以收到外网发来的邮件，但是发邮件到外网失败，急求救</h3>
+				<div class="date">发表于 : <strong>2015年5月8日, 10:22</strong></div>
+				<div class="author">由 <strong>jasonshaw</strong></div>
+				<div class="content">配置好了<br>
+hmailserver 内部收发很快，什么问题没有<br>
+但是对于外网，只能收取发来的邮件，但是无法发送邮件到外网<br>
+紧急求解<br>
+已经按照版主的帖子，域名解析，添加了dkim 还有 ssl<br>
+<br>
+顺道问一下，哪个dkim 复制过来的那个public 换行过去 是需要删除吗？还是直接复制？<br>
+诊断：<br>
+Test: Collect server details<br>
+hMailServer version: hMailServer 5.6.3-B2249<br>
+Database type: MySQL<br>
+<br>
+Test: Test IPv6<br>
+IPv6 support is available in operating system.<br>
+<br>
+Test: Test outbound port<br>
+SMTP relayer not in use. Attempting mail.hmailserver.com:25...<br>
+Local address is 58.xxx.xxx.xxx.<br>
+Trying to connect to host mail.hmailserver.com...<br>
+Trying to connect to TCP/IP address 46.163.109.39 on port 25.<br>
+ERROR: Unable to bind to address 58.xxx.xxx.xxx.<br>
+<br>
+Test: Test backup directory<br>
+Backup directory F:\hmail\backup is writable.<br>
+<br>
+Test: Test MX records<br>
+Trying to resolve MX records for xxx.net...<br>
+Host name found: mail.xxx.net<br>
+<br>
+Test: Test local connect<br>
+Connecting to TCP/IP address in MX records for local domain domain mobbiz.net...<br>
+Trying to connect to host mail.mobbiz.net...<br>
+Trying to connect to TCP/IP address 58.xxx.xxx.xxx on port 25.<br>
+Received: 220 MobbizMsailSystem ESMTP.<br>
+Connected successfully.<br>
+<br>
+Test: Test message file locations<br>
+Relative message paths are stored in the database for all messages.<br>
+<br>
+Test: Test IP range configuration<br>
+No problems were found in the IP range configuration.</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 配置好可以收到外网发来的邮件，但是发邮件到外网失败，急求救</h3>
+				<div class="date">发表于 : <strong>2015年5月8日, 11:17</strong></div>
+				<div class="author">由 <strong>Ching</strong></div>
+				<div class="content"><blockquote><div><cite>jasonshaw 写了:</cite>配置好了<br>
+hmailserver 内部收发很快，什么问题没有<br>
+但是对于外网，只能收取发来的邮件，但是无法发送邮件到外网<br>
+紧急求解<br>
+已经按照版主的帖子，域名解析，添加了dkim 还有 ssl<br>
+<br>
+顺道问一下，哪个dkim 复制过来的那个public 换行过去 是需要删除吗？还是直接复制？<br>
+诊断：<br>
+Test: Collect server details<br>
+hMailServer version: hMailServer 5.6.3-B2249<br>
+Database type: MySQL<br>
+<br>
+Test: Test IPv6<br>
+IPv6 support is available in operating system.<br>
+<br>
+Test: Test outbound port<br>
+SMTP relayer not in use. Attempting mail.hmailserver.com:25...<br>
+Local address is 58.xxx.xxx.xxx.<br>
+Trying to connect to host mail.hmailserver.com...<br>
+Trying to connect to TCP/IP address 46.163.109.39 on port 25.<br>
+ERROR: Unable to bind to address 58.xxx.xxx.xxx.<br>
+<br>
+Test: Test backup directory<br>
+Backup directory F:\hmail\backup is writable.<br>
+<br>
+Test: Test MX records<br>
+Trying to resolve MX records for xxx.net...<br>
+Host name found: mail.xxx.net<br>
+<br>
+Test: Test local connect<br>
+Connecting to TCP/IP address in MX records for local domain domain mobbiz.net...<br>
+Trying to connect to host mail.mobbiz.net...<br>
+Trying to connect to TCP/IP address 58.xxx.xxx.xxx on port 25.<br>
+Received: 220 MobbizMsailSystem ESMTP.<br>
+Connected successfully.<br>
+<br>
+Test: Test message file locations<br>
+Relative message paths are stored in the database for all messages.<br>
+<br>
+Test: Test IP range configuration<br>
+No problems were found in the IP range configuration.</div></blockquote>
+
+不要改变或者添加任何字符。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 配置好可以收到外网发来的邮件，但是发邮件到外网失败，急求救</h3>
+				<div class="date">发表于 : <strong>2015年5月8日, 11:28</strong></div>
+				<div class="author">由 <strong>Ching</strong></div>
+				<div class="content">是不是还要设置默认域名 （高级-默认域名）<br>
+还要绑定本地Ip？？</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 配置好可以收到外网发来的邮件，但是发邮件到外网失败，急求救</h3>
+				<div class="date">发表于 : <strong>2015年5月8日, 12:20</strong></div>
+				<div class="author">由 <strong>jasonshaw</strong></div>
+				<div class="content">添加了 默认域名 结果依旧<br>
+Test: Collect server details<br>
+hMailServer version: hMailServer 5.6.3-B2249<br>
+Database type: MySQL<br>
+<br>
+Test: Test IPv6<br>
+IPv6 support is available in operating system.<br>
+<br>
+Test: Test outbound port<br>
+SMTP relayer not in use. Attempting mail.hmailserver.com:25...<br>
+Local address is 58.xxx.xxx.xxx.<br>
+Trying to connect to host mail.hmailserver.com...<br>
+Trying to connect to TCP/IP address 46.163.109.39 on port 25.<br>
+ERROR: Unable to bind to address 58.xxx.xxx.xxx.<br>
+<br>
+Test: Test backup directory<br>
+Backup directory F:\hmail\backup is writable.<br>
+<br>
+Test: Test MX records<br>
+Trying to resolve MX records for mobbiz.net...<br>
+Host name found: mail.mobbiz.net<br>
+<br>
+Test: Test local connect<br>
+Connecting to TCP/IP address in MX records for local domain domain mobbiz.net...<br>
+Trying to connect to host mail.mobbiz.net...<br>
+Trying to connect to TCP/IP address 58.xxx.xxx.xxx on port 25.<br>
+Received: 220 mail.mobbiz.net ESMTP.<br>
+Connected successfully.<br>
+<br>
+Test: Test message file locations<br>
+Relative message paths are stored in the database for all messages.<br>
+<br>
+Test: Test IP range configuration<br>
+No problems were found in the IP range configuration.</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 配置好可以收到外网发来的邮件，但是发邮件到外网失败，急求救</h3>
+				<div class="date">发表于 : <strong>2015年5月8日, 12:21</strong></div>
+				<div class="author">由 <strong>jasonshaw</strong></div>
+				<div class="content">关键就是 outbound 测试每次都出错<br>
+<br>
+Test: Test outbound port<br>
+SMTP relayer not in use. Attempting mail.hmailserver.com:25...<br>
+Local address is 58.xxx.xxx.xxx.<br>
+Trying to connect to host mail.hmailserver.com...<br>
+Trying to connect to TCP/IP address 46.163.109.39 on port 25.<br>
+ERROR: Unable to bind to address 58.xxx.xxx.xxx.<br>
+<br>
+完全不可解啊<br>
+<br>
+求高手帮忙解决</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 配置好可以收到外网发来的邮件，但是发邮件到外网失败，急求救</h3>
+				<div class="date">发表于 : <strong>2015年5月8日, 12:29</strong></div>
+				<div class="author">由 <strong>Ching</strong></div>
+				<div class="content">防火墙开没开？ 放行25</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 配置好可以收到外网发来的邮件，但是发邮件到外网失败，急求救</h3>
+				<div class="date">发表于 : <strong>2015年5月8日, 12:32</strong></div>
+				<div class="author">由 <strong>Ching</strong></div>
+				<div class="content">25.143.465.587.993.995</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 配置好可以收到外网发来的邮件，但是发邮件到外网失败，急求救</h3>
+				<div class="date">发表于 : <strong>2015年5月8日, 12:52</strong></div>
+				<div class="author">由 <strong>Ching</strong></div>
+				<div class="content">telnet mail.xxx.com 25 看看通不通</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 配置好可以收到外网发来的邮件，但是发邮件到外网失败，急求救</h3>
+				<div class="date">发表于 : <strong>2015年5月8日, 17:32</strong></div>
+				<div class="author">由 <strong>jasonshaw</strong></div>
+				<div class="content">邮件服务器主机在局域网内<br>
+主机win7，自带防火墙，专门对出站和入站设置了25 110 143 465的通过<br>
+其余几个也需要吗？25.143.465.587.993.995<br>
+<br>
+我刚刚全部建立了放行规则，但是依然如果<br>
+我查看错误 <br>
+<br>
+"ERROR"	12684	"2015-05-08 15:33:00.749"	"Severity: 3 (Medium), Code: HM4330, Source: TCPConnection::Connect, Description: Failed to bind to IP address 58.xxx.xxx.xxx. Remote IP: , Error code: 10049, Message: 在其上下文中，该请求的地址无效。"<br>
+"ERROR"	12684	"2015-05-08 15:33:00.751"	"Severity: 3 (Medium), Code: HM4330, Source: TCPConnection::Connect, Description: Failed to bind to IP address 58.xxx.xxx.xxx. Remote IP: , Error code: 10049, Message: 在其上下文中，该请求的地址无效。"<br>
+"ERROR"	12684	"2015-05-08 15:51:00.772"	"Severity: 3 (Medium), Code: HM4330, Source: TCPConnection::Connect, Description: Failed to bind to IP address 58.xxx.xxx.xxx. Remote IP: , Error code: 10049, Message: 在其上下文中，该请求的地址无效。"<br>
+"ERROR"	12684	"2015-05-08 15:51:00.775"	"Severity: 3 (Medium), Code: HM4330, Source: TCPConnection::Connect, Description: Failed to bind to IP address 58.xxx.xxx.xxx. Remote IP: , Error code: 10049, Message: 在其上下文中，该请求的地址无效。"<br>
+"ERROR"	12684	"2015-05-08 15:51:00.777"	"Severity: 3 (Medium), Code: HM4330, Source: TCPConnection::Connect, Description: Failed to bind to IP address 58.xxx.xxx.xxx. Remote IP: , Error code: 10049, Message: 在其上下文中，该请求的地址无效。"<br>
+"ERROR"	9824	"2015-05-08 17:15:03.706"	"Severity: 3 (Medium), Code: HM4330, Source: TCPConnection::Connect, Description: Failed to bind to IP address 58.xxx.xxx.xxx. Remote IP: , Error code: 10049, Message: 在其上下文中，该请求的地址无效。"<br>
+"ERROR"	9824	"2015-05-08 17:15:03.895"	"Severity: 3 (Medium), Code: HM4330, Source: TCPConnection::Connect, Description: Failed to bind to IP address 58.xxx.xxx.xxx. Remote IP: , Error code: 10049, Message: 在其上下文中，该请求的地址无效。"<br>
+"ERROR"	9824	"2015-05-08 17:15:03.897"	"Severity: 3 (Medium), Code: HM4330, Source: TCPConnection::Connect, Description: Failed to bind to IP address 58.xxx.xxx.xxx. Remote IP: , Error code: 10049, Message: 在其上下文中，该请求的地址无效。"<br>
+"ERROR"	9824	"2015-05-08 17:17:14.402"	"Severity: 3 (Medium), Code: HM4330, Source: TCPConnection::Connect, Description: Failed to bind to IP address 58.xxx.xxx.xxx. Remote IP: , Error code: 10049, Message: 在其上下文中，该请求的地址无效。"<br>
+"ERROR"	9824	"2015-05-08 17:17:14.403"	"Severity: 3 (Medium), Code: HM4330, Source: TCPConnection::Connect, Description: Failed to bind to IP address 58.xxx.xxx.xxx. Remote IP: , Error code: 10049, Message: 在其上下文中，该请求的地址无效。"<br>
+"ERROR"	9824	"2015-05-08 17:17:14.405"	"Severity: 3 (Medium), Code: HM4330, Source: TCPConnection::Connect, Description: Failed to bind to IP address 58.xxx.xxx.xxx. Remote IP: , Error code: 10049, Message: 在其上下文中，该请求的地址无效。"<br>
+<br>
+<br>
+似乎还有未知的人利用我的服务器发邮件？<br>
+2015-05-06 16:29:44	<a href="mailto:admin@xxxx.net">admin@xxxx.net</a>	<a href="mailto:admin@xxxx.net">admin@xxxx.net</a>	58.xxx.xxx.xxx	127.0.0.1	SMTP	?	250	1774<br>
+2015-05-06 16:33:56	<a href="mailto:powerinovetor@int.ms">powerinovetor@int.ms</a>	<a href="mailto:admin@xxxx.net">admin@xxxx.net</a>	92.222.146.144	127.0.0.1	SMTP	?	250	2341<br>
+2015-05-07 17:14:42	<a href="mailto:admin@xxxx.net">admin@xxxx.net</a>	<a href="mailto:admin@xxxx.net">admin@xxxx.net</a>	58.xxx.xxx.xxx	127.0.0.1	SMTP	?	250	1784<br>
+2015-05-07 20:57:10	<a href="mailto:abc@163.com">abc@163.com</a>	<a href="mailto:admin@xxxx.net">admin@xxxx.net</a>	220.181.12.11	127.0.0.1	SMTP	?	250	3428<br>
+2015-05-07 21:26:12	<a href="mailto:admin@xxxx.net">admin@xxxx.net</a>	<a href="mailto:abc@foxmail.com">abc@foxmail.com</a>	58.xxx.xxx.xxx	127.0.0.1	SMTP	?	550	0<br>
+2015-05-07 21:26:12	<a href="mailto:admin@xxxx.net">admin@xxxx.net</a>	<a href="mailto:abc@foxmail.com">abc@foxmail.com</a>	58.xxx.xxx.xxx	127.0.0.1	SMTP	?	550	0<br>
+2015-05-07 21:27:10		<a href="mailto:admin@xxxx.net">admin@xxxx.net</a>	127.0.0.1	127.0.0.1	SMTP	?	250	651<br>
+2015-05-07 22:30:11	<a href="mailto:admin@xxxx.net">admin@xxxx.net</a>	<a href="mailto:abc@163.com">abc@163.com</a>	58.xxx.xxx.xxx	127.0.0.1	SMTP	?	550	0<br>
+2015-05-07 22:30:11	<a href="mailto:admin@xxxx.net">admin@xxxx.net</a>	<a href="mailto:abc@163.com">abc@163.com</a>	58.xxx.xxx.xxx	127.0.0.1	SMTP	?	550	0<br>
+2015-05-07 22:31:10		<a href="mailto:admin@xxxx.net">admin@xxxx.net</a>	127.0.0.1	127.0.0.1	SMTP	?	250	688<br>
+2015-05-08 02:01:47	<a href="mailto:z2007tw@yahoo.com.tw">z2007tw@yahoo.com.tw</a>	<a href="mailto:gk49fawn@yahoo.com.tw">gk49fawn@yahoo.com.tw</a>	1.160.125.228	127.0.0.1	SMTP	?	530	0<br>
+2015-05-08 07:39:01	<a href="mailto:1Jfxw7@FACMNqh.co.kr">1Jfxw7@FACMNqh.co.kr</a>	<a href="mailto:qkrgktjs1212@hanmail.net">qkrgktjs1212@hanmail.net</a>	121.172.154.204	127.0.0.1	SMTP	?	530	0<br>
+<br>
+<a href="mailto:admin@xxxx.net">admin@xxxx.net</a>   是hmailserver上的邮箱 <a href="mailto:abc@foxmail.com">abc@foxmail.com</a> 和 <a href="mailto:abc@163.com">abc@163.com</a>都是用来测试的外部邮箱   <br>
+<a href="mailto:powerinovetor@int.ms">powerinovetor@int.ms</a>  <a href="mailto:z2007tw@yahoo.com.tw">z2007tw@yahoo.com.tw</a> <a href="mailto:1Jfxw7@FACMNqh.co.kr">1Jfxw7@FACMNqh.co.kr</a> 这都是哪里来的？<br>
+<br>
+另外，我的ssl不生效似乎， foxmail里面 勾选ssl就无法收发任何邮件  包括本来通的内网<br>
+<br>
+<br>
+<br>
+我最新的日志中<br>
+Test: Test outbound port<br>
+SMTP relayer not in use. Attempting mail.hmailserver.com:25...<br>
+Local address is 58.xxx.xxx.xx.<br>
+Trying to connect to host mail.hmailserver.com...<br>
+Trying to connect to TCP/IP address 46.163.109.39 on port 25.<br>
+ERROR: Unable to bind to address 58.xxx.xxx.xxx.<br>
+依然是报错</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 配置好可以收到外网发来的邮件，但是发邮件到外网失败，急求救</h3>
+				<div class="date">发表于 : <strong>2015年5月8日, 17:33</strong></div>
+				<div class="author">由 <strong>jasonshaw</strong></div>
+				<div class="content">测试<br>
+telnet mail.xxx.com 25  是指 我自己的域名吗？<br>
+是通的<br>
+<br>
+我测试了 telnet smtp.163.com 25 也是通的</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>2</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=111&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:23:52 GMT -->
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=157&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:17:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; 阻止发送附件</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>阻止发送附件</h2>
+		<p><a href="viewtopice8f4.html?f=3&amp;t=157">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=157</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>阻止发送附件</h3>
+				<div class="date">发表于 : <strong>2015年10月23日, 09:52</strong></div>
+				<div class="author">由 <strong>lfuser</strong></div>
+				<div class="content">Dear all：<br>
+   我使用的就是hmailServer，现在有个需求，希望得到大家的讨论和帮助。<br>
+   需求：阻止部分用户向外域发送带附件的邮件<br>
+<br>
+   hmailServer本身的规则与限制好像没有满足我这需求的。还是我没找到？只找到一个全局阻止附件发送（附件类型*.*，加到附件阻止里），但这不是我想要的。<br>
+<br>
+   我这几天也问了一些人，得到的回复是，需要写脚本才能实现，我在英文论坛逛了半天，找了几个和附件有关的脚本。如下：<br>
+<br>
+   1、收到邮件后，自动提取附件并保存到本地指定目录
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>Sub Router(oMessage)
+      Dim i, strDir, strFile
+      strDir = "D:\Source Files Test\Equipment\"
+      For i = 0 To oMessage.Attachments.Count-1
+         strFile = oMessage.Attachments.item(i).Filename
+         oMessage.Attachments.item(i).SaveAs(strDir &amp; strFile)
+      Next
+End Sub</code></pre></div>
+2、添加附件脚本
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>Sub AddAttachments(oMessage)
+    oMessage.Attachments.Add("C:\Mailing\test.pdf")
+    oMessage.Save
+End Sub</code></pre></div>
+
+因为英文太差，看不下去了。<br>
+<br>
+我的想法是，写一个判断发送邮件是否包含附件的脚本，如果包含则显示提示：“你的帐号不允许向外发送带附件的邮件！ ”，如下：
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>Result.Value = 2
+Result.Message = "你的帐号不允许向外发送带附件的邮件！"</code></pre></div>
+谁帮忙完成一下？谢谢大家啊！</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 阻止发送附件</h3>
+				<div class="date">发表于 : <strong>2015年10月23日, 23:18</strong></div>
+				<div class="author">由 <strong>lfuser</strong></div>
+				<div class="content">经过反复借鉴，最终代码如下，经本人帐号下测试OK。现分享出来：
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>Sub OnAcceptMessage(oClient, oMessage)  
+	'这个事件是在本服务器用户发送邮件时触发，不是接收邮件时触发，这名字取得有点迷惑。。
+	'功能：限制用户外发邮件附件。将需要限制外发的用户邮件地址添加至\hMailServer\Events\LimitUsers.txt
+	'下面定义的四个变量，其目的就是为了取得邮件后缀名，用以判断当前发邮件用户是否为本域用户
+	Dim fromemail, fromemail_domain, authenuser, authenuser_value
+	authenuser = Split((oClient.UserName), "@")
+	authenuser_value = authenuser(1)
+	fromemail = Split((oMessage.FromAddress), "@")
+	fromemail_domain = fromemail(1)
+ 	If oClient.UserName &lt;&gt; "" Then
+  		If LCase(authenuser_value) = LCase(fromemail_domain) And LCase(fromemail_domain) &lt;&gt; LCase("xxxx.com") Then
+			'用户不是以发件者发送邮件且不是本地域名则提示没有被授权，xxxx.com即你的邮件后缀（不含“@”哦！）
+			Result.Value = 2
+			Result.Message = "You are NOT authenticated user!!"
+		ElseIf LCase(authenuser_value) = LCase(fromemail_domain) Then
+			'用户合法
+			Set FSO = CreateObject("Scripting.FileSystemObject")
+			Set txtfile = FSO.OpenTextFile("C:\Program Files (x86)\hMailServer\Events\LimitUsers.txt", 1, TriStateTrue) 
+			'受限用户列表，不懂，先就这么用着，这个txt文件目录不要搞错了！
+			'下面是do...loop循环，一次读取一行直到文件结尾，依次与发件用户进行比较，匹配上则做相应权限控制，我这里是控制外发邮件附件
+			Do Until txtfile.AtEndOfStream
+				Dim strtxt
+				strtxt = Trim(txtfile.ReadLine)
+				If oClient.UserName = strtxt Then
+					'如果匹配上是受限邮件账号，则检查外发邮件是否含有附件？
+					'如果有附件，则检查发送地址是否是本域地址？
+					'如果非本域地址，则禁止发送附件。					
+					If (oMessage.Attachments.Count &gt; 0) Then
+						Dim i
+						For i = 0 To oMessage.Recipients.Count -1
+							If (Not oMessage.Recipients(i).IsLocalUser) Then
+								Result.Value = 2
+								Result.Message = "Don't sent attachments to outside!"
+							End If
+						Next
+					End If		
+	 			End If
+			Loop 
+			txtfile.Close
+		End If    
+ 	End If
+End Sub</code></pre></div>
+
+在这个基础上可以简单修改，控制用户发外部邮件也可以，研究下来，灵活度还是很强大的，就看对它的掌握熟练程度了。<br>
+附个网址：<a href="https://www.hmailserver.com/documentation/latest/?page=overview" class="postlink">https://www.hmailserver.com/documentati ... e=overview</a></div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 阻止发送附件</h3>
+				<div class="date">发表于 : <strong>2015年11月5日, 09:12</strong></div>
+				<div class="author">由 <strong>lfuser</strong></div>
+				<div class="content">可惜，这个脚本有个bug，就是正文中的图片、签名logo之类的也会当成附件，不让发送。</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=157&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:17:08 GMT -->
+</html>

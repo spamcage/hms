@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=1882&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:21:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; hmail自带的PHPWebAdmin有没有安装教程。</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>hmail自带的PHPWebAdmin有没有安装教程。</h2>
+		<p><a href="viewtopic2e1e.html?f=3&amp;t=1882">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=1882</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>hmail自带的PHPWebAdmin有没有安装教程。</h3>
+				<div class="date">发表于 : <strong>2016年12月23日, 13:46</strong></div>
+				<div class="author">由 <strong>Suytres</strong></div>
+				<div class="content">服务器已安装hmail，想继续安装webmial，根目录有个自带PHPWebAdmin，这个有没有教程，服务器web程序在D盘，Hmail在E盘，这个怎么能关联起来。，求教。    ！！！！！！！！！已解决，已验证。自带PHPWebAdmin 是hmail管理web，不是mailweb</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hmail自带的PHPWebAdmin有没有安装教程。</h3>
+				<div class="date">发表于 : <strong>2016年12月23日, 13:52</strong></div>
+				<div class="author">由 <strong>Suytres</strong></div>
+				<div class="content">已找到方法：　<br>
+找到PHPWebAdmin目录，里面有个config-dist.php文件，打开，找到<br>
+$hmail_config['rooturl'] = "<a href="http://localhost/" class="postlink">http://localhost/</a>";<br>
+修改成：<br>
+$hmail_config['rooturl'] = "<a href="http://www.abc.com/mailadmin/" class="postlink">http://www.abc.com/mailadmin/</a>";<br>
+具体的路径根据你自己在Apache里配置的来修改。继续看下面<br>
+$hmail_config['defaultlanguage'] = "english";<br>
+修改成：<br>
+$hmail_config['defaultlanguage'] = "chinese";<br>
+其他不动，保存为config.php。<br>
+　　如果你的PHP环境和WEB服务都正常的话，通过浏览器访问[<a href="http://www.abc.com/mailadmin/" class="postlink">http://www.abc.com/mailadmin/</a>]的话，就能看到邮件系统WEB管理登录的界面了。输入用户名Administrator，密码就是你安装hMailServer时设置的管理员密码，点击确定按钮即可。如果出现乱码，请把hMailServer安装目录里PHPWebAdmin目录中的index.php文件打开，找到：<br>
+&lt;META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1"&gt;<br>
+修改成:<br>
+&lt;META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=gb2312"&gt;</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=1882&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:21:20 GMT -->
+</html>

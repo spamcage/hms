@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=83&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:23:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</h2>
+		<p><a href="viewtopic4bc8.html?f=3&amp;t=83">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=83</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</h3>
+				<div class="date">发表于 : <strong>2015年4月6日, 21:12</strong></div>
+				<div class="author">由 <strong>wings1224</strong></div>
+				<div class="content">Test: Test outbound port<br>
+SMTP relayer not in use. Attempting mail.hmailserver.com:25...<br>
+Local address is 115.159.69.55.<br>
+Trying to connect to host mail.hmailserver.com...<br>
+<span style="color:#FF0000">Trying to connect to TCP/IP address 46.163.109.39 on port 25.<br>
+ERROR: Unable to bind to address 115.159.69.55.</span></div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</h3>
+				<div class="date">发表于 : <strong>2015年4月8日, 11:36</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">1.缺少MX-记录<br>
+2.在DNS记录不正确<br>
+3.你的IP是不是符合您的SPF记录。<br>
+4.在HELO不正确的主机名<br>
+在hMailServer SMTP设置，您需要指定运行hMailServer计算机的主机名。这应该是它有一个A记录的指向你的电脑的IP地址在DNS主机名。如果你输入一些其他的主机名，如本地主机，mycomputername，许多服务器将您的服务器拒绝的电子邮件。<br>
+5.您的IP地址被列入黑名单。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</h3>
+				<div class="date">发表于 : <strong>2015年5月8日, 11:37</strong></div>
+				<div class="author">由 <strong>jasonshaw</strong></div>
+				<div class="content">问题一样<br>
+诊断只有 test outbound port 报错<br>
+一样 unable to bind to address  xxx.xxx.xxx.xxx</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</h3>
+				<div class="date">发表于 : <strong>2015年5月8日, 16:23</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">telnet mail.xxx.com 25 通不通，防火墙放行端口。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</h3>
+				<div class="date">发表于 : <strong>2015年5月9日, 08:57</strong></div>
+				<div class="author">由 <strong>john29</strong></div>
+				<div class="content">你的问题应该跟https://<a href="viewtopic6ff4.html?f=3&amp;t=99" class="postlink">www.hmailserver.org/viewtopic.php?f=3&amp;t=99</a>  一样 ，检查一下smtp相关的设定</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</h3>
+				<div class="date">发表于 : <strong>2015年5月11日, 03:48</strong></div>
+				<div class="author">由 <strong>jasonshaw</strong></div>
+				<div class="content">他的也没有解决方法啊<br>
+继续求大神指点</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</h3>
+				<div class="date">发表于 : <strong>2015年5月11日, 17:03</strong></div>
+				<div class="author">由 <strong>jasonshaw</strong></div>
+				<div class="content">已经解决了，但是不小心删掉了数据库<br>
+结果重新配置，出现新的问题，就是能发到外部邮箱，不能收到外部邮件<br>
+foxmail收到退信：<br>
+无法发送到 <a href="mailto:admin@mobbiz.net">admin@mobbiz.net</a><br>
+退信原因	 未知原因 <br>
+host mail.mobbiz.net[58.247.123.98] said: 550 Delivery is not allowed to this address. (in reply to RCPT TO command)</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</h3>
+				<div class="date">发表于 : <strong>2015年5月11日, 17:21</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">550邮箱无法使用：<br>
+hMailServer从未生成该错误消息。如果hMailServer试图提供一个电子邮件到另一台服务器，但收件人的帐户不能在该服务器上发现，收件人服务器可能会发出此错误消息。<br>
+该错误消息表明您发送电子邮件到一个不正确的地址。如果您确定地址是正确的，它可能会在收件人DNS配置有问题。<br>
+550发件人验证失败：<br>
+当hMailServer提供一个电子邮件到另一台服务器，接收SMTP服务器可以尝试验证的电子邮件发件人是否真的存在。如果验证失败，则可能会错误消息来响应“发件人验证失败”。在这种情况下，电子邮件会被退回给发件人。此验证的工作方式如下：<br>
+hMailServer连接到收件人SMTP服务器<br>
+hMailServer告诉收件人SMTP服务器的电子邮件从<a href="mailto:example@example.com">example@example.com</a><br>
+收件人SMTP服务器查找域example.com MX记录。<br>
+收件人SMTP服务器连接到在MX记录中指定的主机 - 在您的hMailServer服务器如果MX记录设置正确运行的可能。<br>
+在此之后，收件人SMTP服务器发出的命令HELO，MAIL FROM &lt;&gt;和RCPT TO：<br>
+如果hMailServer确认收件人<a href="mailto:example@example.com">example@example.com</a>存在，收件人的SMTP服务器将允许在上面的步骤2开始的输送。<br>
+有几件事情，可以去错在这些步骤：<br>
+如果MX记录域example.com设置不正确，收件人SMTP服务器可能会纠正不正确的SMTP主机和发件人地址验证将失败。<br>
+如果该帐户<a href="mailto:example@example.com">example@example.com</a>不存在时，发送者验证将失败。<br>
+如果您已禁用允许空发件人地址，发件人验证将失败，因为收件人SMTP服务器尝试验证通过使用空发件人地址。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</h3>
+				<div class="date">发表于 : <strong>2015年5月12日, 10:32</strong></div>
+				<div class="author">由 <strong>jasonshaw</strong></div>
+				<div class="content">真是怪事，现在诊断，全部绿色通过<br>
+但是收发全部没反应<br>
+每次提示也没有报错，日志里面也没有报错呢<br>
+现在收发，无论内网，外网全部都无法使用</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 服务器配置后，只能收邮件不能发邮件，诊断如下，请大神帮忙解答</h3>
+				<div class="date">发表于 : <strong>2015年5月12日, 12:18</strong></div>
+				<div class="author">由 <strong>jasonshaw</strong></div>
+				<div class="content">已经解决，诡异的，删除foxmail客户端的账号，然后重新建立一个一模一样的，就ok了！<br>
+晕死<br>
+另外，hmailserver 我重新安装了几次，最后一次安装前，到注册表里面将里面hmailserver相关的所有项都删掉了</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=83&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:23:47 GMT -->
+</html>

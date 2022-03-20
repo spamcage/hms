@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=90&p=1030 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:25:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Roundcube 不能修改密码的解决方法 - hMailServer中文论坛</title>
+
+	<link rel="alternate" type="application/atom+xml" title="Feed - hMailServer中文论坛" href="app.php/feed.html">			<link rel="alternate" type="application/atom+xml" title="Feed - 新主题" href="app.php/feed/topics.html">		<link rel="alternate" type="application/atom+xml" title="Feed - 版面 - 教程发布" href="app.php/feed/forum/4.html">	<link rel="alternate" type="application/atom+xml" title="Feed - 主题 - Roundcube 不能修改密码的解决方法" href="app.php/feed/topic/90.html">	
+	<link rel="canonical" href="viewtopic517b.html?t=90">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="assets/css/font-awesome.min871b.css?assets_version=936" rel="stylesheet">
+<link href="styles/prosilver/theme/stylesheet871b.css?assets_version=936" rel="stylesheet">
+<link href="styles/prosilver/theme/zh_cmn_hans/stylesheet871b.html?assets_version=936" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/prosilver/theme/tweaks.css?assets_version=936" rel="stylesheet">
+<![endif]-->
+
+	
+<link href="ext/phpbb/boardannouncements/styles/all/theme/boardannouncements871b.css?assets_version=936" rel="stylesheet" media="screen" />
+<link href="ext/phpbb/ads/styles/all/theme/phpbbads871b.css?assets_version=936" rel="stylesheet" media="screen" />
+
+
+
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+				<a id="logo" class="logo" href="index-2.html" title="论坛首页"><span class="site_logo"></span></a>
+				<h1>hMailServer中文论坛</h1>
+				<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。</p>
+				<p class="skiplink"><a href="#start_here">跳到内容</a></p>
+			</div>
+
+									<div id="search-box" class="search-box search-header" role="search">
+				<form action="https://www.hmailserver.org/search.php" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="按关键词搜索" class="inputbox search tiny" size="20" value="" placeholder="搜索……" />
+					<button class="button button-search" type="submit" title="搜索">
+						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+					</button>
+					<a href="search.html" class="button button-search-end" title="高级搜索">
+						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+					</a>
+					
+				</fieldset>
+				</form>
+			</div>
+						
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>快捷链接</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+											<li class="separator"></li>
+																									<li>
+								<a href="search33a7.html?search_id=unanswered" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>查看没有回复的主题</span>
+								</a>
+							</li>
+							<li>
+								<a href="search526f.html?search_id=active_topics" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>查看活跃的主题</span>
+								</a>
+							</li>
+							<li class="separator"></li>
+							<li>
+								<a href="search.html" role="menuitem">
+									<i class="icon fa-search fa-fw" aria-hidden="true"></i><span>搜索</span>
+								</a>
+							</li>
+					
+										<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="ucp26c3.html?mode=login" title="登录" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>登录</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="ucp8319.html?mode=register" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>注册</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+				
+		
+		<li class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+
+			
+							<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope><a itemprop="item" href="index-2.html" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="name">论坛首页</span></a><meta itemprop="position" content="1" /></span>
+
+											
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="12"><a itemprop="item" href="viewforum01c9.html?f=12"><span itemprop="name">讨论</span></a><meta itemprop="position" content="2" /></span>
+															
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="4"><a itemprop="item" href="viewforum31e6.html?f=4"><span itemprop="name">教程发布</span></a><meta itemprop="position" content="3" /></span>
+							
+					</li>
+
+		
+					<li class="rightside responsive-search">
+				<a href="search.html" title="查看高级搜索选项" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+				<div id="phpbb_announcement">
+		<a href="app.php/boardannouncements/close3ef5.html?hash=dc7c24e5" data-ajax="close_announcement" data-overlay="false" class="close clearfix" title="Close announcement"></a>		<div><span style="color:#0000FF">hMailServer中文论坛 QQ群：80049760</span></div>
+	</div>
+
+<h2 class="topic-title"><a href="viewtopic9519.html?f=4&amp;t=90">Roundcube 不能修改密码的解决方法</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">hMailServer教程相关文章。<br /></div>
+<p>
+	<strong>版主:</strong> <a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>
+</p>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="posting1e4d.html?mode=reply&amp;f=4&amp;t=90" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="viewtopic29f6.html?f=4&amp;t=90&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="https://www.hmailserver.org/search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="查找这个主题……" />
+				<button class="button button-search" type="submit" title="搜索">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</button>
+				<a href="search.html" class="button button-search-end" title="高级搜索">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+				</a>
+				<input type="hidden" name="t" value="90" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			6 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+		</div>
+
+
+
+
+			<div id="p211" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile211">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" class="avatar"><img class="avatar" src="download/file1d88.png?avatar=2_1421286644.png" width="100" height="100" alt="头像" /></a>														</div>
+								<a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>							</dt>
+
+						<dd class="profile-rank">网站管理员<br /><img src="images/ranks/administrator.png" alt="网站管理员" title="网站管理员" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search51e1.html?author_id=2&amp;sr=posts">335</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2014年11月26日, 12:41</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>地址:</strong> 上海</dd>
+												
+							<dd class="profile-contact">
+				<strong>联系:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="#" class="dropdown-trigger" title="联系 Hsia">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">联系 Hsia</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="index.html" title="网站" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">网站</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content211">
+
+						<h3 class="first"><a href="viewtopic0114.html?p=211#p211">Roundcube 不能修改密码的解决方法</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting6d16.html?mode=quote&amp;f=4&amp;p=211" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic0114.html?p=211#p211" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a></strong> &raquo; </span><time datetime="2015-04-15T09:00:27+00:00">2015年4月15日, 17:00</time>
+			</p>
+			
+			
+			
+			<div class="content">本文重点介绍Roundcube的插件不能修改密码的问题。<br>
+1.启用修改密码的插件：<br>
+修改roundcube的主配文件 config/config.inc.php,启用passwrod插件<br>
+$rcmail_config['plugins'] = array("password");<br>
+2.解决插件不工作，修改密码失败的方法：<br>
+修改password插件本身的配置文件，复制config.inc.php.dist为config.inc.php，然后做如下修改：<br>
+$config['password_driver'] = 'hmail';<br>
+修改 hMail Driver options相关项。<br>
+这段应该是这样的，你不用复制，只需要修改888888，这是你登陆hmailserver 的密码。<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>// hMail Driver options
+// -----------------------
+// Remote hMailServer configuration
+// true:  HMailserver is on a remote box (php.ini: com.allow_dcom = true)
+// false: Hmailserver is on same box as PHP
+$config['hmailserver_remote_dcom'] = false;
+// Windows credentials
+$config['hmailserver_server'] = array(
+    'Server' =&gt; 'localhost', // hostname or ip address
+    'Username' =&gt; 'administrator', // windows username
+    'Password' =&gt; '888888' // windows user password
+);</code></pre></div>
+
+最后启用PHP的php_com_dotnet.dll扩展。</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				
+			<div id="p1030" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1030">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlistc29e.html?mode=viewprofile&amp;u=405" class="username">lqh280</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search900d.html?author_id=405&amp;sr=posts">3</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2016年3月10日, 11:05</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1030">
+
+						<h3 ><a href="viewtopicd072.html?p=1030#p1030">Re: Roundcube 不能修改密码的解决方法</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting2210.html?mode=quote&amp;f=4&amp;p=1030" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopicd072.html?p=1030#p1030" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistc29e.html?mode=viewprofile&amp;u=405" class="username">lqh280</a></strong> &raquo; </span><time datetime="2016-03-19T09:43:26+00:00">2016年3月19日, 17:43</time>
+			</p>
+			
+			
+			
+			<div class="content">如果 mysql 端口不是默认的3306，那么要不是在localhost后面添加“:端口”？</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p1055" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1055">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist3be1.html?mode=viewprofile&amp;u=205" class="username">jumio</a>							</dt>
+
+						<dd class="profile-rank">Level 2<br /><img src="images/ranks/rank2.png" alt="Level 2" title="Level 2" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search6092.html?author_id=205&amp;sr=posts">6</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2015年6月2日, 15:17</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1055">
+
+						<h3 ><a href="viewtopicb0e9.html?p=1055#p1055">Re: Roundcube 不能修改密码的解决方法</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting05c5.html?mode=quote&amp;f=4&amp;p=1055" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopicb0e9.html?p=1055#p1055" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlist3be1.html?mode=viewprofile&amp;u=205" class="username">jumio</a></strong> &raquo; </span><time datetime="2016-03-31T02:52:31+00:00">2016年3月31日, 10:52</time>
+			</p>
+			
+			
+			
+			<div class="content">还有一个方法就是不改hmail，用默认的sql方式。<br>
+<br>
+修改数据库连接串<br>
+<br>
+进入“plugins\password”目录，复制一份config.inc.php.dist文件，修改为config.inc.php，搜索“$config['password_db_dsn']”，修改为：<br>
+
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>$config['password_db_dsn'] = 'mysql://root:yourpassword@localhost/hmailserver';</code></pre></div>
+
+参数说明:<br>
+<br>
+    @mysql:因为roundcube我用的mysql作为数据存储<br>
+<br>
+    @root:访问数据库的用户(需要具有可读写权限)   <br>
+<br>
+    @youpassword：密码，即你访问数据库的用户密码；<br>
+<br>
+    @localhost：本地访问<br>
+<br>
+    @hmailserver：安装hmialserver时的数据库名称；<br>
+<br>
+功能：即链接hmailserver数据库<br>
+<br>
+修改更新密码的SQL语句<br>
+<br>
+搜索“$config['password_query'] ”，找到如下代码：<br>
+
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>'SELECT update_passwd(%c, %u)'</code></pre></div>
+
+修改为：<br>
+
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>$config['password_query'] = 'UPDATE hm_accounts
+ SET accountpassword=md5(%p),accountpwencryption = 2
+ WHERE accountaddress=%u
+LIMIT 1';</code></pre></div>
+
+这样也可以修改密码。</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p1059" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1059">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist65cc.html?mode=viewprofile&amp;u=410" class="username">Royjohn</a>							</dt>
+
+						<dd class="profile-rank">Level 2<br /><img src="images/ranks/rank2.png" alt="Level 2" title="Level 2" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="searchb4e1.html?author_id=410&amp;sr=posts">9</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2016年3月18日, 12:53</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1059">
+
+						<h3 ><a href="viewtopic8973.html?p=1059#p1059">Re: Roundcube 不能修改密码的解决方法</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting6682.html?mode=quote&amp;f=4&amp;p=1059" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic8973.html?p=1059#p1059" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlist65cc.html?mode=viewprofile&amp;u=410" class="username">Royjohn</a></strong> &raquo; </span><time datetime="2016-04-01T06:32:29+00:00">2016年4月1日, 14:32</time>
+			</p>
+			
+			
+			
+			<div class="content"><blockquote><div><cite>jumio 写了:</cite>还有一个方法就是不改hmail，用默认的sql方式。<br>
+<br>
+修改数据库连接串<br>
+<br>
+进入“plugins\password”目录，复制一份config.inc.php.dist文件，修改为config.inc.php，搜索“$config['password_db_dsn']”，修改为：<br>
+
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>$config['password_db_dsn'] = 'mysql://root:yourpassword@localhost/hmailserver';</code></pre></div>
+
+参数说明:<br>
+<br>
+    @mysql:因为roundcube我用的mysql作为数据存储<br>
+<br>
+    @root:访问数据库的用户(需要具有可读写权限)   <br>
+<br>
+    @youpassword：密码，即你访问数据库的用户密码；<br>
+<br>
+    @localhost：本地访问<br>
+<br>
+    @hmailserver：安装hmialserver时的数据库名称；<br>
+<br>
+功能：即链接hmailserver数据库<br>
+<br>
+修改更新密码的SQL语句<br>
+<br>
+搜索“$config['password_query'] ”，找到如下代码：<br>
+
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>'SELECT update_passwd(%c, %u)'</code></pre></div>
+
+修改为：<br>
+
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>$config['password_query'] = 'UPDATE hm_accounts
+ SET accountpassword=md5(%p),accountpwencryption = 2
+ WHERE accountaddress=%u
+LIMIT 1';</code></pre></div>
+
+这样也可以修改密码。</div></blockquote>
+
+哥们，按照你的方法到更改密码界面更改了点保存，我用的是Round  右下角提示保存成功，但是注销一登录，还是原来的密码，新密码没法登录</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p1060" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1060">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist65cc.html?mode=viewprofile&amp;u=410" class="username">Royjohn</a>							</dt>
+
+						<dd class="profile-rank">Level 2<br /><img src="images/ranks/rank2.png" alt="Level 2" title="Level 2" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="searchb4e1.html?author_id=410&amp;sr=posts">9</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2016年3月18日, 12:53</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1060">
+
+						<h3 ><a href="viewtopic07a6.html?p=1060#p1060">Re: Roundcube 不能修改密码的解决方法</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting054b.html?mode=quote&amp;f=4&amp;p=1060" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic07a6.html?p=1060#p1060" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlist65cc.html?mode=viewprofile&amp;u=410" class="username">Royjohn</a></strong> &raquo; </span><time datetime="2016-04-01T06:33:07+00:00">2016年4月1日, 14:33</time>
+			</p>
+			
+			
+			
+			<div class="content">这楼主你的方法我刚才试了，发现不行，点保存之后页面一片空白 ，密码也没更改成功</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p1063" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1063">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" class="avatar"><img class="avatar" src="download/file1d88.png?avatar=2_1421286644.png" width="100" height="100" alt="头像" /></a>														</div>
+								<a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>							</dt>
+
+						<dd class="profile-rank">网站管理员<br /><img src="images/ranks/administrator.png" alt="网站管理员" title="网站管理员" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search51e1.html?author_id=2&amp;sr=posts">335</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2014年11月26日, 12:41</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>地址:</strong> 上海</dd>
+												
+							<dd class="profile-contact">
+				<strong>联系:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="#" class="dropdown-trigger" title="联系 Hsia">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">联系 Hsia</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="index.html" title="网站" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">网站</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1063">
+
+						<h3 ><a href="viewtopic6cfe.html?p=1063#p1063">Re: Roundcube 不能修改密码的解决方法</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="postingc9ae.html?mode=quote&amp;f=4&amp;p=1063" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic6cfe.html?p=1063#p1063" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a></strong> &raquo; </span><time datetime="2016-04-02T13:44:23+00:00">2016年4月2日, 21:44</time>
+			</p>
+			
+			
+			
+			<div class="content">以上两种方法都可行。如果没有成功，一定是遗留什么地方了。 jumio 是在数据库中修改，可行，亲测。</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+			
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="posting1e4d.html?mode=reply&amp;f=4&amp;t=90" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="viewtopic29f6.html?f=4&amp;t=90&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="https://www.hmailserver.org/viewtopic.php?f=4&amp;t=90">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="SORT_OPTIONS" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>显示: <select name="st" id="st"><option value="0" selected="selected">全部帖子</option><option value="1">1天</option><option value="7">7天</option><option value="14">2周</option><option value="30">1个月</option><option value="90">3个月</option><option value="180">6个月</option><option value="365">1年</option></select></label>
+								<label>排序: <select name="sk" id="sk"><option value="a">作者</option><option value="t" selected="selected">发表时间</option><option value="s">标题</option></select></label>
+				<label>SORT_DIRECTION: <select name="sd" id="sd"><option value="a" selected="selected">升序</option><option value="d">降序</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="去" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			6 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="viewforum31e6.html?f=4" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>回到 “教程发布”</span>
+		</a>
+	</p>
+	
+		<br /><br />
+	</div>
+
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="index-2.html" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>论坛首页</span></a></span>					</li>
+		
+				<li class="rightside">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr></li>
+							<li class="rightside"><a href="viewtopic928e.html?f=5&amp;t=13">hMailServer汉化文件</a>
+				<a href="ucp033a.html?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem"><a href="viewtopic6053.html?f=4&amp;t=2300">邮件查询工具</a>
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>删除全部论坛cookie</span>
+				</a>
+			</li>
+														</ul>
+
+	</div>
+</div>
+<!--
+<h3 style="padding-top: 8px;">advertisements</h3>
+
+-->
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持</span>
+		</p>
+				<p class="footer-row">
+			<span class="footer-copyright">Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a></span>
+		</p>
+				
+				
+		
+				
+	</div>
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="错误" data-l-timeout-processing-req="请求超时。">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+
+<script src="assets/javascript/jquery.min871b.js?assets_version=936"></script>
+<script src="assets/javascript/core871b.js?assets_version=936"></script>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	</div>
+
+<script src="assets/javascript/jquery.min871b.js?assets_version=936"></script>
+<script src="assets/javascript/core871b.js?assets_version=936"></script>
+
+
+
+
+
+<script src="ext/phpbb/boardannouncements/styles/all/template/js/boardannouncements871b.js?assets_version=936"></script>
+<script src="styles/prosilver/template/forum_fn871b.js?assets_version=936"></script>
+<script src="styles/prosilver/template/ajax871b.js?assets_version=936"></script>
+
+
+
+
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=90&p=1030 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:25:19 GMT -->
+</html>

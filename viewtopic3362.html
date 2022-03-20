@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=686&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:22:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; afterlogic webmail 无法更变密码，配置后邮件就无法打开</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>afterlogic webmail 无法更变密码，配置后邮件就无法打开</h2>
+		<p><a href="viewtopic0146.html?f=3&amp;t=686">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=686</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>afterlogic webmail 无法更变密码，配置后邮件就无法打开</h3>
+				<div class="date">发表于 : <strong>2016年5月27日, 20:57</strong></div>
+				<div class="author">由 <strong>eremiter</strong></div>
+				<div class="content">环境：win2012 64位+ php5.5 + apache2.4 + <span style="color:#FF0000">mysql5.5</span> + HmailServer5.6.3 + AfterLogic_webmail8 同一台服务器<br>
+AfterLogic webmail修改密码插件，下载位置http://<a href="http://www.afterlogic.com/wiki/Password_change_for_hMailServer_(WebMail_Plugins)?WM=Lite" class="postlink">www.afterlogic.com/wiki/Password_change ... s)?WM=Lite</a><br>
+<br>
+复制到\webmail\data\plugins\hmailserver-change-password\index.php<br>
+<br>
+启用插件步骤：<br>
+<br>
+找到 data/settings/config.php 打开:<br>
+修改如下
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>return array(
+	
+	'sieve' =&gt; false,
+	'sieve.autoresponder' =&gt; true,
+	'sieve.forward' =&gt; true,
+	'sieve.filters' =&gt; true,
+	'sieve.config.host' =&gt; '',
+	'sieve.config.port' =&gt; 2000,
+	'sieve.config.filters-folder-charset' =&gt; 'utf-8', // [utf7-imap, utf-8]
+	'sieve.config.domains' =&gt; $aSieveDomains,
+
+	'links.importing-contacts' =&gt; 'http://www.afterlogic.com/wiki/Importing_contacts_(WebMail_Lite)',
+	
+	'plugins.external-services' =&gt; true,
+	'plugins.external-services.connectors' =&gt; array(
+		'google',
+		'dropbox',
+		'facebook',
+		'twitter'
+	),
+	'plugins.hmailserver-change-password' =&gt; true,
+	'plugins.hmailserver-change-password.config.login' =&gt; 'administrator',
+	'plugins.hmailserver-change-password.config.password' =&gt; '123456'
+);</code></pre></div>
+<span style="color:#FF4000">下面两个密码在hMailserver.exe可以打开</span>，一但配置这个，AfterLogic_webmail就无法打开，把这3行配置注释掉，才能打开，不知错在哪里<br>
+'plugins.hmailserver-change-password.config.login' =&gt; 'administrator',<br>
+'plugins.hmailserver-change-password.config.password' =&gt; '123456'</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: afterlogic webmail 无法更变密码，配置后邮件就无法打开</h3>
+				<div class="date">发表于 : <strong>2016年5月29日, 15:36</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">没用afterlogic，一直用的roundcube，google下，方能解决。祝你好运。</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=686&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:22:47 GMT -->
+</html>

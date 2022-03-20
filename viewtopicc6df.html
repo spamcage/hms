@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=74&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:23:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; hmailserver为什么只能发自己的邮箱，发到QQ,163的都不行，只能收它们发过来的</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>hmailserver为什么只能发自己的邮箱，发到QQ,163的都不行，只能收它们发过来的</h2>
+		<p><a href="viewtopicdb7a.html?f=3&amp;t=74">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=74</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>hmailserver为什么只能发自己的邮箱，发到QQ,163的都不行，只能收它们发过来的</h3>
+				<div class="date">发表于 : <strong>2015年3月26日, 17:07</strong></div>
+				<div class="author">由 <strong>pjp2015</strong></div>
+				<div class="content">hmailserver为什么只能发自己的邮箱，发到QQ,163的都不行，只能收它们发过来的</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hmailserver为什么只能发自己的邮箱，发到QQ,163的都不行，只能收它们发过来的</h3>
+				<div class="date">发表于 : <strong>2015年3月26日, 19:21</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">请提供诊断结果。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hmailserver为什么只能发自己的邮箱，发到QQ,163的都不行，只能收它们发过来的</h3>
+				<div class="date">发表于 : <strong>2015年3月31日, 16:57</strong></div>
+				<div class="author">由 <strong>pjp2015</strong></div>
+				<div class="content">怎么诊断呀<br>
+现在就是能收到QQ，163发给hmailserver 建的账号<br>
+hmailserver 建的账号只能发自己一类的，其他类别的发不到</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>这是诊断结果,好象没问题呀</h3>
+				<div class="date">发表于 : <strong>2015年3月31日, 21:29</strong></div>
+				<div class="author">由 <strong>pjp2015</strong></div>
+				<div class="content">Test: Collect server details<br>
+hMailServer version: hMailServer 5.6.1-B2208<br>
+Database type: MSSQL Compact<br>
+<br>
+Test: Test IPv6<br>
+IPv6 support is available in operating system.<br>
+<br>
+Test: Test outbound port<br>
+SMTP relayer is in use.<br>
+Trying to connect to host 120.24.59.224...<br>
+Trying to connect to TCP/IP address 120.24.59.224 on port 25.<br>
+Received: 220 mail.iotdeli.com ESMTP.<br>
+Connected successfully.<br>
+<br>
+Test: Test backup directory<br>
+ERROR: Backup directory has not been specified.<br>
+<br>
+Test: Test MX records<br>
+Trying to resolve MX records for iotdeli.com...<br>
+Host name found: mail.iotdeli.com<br>
+<br>
+Test: Test local connect<br>
+Connecting to TCP/IP address in MX records for local domain domain iotdeli.com...<br>
+Trying to connect to host mail.iotdeli.com...<br>
+Trying to connect to TCP/IP address 120.24.59.224 on port 25.<br>
+Received: 220 mail.iotdeli.com ESMTP.<br>
+Connected successfully.<br>
+<br>
+Test: Test message file locations<br>
+Relative message paths are stored in the database for all messages.<br>
+<br>
+Test: Test IP range configuration<br>
+No problems were found in the IP range configuration.</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hmailserver为什么只能发自己的邮箱，发到QQ,163的都不行，只能收它们发过来的</h3>
+				<div class="date">发表于 : <strong>2015年8月4日, 13:36</strong></div>
+				<div class="author">由 <strong>mossad</strong></div>
+				<div class="content">看退信源码，很多帖子都是类似问题！ 基本问题都没做，拼命诉苦！</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hmailserver为什么只能发自己的邮箱，发到QQ,163的都不行，只能收它们发过来的</h3>
+				<div class="date">发表于 : <strong>2015年8月8日, 09:32</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">打开25端口</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=74&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:23:24 GMT -->
+</html>

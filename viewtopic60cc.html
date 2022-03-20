@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=2175&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:17:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; 帮忙看看日志，是被中继了吗？</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>帮忙看看日志，是被中继了吗？</h2>
+		<p><a href="viewtopic1af9.html?f=3&amp;t=2175">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=2175</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>帮忙看看日志，是被中继了吗？</h3>
+				<div class="date">发表于 : <strong>2018年1月29日, 09:37</strong></div>
+				<div class="author">由 <strong>liutiancai</strong></div>
+				<div class="content">"TCPIP"	2456	"2018-01-29 02:41:34.427"	"TCP - 192.241.224.105 connected to 192.168.1.99:143."<br>
+"IMAPD"	2456	14520	"2018-01-29 02:41:34.427"	"192.241.224.105"	"SENT: * OK IMAPrev1"<br>
+"TCPIP"	2456	"2018-01-29 02:45:49.187"	"TCP - 107.170.225.25 connected to 192.168.1.99:143."<br>
+"IMAPD"	2456	14563	"2018-01-29 02:45:49.187"	"107.170.225.25"	"SENT: * OK IMAPrev1"<br>
+"TCPIP"	2456	"2018-01-29 02:46:32.449"	"TCP - 107.170.226.97 connected to 192.168.1.99:143."<br>
+"IMAPD"	2456	14564	"2018-01-29 02:46:32.449"	"107.170.226.97"	"SENT: * OK IMAPrev1"<br>
+"TCPIP"	3560	"2018-01-29 04:45:02.883"	"TCP - 139.162.99.243 connected to 192.168.1.99:25."<br>
+<br>
+"TCPConnection - TLS/SSL handshake completed. Session Id: 14517, Remote IP: 198.20.69.98, Version: TLSv1.2, Cipher: ECDHE-RSA-AES256-GCM-SHA384, Bits: 256"<br>
+"POP3D"	2044	14517	"2018-01-29 07:23:06.145"	"198.20.69.98"	"SENT: +OK POP3"<br>
+"POP3D"	1940	14517	"2018-01-29 07:23:06.660"	"198.20.69.98"	"RECEIVED: CAPA"<br>
+"POP3D"	1940	14517	"2018-01-29 07:23:06.660"	"198.20.69.98"	"SENT: +OK CAPA list follows[nl]USER[nl]UIDL[nl]TOP[nl]."<br>
+"TCPIP"	2044	"2018-01-29 07:23:07.923"	"TCP - 198.20.69.98 connected to 192.168.1.99:995."<br>
+"TCPIP"	2044	"2018-01-29 07:23:08.173"	"TCPConnection - TLS/SSL handshake completed. Session Id: 14570, Remote IP: 198.20.69.98, Version: TLSv1.2, Cipher: ECDHE-RSA-AES128-GCM-SHA256, Bits: 128"<br>
+"POP3D"	2044	14570	"2018-01-29 07:23:08.189"	"198.20.69.98"	"SENT: +OK POP3"<br>
+"TCPIP"	2044	"2018-01-29 07:23:13.664"	"TCP - 198.20.69.98 connected to 192.168.1.99:995."<br>
+"TCPIP"	2044	"2018-01-29 07:23:14.678"	"TCPConnection - TLS/SSL handshake completed. Session Id: 14571, Remote IP: 198.20.69.98, Version: TLSv1.2, Cipher: ECDHE-RSA-AES256-GCM-SHA384, Bits: 256"<br>
+"POP3D"	2044	14571	"2018-01-29 07:23:14.678"	"198.20.69.98"	"SENT: +OK POP3"<br>
+"TCPIP"	2044	"2018-01-29 07:23:15.692"	"TCP - 198.20.69.98 connected to 192.168.1.99:995."<br>
+"TCPIP"	2044	"2018-01-29 07:23:15.942"	"TCPConnection - TLS/SSL handshake completed. Session Id: 14572, Remote IP: 198.20.69.98, Version: TLSv1, Cipher: ECDHE-RSA-AES256-SHA, Bits: 256"<br>
+"POP3D"	2044	14572	"2018-01-29 07:23:15.942"	"198.20.69.98"	"SENT: +OK POP3"<br>
+"TCPIP"	2044	"2018-01-29 07:23:16.815"	"TCP - 198.20.69.98 connected to 192.168.1.99:995."<br>
+"TCPIP"	1940	"2018-01-29 07:23:16.815"	"TCPConnection - TLS/SSL handshake failed. Session Id: 14573, Remote IP: 198.20.69.98, Error code: 336027900, Message: unknown protocol"<br>
+"TCPIP"	2044	"2018-01-29 07:23:17.642"	"TCP - 198.20.69.98 connected to 192.168.1.99:995."<br>
+"TCPIP"	1940	"2018-01-29 07:23:17.892"	"TCPConnection - TLS/SSL handshake completed. Session Id: 14574, Remote IP: 198.20.69.98, Version: SSLv3, Cipher: ECDHE-RSA-AES256-SHA, Bits: 256"<br>
+"POP3D"	1940	14574	"2018-01-29 07:23:17.892"	"198.20.69.98"	"SENT: +OK POP3"<br>
+"TCPIP"	2044	"2018-01-29 07:23:18.968"	"TCP - 198.20.69.98 connected to 192.168.1.99:995."<br>
+"TCPIP"	2456	"2018-01-29 07:23:19.233"	"TCPConnection - TLS/SSL handshake completed. Session Id: 14575, Remote IP: 198.20.69.98, Version: TLSv1.1, Cipher: ECDHE-RSA-AES256-SHA, Bits: 256"<br>
+"POP3D"	2456	14575	"2018-01-29 07:23:19.233"	"198.20.69.98"	"SENT: +OK POP3"<br>
+"TCPIP"	2044	"2018-01-29 07:23:20.357"	"TCP - 198.20.69.98 connected to 192.168.1.99:995."</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 帮忙看看日志，是被中继了吗？</h3>
+				<div class="date">发表于 : <strong>2018年1月29日, 09:38</strong></div>
+				<div class="author">由 <strong>liutiancai</strong></div>
+				<div class="content">前两天弄好之后还没有正式使用，突然发现日志挺大，一看好多外国ip。。。这是啥情况 被中继？是的话怎么能解决？</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=2175&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:17:51 GMT -->
+</html>

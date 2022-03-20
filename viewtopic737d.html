@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=102&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:23:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; 密码忘记了怎么办？</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>密码忘记了怎么办？</h2>
+		<p><a href="viewtopic56d8.html?f=3&amp;t=102">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=102</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>密码忘记了怎么办？</h3>
+				<div class="date">发表于 : <strong>2015年4月21日, 17:56</strong></div>
+				<div class="author">由 <strong>alukio</strong></div>
+				<div class="content">hMailServer密码忘记了，有重置方法或者找回来！</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 密码忘记了怎么办？</h3>
+				<div class="date">发表于 : <strong>2015年4月21日, 18:14</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">hmailserver/bin/hmailserver.ini      AdministratorPassword=    密码</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 密码忘记了怎么办？</h3>
+				<div class="date">发表于 : <strong>2015年4月22日, 08:22</strong></div>
+				<div class="author">由 <strong>alukio</strong></div>
+				<div class="content">但是都是加密的，如何解开</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 密码忘记了怎么办？</h3>
+				<div class="date">发表于 : <strong>2015年4月22日, 08:30</strong></div>
+				<div class="author">由 <strong>anfamily</strong></div>
+				<div class="content">1.你可以通过cmd5.com 网站生成一个123456的MD5密码然后进行替换<br>
+2.你可以将现有的密码（MD5）放到cmd5.com网站上进行解密，简单的可以，复杂的不行！</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 密码忘记了怎么办？</h3>
+				<div class="date">发表于 : <strong>2015年4月22日, 09:29</strong></div>
+				<div class="author">由 <strong>alukio</strong></div>
+				<div class="content">用楼上的方法解决了，把一个密码加密，然后到hmailserver.ini里面把AdministratorPassword的密码替换掉就可以登陆。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 密码忘记了怎么办？</h3>
+				<div class="date">发表于 : <strong>2015年6月26日, 00:57</strong></div>
+				<div class="author">由 <strong>hehai</strong></div>
+				<div class="content">如Hsia说的。<br>
+hmailserver/bin/hmailserver.ini AdministratorPassword= 密码<br>
+<br>
+这里的密码是（通过md5哈希运算）加密的。如果你忘记了。可以有1种解决方案。可以搞定、<br>
+第一种：新搞一台虚拟机，或者把你以前的hmailserver卸载重新安装，并且设置密码。如果是在<br>
+新机器上安装，设置好管理密码之后，在/bin/hmailserver.ini 有一行 AdministratorPassword=加密了的密码、<br>
+把这个密码拷贝到 你 忘记了的 那台hms的/bin/hmailserver.ini，替换AdministratorPassword=这个新密码。<br>
+------------------------------------------------------------------------------------------------------------------------------<br>
+其实，这复杂了点，但如果 你的软件密码的加密方式不单是md5，而是加了自己的一些算法，特殊字符串。以<br>
+上不失为一种解决方案。最后，谢谢 Hsia 与每一位朋友的分享。</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=102&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:23:30 GMT -->
+</html>

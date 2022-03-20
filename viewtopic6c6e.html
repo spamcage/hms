@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?p=442 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:17:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>阻止发送附件 - hMailServer中文论坛</title>
+
+	<link rel="alternate" type="application/atom+xml" title="Feed - hMailServer中文论坛" href="app.php/feed.html">			<link rel="alternate" type="application/atom+xml" title="Feed - 新主题" href="app.php/feed/topics.html">		<link rel="alternate" type="application/atom+xml" title="Feed - 版面 - 综合讨论" href="app.php/feed/forum/3.html">	<link rel="alternate" type="application/atom+xml" title="Feed - 主题 - 阻止发送附件" href="app.php/feed/topic/157.html">	
+	<link rel="canonical" href="viewtopicc552.html?t=157">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="assets/css/font-awesome.min871b.css?assets_version=936" rel="stylesheet">
+<link href="styles/prosilver/theme/stylesheet871b.css?assets_version=936" rel="stylesheet">
+<link href="styles/prosilver/theme/zh_cmn_hans/stylesheet871b.html?assets_version=936" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/prosilver/theme/tweaks.css?assets_version=936" rel="stylesheet">
+<![endif]-->
+
+	
+<link href="ext/phpbb/boardannouncements/styles/all/theme/boardannouncements871b.css?assets_version=936" rel="stylesheet" media="screen" />
+<link href="ext/phpbb/ads/styles/all/theme/phpbbads871b.css?assets_version=936" rel="stylesheet" media="screen" />
+
+
+
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+				<a id="logo" class="logo" href="index-2.html" title="论坛首页"><span class="site_logo"></span></a>
+				<h1>hMailServer中文论坛</h1>
+				<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。</p>
+				<p class="skiplink"><a href="#start_here">跳到内容</a></p>
+			</div>
+
+									<div id="search-box" class="search-box search-header" role="search">
+				<form action="https://www.hmailserver.org/search.php" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="按关键词搜索" class="inputbox search tiny" size="20" value="" placeholder="搜索……" />
+					<button class="button button-search" type="submit" title="搜索">
+						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+					</button>
+					<a href="search.html" class="button button-search-end" title="高级搜索">
+						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+					</a>
+					
+				</fieldset>
+				</form>
+			</div>
+						
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>快捷链接</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+											<li class="separator"></li>
+																									<li>
+								<a href="search33a7.html?search_id=unanswered" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>查看没有回复的主题</span>
+								</a>
+							</li>
+							<li>
+								<a href="search526f.html?search_id=active_topics" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>查看活跃的主题</span>
+								</a>
+							</li>
+							<li class="separator"></li>
+							<li>
+								<a href="search.html" role="menuitem">
+									<i class="icon fa-search fa-fw" aria-hidden="true"></i><span>搜索</span>
+								</a>
+							</li>
+					
+										<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="ucp26c3.html?mode=login" title="登录" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>登录</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="ucp8319.html?mode=register" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>注册</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+				
+		
+		<li class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+
+			
+							<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope><a itemprop="item" href="index-2.html" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="name">论坛首页</span></a><meta itemprop="position" content="1" /></span>
+
+											
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="12"><a itemprop="item" href="viewforum01c9.html?f=12"><span itemprop="name">讨论</span></a><meta itemprop="position" content="2" /></span>
+															
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="3"><a itemprop="item" href="viewforum4d6b.html?f=3"><span itemprop="name">综合讨论</span></a><meta itemprop="position" content="3" /></span>
+							
+					</li>
+
+		
+					<li class="rightside responsive-search">
+				<a href="search.html" title="查看高级搜索选项" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+				<div id="phpbb_announcement">
+		<a href="app.php/boardannouncements/close3ef5.html?hash=dc7c24e5" data-ajax="close_announcement" data-overlay="false" class="close clearfix" title="Close announcement"></a>		<div><span style="color:#0000FF">hMailServer中文论坛 QQ群：80049760</span></div>
+	</div>
+
+<h2 class="topic-title"><a href="viewtopice8f4.html?f=3&amp;t=157">阻止发送附件</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">hMailServer的综合讨论。包括安装、使用、webmail等问题。<br /></div>
+<p>
+	<strong>版主:</strong> <a href="memberlistd942.html?mode=viewprofile&amp;u=49" class="username">jimmy</a>, <a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>
+</p>
+
+	<div class="rules">
+		<div class="inner">
+
+					<strong>版面规则</strong><br />
+			hMailServer中文论坛 已经开通QQ群：80049760
+		
+		</div>
+	</div>
+
+<div class="action-bar bar-top">
+	
+			<a href="posting9d14.html?mode=reply&amp;f=3&amp;t=157" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="viewtopiced16.html?f=3&amp;t=157&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="https://www.hmailserver.org/search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="查找这个主题……" />
+				<button class="button button-search" type="submit" title="搜索">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</button>
+				<a href="search.html" class="button button-search-end" title="高级搜索">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+				</a>
+				<input type="hidden" name="t" value="157" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			3 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+		</div>
+
+
+
+
+			<div id="p418" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile418">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlistf802.html?mode=viewprofile&amp;u=252" class="username">lfuser</a>							</dt>
+
+						<dd class="profile-rank">Level 2<br /><img src="images/ranks/rank2.png" alt="Level 2" title="Level 2" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search21f7.html?author_id=252&amp;sr=posts">5</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2015年10月18日, 17:39</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content418">
+
+						<h3 class="first"><a href="viewtopic1263.html?p=418#p418">阻止发送附件</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting48c3.html?mode=quote&amp;f=3&amp;p=418" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic1263.html?p=418#p418" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistf802.html?mode=viewprofile&amp;u=252" class="username">lfuser</a></strong> &raquo; </span><time datetime="2015-10-23T01:52:15+00:00">2015年10月23日, 09:52</time>
+			</p>
+			
+			
+			
+			<div class="content">Dear all：<br>
+   我使用的就是hmailServer，现在有个需求，希望得到大家的讨论和帮助。<br>
+   需求：阻止部分用户向外域发送带附件的邮件<br>
+<br>
+   hmailServer本身的规则与限制好像没有满足我这需求的。还是我没找到？只找到一个全局阻止附件发送（附件类型*.*，加到附件阻止里），但这不是我想要的。<br>
+<br>
+   我这几天也问了一些人，得到的回复是，需要写脚本才能实现，我在英文论坛逛了半天，找了几个和附件有关的脚本。如下：<br>
+<br>
+   1、收到邮件后，自动提取附件并保存到本地指定目录
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>Sub Router(oMessage)
+      Dim i, strDir, strFile
+      strDir = "D:\Source Files Test\Equipment\"
+      For i = 0 To oMessage.Attachments.Count-1
+         strFile = oMessage.Attachments.item(i).Filename
+         oMessage.Attachments.item(i).SaveAs(strDir &amp; strFile)
+      Next
+End Sub</code></pre></div>
+2、添加附件脚本
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>Sub AddAttachments(oMessage)
+    oMessage.Attachments.Add("C:\Mailing\test.pdf")
+    oMessage.Save
+End Sub</code></pre></div>
+
+因为英文太差，看不下去了。<br>
+<br>
+我的想法是，写一个判断发送邮件是否包含附件的脚本，如果包含则显示提示：“你的帐号不允许向外发送带附件的邮件！ ”，如下：
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>Result.Value = 2
+Result.Message = "你的帐号不允许向外发送带附件的邮件！"</code></pre></div>
+谁帮忙完成一下？谢谢大家啊！</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				
+			<div id="p419" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile419">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlistf802.html?mode=viewprofile&amp;u=252" class="username">lfuser</a>							</dt>
+
+						<dd class="profile-rank">Level 2<br /><img src="images/ranks/rank2.png" alt="Level 2" title="Level 2" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search21f7.html?author_id=252&amp;sr=posts">5</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2015年10月18日, 17:39</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content419">
+
+						<h3 ><a href="viewtopicbdfa.html?p=419#p419">Re: 阻止发送附件</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting9981.html?mode=quote&amp;f=3&amp;p=419" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopicbdfa.html?p=419#p419" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistf802.html?mode=viewprofile&amp;u=252" class="username">lfuser</a></strong> &raquo; </span><time datetime="2015-10-23T15:18:26+00:00">2015年10月23日, 23:18</time>
+			</p>
+			
+			
+			
+			<div class="content">经过反复借鉴，最终代码如下，经本人帐号下测试OK。现分享出来：
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>Sub OnAcceptMessage(oClient, oMessage)  
+	'这个事件是在本服务器用户发送邮件时触发，不是接收邮件时触发，这名字取得有点迷惑。。
+	'功能：限制用户外发邮件附件。将需要限制外发的用户邮件地址添加至\hMailServer\Events\LimitUsers.txt
+	'下面定义的四个变量，其目的就是为了取得邮件后缀名，用以判断当前发邮件用户是否为本域用户
+	Dim fromemail, fromemail_domain, authenuser, authenuser_value
+	authenuser = Split((oClient.UserName), "@")
+	authenuser_value = authenuser(1)
+	fromemail = Split((oMessage.FromAddress), "@")
+	fromemail_domain = fromemail(1)
+ 	If oClient.UserName &lt;&gt; "" Then
+  		If LCase(authenuser_value) = LCase(fromemail_domain) And LCase(fromemail_domain) &lt;&gt; LCase("xxxx.com") Then
+			'用户不是以发件者发送邮件且不是本地域名则提示没有被授权，xxxx.com即你的邮件后缀（不含“@”哦！）
+			Result.Value = 2
+			Result.Message = "You are NOT authenticated user!!"
+		ElseIf LCase(authenuser_value) = LCase(fromemail_domain) Then
+			'用户合法
+			Set FSO = CreateObject("Scripting.FileSystemObject")
+			Set txtfile = FSO.OpenTextFile("C:\Program Files (x86)\hMailServer\Events\LimitUsers.txt", 1, TriStateTrue) 
+			'受限用户列表，不懂，先就这么用着，这个txt文件目录不要搞错了！
+			'下面是do...loop循环，一次读取一行直到文件结尾，依次与发件用户进行比较，匹配上则做相应权限控制，我这里是控制外发邮件附件
+			Do Until txtfile.AtEndOfStream
+				Dim strtxt
+				strtxt = Trim(txtfile.ReadLine)
+				If oClient.UserName = strtxt Then
+					'如果匹配上是受限邮件账号，则检查外发邮件是否含有附件？
+					'如果有附件，则检查发送地址是否是本域地址？
+					'如果非本域地址，则禁止发送附件。					
+					If (oMessage.Attachments.Count &gt; 0) Then
+						Dim i
+						For i = 0 To oMessage.Recipients.Count -1
+							If (Not oMessage.Recipients(i).IsLocalUser) Then
+								Result.Value = 2
+								Result.Message = "Don't sent attachments to outside!"
+							End If
+						Next
+					End If		
+	 			End If
+			Loop 
+			txtfile.Close
+		End If    
+ 	End If
+End Sub</code></pre></div>
+
+在这个基础上可以简单修改，控制用户发外部邮件也可以，研究下来，灵活度还是很强大的，就看对它的掌握熟练程度了。<br>
+附个网址：<a href="https://www.hmailserver.com/documentation/latest/?page=overview" class="postlink">https://www.hmailserver.com/documentati ... e=overview</a></div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p442" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile442">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlistf802.html?mode=viewprofile&amp;u=252" class="username">lfuser</a>							</dt>
+
+						<dd class="profile-rank">Level 2<br /><img src="images/ranks/rank2.png" alt="Level 2" title="Level 2" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search21f7.html?author_id=252&amp;sr=posts">5</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2015年10月18日, 17:39</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content442">
+
+						<h3 ><a href="viewtopic6c6e.html?p=442#p442">Re: 阻止发送附件</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting895d.html?mode=quote&amp;f=3&amp;p=442" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic6c6e.html?p=442#p442" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlistf802.html?mode=viewprofile&amp;u=252" class="username">lfuser</a></strong> &raquo; </span><time datetime="2015-11-05T01:12:10+00:00">2015年11月5日, 09:12</time>
+			</p>
+			
+			
+			
+			<div class="content">可惜，这个脚本有个bug，就是正文中的图片、签名logo之类的也会当成附件，不让发送。</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+			
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="posting9d14.html?mode=reply&amp;f=3&amp;t=157" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="viewtopiced16.html?f=3&amp;t=157&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="https://www.hmailserver.org/viewtopic.php?f=3&amp;t=157">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="SORT_OPTIONS" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>显示: <select name="st" id="st"><option value="0" selected="selected">全部帖子</option><option value="1">1天</option><option value="7">7天</option><option value="14">2周</option><option value="30">1个月</option><option value="90">3个月</option><option value="180">6个月</option><option value="365">1年</option></select></label>
+								<label>排序: <select name="sk" id="sk"><option value="a">作者</option><option value="t" selected="selected">发表时间</option><option value="s">标题</option></select></label>
+				<label>SORT_DIRECTION: <select name="sd" id="sd"><option value="a" selected="selected">升序</option><option value="d">降序</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="去" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			3 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="viewforum4d6b.html?f=3" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>回到 “综合讨论”</span>
+		</a>
+	</p>
+	
+		<br /><br />
+	</div>
+
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="index-2.html" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>论坛首页</span></a></span>					</li>
+		
+				<li class="rightside">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr></li>
+							<li class="rightside"><a href="viewtopic928e.html?f=5&amp;t=13">hMailServer汉化文件</a>
+				<a href="ucp033a.html?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem"><a href="viewtopic6053.html?f=4&amp;t=2300">邮件查询工具</a>
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>删除全部论坛cookie</span>
+				</a>
+			</li>
+														</ul>
+
+	</div>
+</div>
+<!--
+<h3 style="padding-top: 8px;">advertisements</h3>
+
+-->
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持</span>
+		</p>
+				<p class="footer-row">
+			<span class="footer-copyright">Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a></span>
+		</p>
+				
+				
+		
+				
+	</div>
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="错误" data-l-timeout-processing-req="请求超时。">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+
+<script src="assets/javascript/jquery.min871b.js?assets_version=936"></script>
+<script src="assets/javascript/core871b.js?assets_version=936"></script>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	<img src="cron78d2.gif?cron_type=cron.task.core.tidy_sessions" width="1" height="1" alt="cron" /></div>
+
+<script src="assets/javascript/jquery.min871b.js?assets_version=936"></script>
+<script src="assets/javascript/core871b.js?assets_version=936"></script>
+
+
+
+
+
+<script src="ext/phpbb/boardannouncements/styles/all/template/js/boardannouncements871b.js?assets_version=936"></script>
+<script src="styles/prosilver/template/forum_fn871b.js?assets_version=936"></script>
+<script src="styles/prosilver/template/ajax871b.js?assets_version=936"></script>
+
+
+
+
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?p=442 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:17:11 GMT -->
+</html>

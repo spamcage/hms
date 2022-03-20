@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=569&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:19:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; roudcube webmail全局通讯录折叠、展开分组,已更新为插件形式</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>roudcube webmail全局通讯录折叠、展开分组,已更新为插件形式</h2>
+		<p><a href="viewtopiccf63.html?f=4&amp;t=569">https://www.hmailserver.org/viewtopic.php?f=4&amp;t=569</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>roudcube webmail全局通讯录折叠、展开分组,已更新为插件形式</h3>
+				<div class="date">发表于 : <strong>2016年3月14日, 16:55</strong></div>
+				<div class="author">由 <strong>ainiyli2008</strong></div>
+				<div class="content">官网提供的全局通讯录，在写邮件的时候，左侧联系人并不按照分组 分别存放，而是一股脑放在一起，比较蛋疼，之前这篇帖子介绍过怎么按分组显示，是修改的源码和模版，太笨拙了，严重有悖于roundcube的可扩展性。。后来研究了一下，我做成了插件，，，本来寻思修改官网的globaladdressbook插件。。可是工作太忙没时间研究，，就自己另写了一个插件。。本插件依赖于globaladdressbook插件。。。如果之前按照本教程修改过，得把  /skins/模版/templates/compose.html下的添加过的3个tongxunlu.js tongxunlu.php tongxunlu.css引用文件删了。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/filed919.png?id=342" class="postimage" alt="360截图20170515150346500.png" onclick="viewableArea(this);" /></dt>
+						<dd>360截图20170515150346500.png (17.22 KiB) 查看 22681 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+2016-11-03<br>
+修改了一个bug。。在代码中直接自动获取邮件域名，从而正确获取联系人分组、人员<br>
+2016-11-26<br>
+部分用户使用了PHP5以上版本。导致了数据库链接不能使用，在此更新问mysqli连接方式。<br>
+<br>
+2017-05-15<br>
+之前一个群友，问我这个插件怎么不好用，我通过远程看他的配置，发现没有问题。我又仔细看了看globaladdressbook的配置，是有错误的。。他的情况是这样：他部署了2个域，一个aaa.com,一个bbb.com。globaladdressbook的配置文件下有一个地方：$config['globaladdressbook_user'] = '[global_addressbook@%d]';    问题就在于%d。我看有的教程写成了$config['globaladdressbook_user'] = '[global_addressbook@user]';等各种各样。。。反正如果你是多域的，这个地方就要写%d，以便来动态获取。怎么配置多域可以参考下http://blog.dvxj.com/pandola/roundcube-webmail-plugins.html<br>
+2017-07-20<br>
+我妥协了。。哈哈大部分人使用的是论坛的教程，把global_addressbook@d写死成global_addressbook_user，所以我插件里动态获取就不好用了。这里也把我插件里的动态获取的地方写死。 应该就可以用了。如果有人反而是按标准配的global_addressbook@%d，那就把global_addressbook_fenzu.php 48、50行改为：<br>
+48： $fenzu="select * from contactgroups a where user_id in (SELECT b.user_id from users b where b.username='[global_addressbook@".$rcmail-&gt;user-&gt;get_username('domain')."]')";//构建查询语句<br>
+50： $query="select * from contacts a where user_id in (SELECT b.user_id from users b where b.username='[global_addressbook@".$rcmail-&gt;user-&gt;get_username('domain')."]')";//构建查询语句 <br>
+等后面有时间我把依赖的global_addressbook插件也重写，把global_addressbook和global_addressbook_fenzu融合成一个。。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: roudcube webmail全局通讯录折叠、展开分组</h3>
+				<div class="date">发表于 : <strong>2016年3月14日, 17:13</strong></div>
+				<div class="author">由 <strong>lqh280</strong></div>
+				<div class="content">这个不错，感谢分享</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: roudcube webmail全局通讯录折叠、展开分组</h3>
+				<div class="date">发表于 : <strong>2016年3月14日, 18:53</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">这个写得不错。看似说得有些复杂，其实就是加个网页进去。写得很详细。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: roudcube webmail全局通讯录折叠、展开分组,已更新为插件形式</h3>
+				<div class="date">发表于 : <strong>2016年11月25日, 19:58</strong></div>
+				<div class="author">由 <strong>吴所谓</strong></div>
+				<div class="content">实际运用不起作用</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: roudcube webmail全局通讯录折叠、展开分组,已更新为插件形式</h3>
+				<div class="date">发表于 : <strong>2017年3月23日, 13:48</strong></div>
+				<div class="author">由 <strong>feng52499</strong></div>
+				<div class="content">我把全局通讯录 插件和这个插件都加载了 还是不起作用啊</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: roudcube webmail全局通讯录折叠、展开分组,已更新为插件形式</h3>
+				<div class="date">发表于 : <strong>2017年3月24日, 15:55</strong></div>
+				<div class="author">由 <strong>feng52499</strong></div>
+				<div class="content"><blockquote><div><cite>feng52499 写了:</cite>我把全局通讯录 插件和这个插件都加载了 还是不起作用啊</div></blockquote>
+加1</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: roudcube webmail全局通讯录折叠、展开分组,已更新为插件形式</h3>
+				<div class="date">发表于 : <strong>2018年2月27日, 16:35</strong></div>
+				<div class="author">由 <strong>csheng</strong></div>
+				<div class="content">没看懂要怎么使用，直接copy过去吗？</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=569&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:19:28 GMT -->
+</html>

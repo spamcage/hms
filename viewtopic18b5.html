@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=103&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:24:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; 可对外发送邮件，外部邮箱发送进来会退信。求指导</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>可对外发送邮件，外部邮箱发送进来会退信。求指导</h2>
+		<p><a href="viewtopic3021.html?f=3&amp;t=103">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=103</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>可对外发送邮件，外部邮箱发送进来会退信。求指导</h3>
+				<div class="date">发表于 : <strong>2015年4月21日, 18:06</strong></div>
+				<div class="author">由 <strong>msysweb</strong></div>
+				<div class="content">经测试，可以成功发送邮件到qq邮箱，但是qq邮箱发送到hmailserver邮箱会退信，提示为：<br>
+<br>
+邮件传输过程中断，通常由于收件人（<a href="mailto:msysweb@xxxx.cn">msysweb@xxxx.cn</a>）所在服务商出现内部系统故障导致。 <br>
+host mail.xxxx.cn[121.8.xxx.xxx] said: 530 SMTP authentication is required. (in reply to RCPT TO command)<br>
+<br>
+<strong class="text-strong">以下为诊断信息：</strong><br>
+Test: Collect server details<br>
+hMailServer version: hMailServer 5.6.2-B2234<br>
+Database type: MSSQL<br>
+<br>
+Test: Test IPv6<br>
+IPv6 support is available in operating system.<br>
+<br>
+Test: Test outbound port<br>
+SMTP relayer not in use. Attempting mail.hmailserver.com:25...<br>
+Local address is 192.168.8.225.<br>
+Trying to connect to host mail.hmailserver.com...<br>
+Trying to connect to TCP/IP address 46.163.109.39 on port 25.<br>
+ERROR: Unable to bind to address 192.168.8.225.<br>
+<br>
+Test: Test backup directory<br>
+Backup directory D:\MailBackUp is writable.<br>
+<br>
+Test: Test MX records<br>
+Trying to resolve MX records for justus.cn...<br>
+Host name found: mail.justus.cn<br>
+Host name found: 121.8.170.122.justus.cn<br>
+<br>
+Test: Test local connect<br>
+Connecting to TCP/IP address in MX records for local domain domain justus.cn...<br>
+Trying to connect to host mail.justus.cn...<br>
+Trying to connect to TCP/IP address 121.8.170.122 on port 25.<br>
+Received: 220 mail.justus.cn ESMTP.<br>
+Connected successfully.<br>
+<br>
+Test: Test message file locations<br>
+Relative message paths are stored in the database for all messages.<br>
+<br>
+Test: Test IP range configuration<br>
+No problems were found in the IP range configuration.</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 可对外发送邮件，外部邮箱发送进来会退信。求指导</h3>
+				<div class="date">发表于 : <strong>2015年4月21日, 18:08</strong></div>
+				<div class="author">由 <strong>msysweb</strong></div>
+				<div class="content">诊断信息：<br>
+Test: Collect server details<br>
+hMailServer version: hMailServer 5.6.2-B2234<br>
+Database type: MSSQL<br>
+<br>
+Test: Test IPv6<br>
+IPv6 support is available in operating system.<br>
+<br>
+Test: Test outbound port<br>
+SMTP relayer not in use. Attempting mail.hmailserver.com:25...<br>
+Local address is 192.168.8.224.<br>
+Trying to connect to host mail.hmailserver.com...<br>
+Trying to connect to TCP/IP address 46.163.109.39 on port 25.<br>
+Received: 220 mail.hmailserver.com ESMTP.<br>
+Connected successfully.<br>
+<br>
+Test: Test backup directory<br>
+Backup directory D:\MailBackUp is writable.<br>
+<br>
+Test: Test MX records<br>
+Trying to resolve MX records for justus.cn...<br>
+Host name found: mail.justus.cn<br>
+Host name found: 121.8.170.122.justus.cn<br>
+<br>
+Test: Test local connect<br>
+Connecting to TCP/IP address in MX records for local domain domain justus.cn...<br>
+Trying to connect to host mail.justus.cn...<br>
+Trying to connect to TCP/IP address 121.8.170.122 on port 25.<br>
+Received: 220 mail.justus.cn ESMTP.<br>
+Connected successfully.<br>
+<br>
+Test: Test message file locations<br>
+Relative message paths are stored in the database for all messages.<br>
+<br>
+Test: Test IP range configuration<br>
+No problems were found in the IP range configuration.</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 可对外发送邮件，外部邮箱发送进来会退信。求指导</h3>
+				<div class="date">发表于 : <strong>2015年4月21日, 18:36</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">530错误，Ip范围，网外发送到网内，不用勾选。勾了就发不进来。</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=103&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:24:00 GMT -->
+</html>

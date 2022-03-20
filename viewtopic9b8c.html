@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=1427&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:21:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; hmailserver 不能收发邮件 但是发送和手动刷新接收无错误提示</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>hmailserver 不能收发邮件 但是发送和手动刷新接收无错误提示</h2>
+		<p><a href="viewtopic2afb.html?f=3&amp;t=1427">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=1427</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>hmailserver 不能收发邮件 但是发送和手动刷新接收无错误提示</h3>
+				<div class="date">发表于 : <strong>2016年10月20日, 16:50</strong></div>
+				<div class="author">由 <strong>gbthink</strong></div>
+				<div class="content">因为一些原因取消了stmp验证，今天发现邮箱不能接收邮件，之后再次勾选了stmp验证。目前还是无法收发邮件，但是点击发送接收并无错误信息提示。<br>
+求大神帮忙分析下原因。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hmailserver 不能收发邮件 但是发送和手动刷新接收无错误提示</h3>
+				<div class="date">发表于 : <strong>2016年10月21日, 22:03</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">问题呢？问什么？</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hmailserver 不能收发邮件 但是发送和手动刷新接收无错误提示</h3>
+				<div class="date">发表于 : <strong>2016年10月24日, 09:20</strong></div>
+				<div class="author">由 <strong>gbthink</strong></div>
+				<div class="content"><blockquote><div><cite>Hsia 写了:</cite>问题呢？问什么？</div></blockquote>
+版主，你好，问题解决了。<br>
+问题大约是这样：<br>
+       因为一些原因我调整了hmailserver的设置（主要是撤销了smtp的验证），然后在大约2天之后出现了发送接收邮件表面无异常（手动刷新没有错误提示），但是邮箱上并没有发送成功并且无法接收他人邮件的情况。<br>
+       问题是在同事和我说她收不到老板邮件的时候发现的。我去手动测试发送并接受邮件发现确实无法发送和接收邮件。检查服务器状态发现负载特别高（开启了病毒扫描，cpu主要负载都是在进行扫描工作）。我依次尝试了重启hmailserver，关闭病毒扫描，也检查了防火墙，但是问题依旧。<br>
+       hamilserver端做故障诊断也没有发现异常<br>
+       后来在群里MOSSAD的建议下，关闭了spam并检查了规则，再建立新帐号在服务器上安装客户端进行发送接收测试，发现仍然有同样的问题。<br>
+       检查日志时发现日志快速增长，日志中发现了大量群发邮件（在使用smtp服务），然后消息队列中积压了8000多条，手动清空队列后邮箱功能恢复正常。<br>
+       PS:问题应该是没有打开smtp验证而被非法利用引起的。<br>
+       再次感谢MOSSAD的帮助！</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hmailserver 不能收发邮件 但是发送和手动刷新接收无错误提示</h3>
+				<div class="date">发表于 : <strong>2016年10月24日, 15:35</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">IP范围，网外到网外不能勾。internet和本地。</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=1427&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:21:25 GMT -->
+</html>

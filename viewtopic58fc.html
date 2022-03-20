@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=30&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:20:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; 总结:hMailServer配置+DKIM+Openssl图文教程</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>总结:hMailServer配置+DKIM+Openssl图文教程</h2>
+		<p><a href="viewtopic99e9.html?f=4&amp;t=30">https://www.hmailserver.org/viewtopic.php?f=4&amp;t=30</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>总结:hMailServer配置+DKIM+Openssl图文教程</h3>
+				<div class="date">发表于 : <strong>2014年12月25日, 11:04</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">前面已经把这几篇教程写过，hMailServer还是很简单的，这篇文章主要讲hMailServer配置+DKIM+Openssl图文教程，我用hMailServer只是在网页发邮件验证用户，对功能要求并不高。下面一步一步讲。如果你还没有下载hMailServer安装程序，请移至本站“程序发布”，也可从官网下载，当然本站是放在国内阿里云上的，如果你用的是阿里云，下载速度相当快。<br>
+本教程配置是用的hMailServer 5.6 - Build 2145下载地址：<a href="viewtopica807.html?f=5&amp;t=10" class="postlink">http://www.hmailserver.org/viewtopic.php?f=5&amp;t=10</a><br>
+中文汉化版本：<a href="viewtopic928e.html?f=5&amp;t=13" class="postlink">http://www.hmailserver.org/viewtopic.php?f=5&amp;t=13</a><br>
+<br>
+<strong class="text-strong">hMailServer配置：</strong><br>
+<a href="viewtopic1132.html?f=4&amp;t=6" class="postlink">hMailServer配置图文详细教程</a><br>
+关于hMailServer配置，在默认安装后就差不多了，你要做的，就是添加域名，还有你的邮箱帐号。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/file8431.png?id=73" class="postimage" alt="hmailserverpz1.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailserverpz1.png (22.51 KiB) 查看 19256 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+下图的本地主机名，网上大多教程要么是本地IP，要么是localhost  ,但是我觉得本地主机名是你的计算机名？？？这个我不确认。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/file23df.png?id=74" class="postimage" alt="hmailserverpz2.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailserverpz2.png (30.84 KiB) 查看 19256 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+高级-IP范围
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/file1a6a.png?id=75" class="postimage" alt="hmailserverpz3.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailserverpz3.png (35.24 KiB) 查看 19256 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+需要注意的是：其他-需要SSL/TLS进行验证，我是勾上的，因为我已经配置了ssl连接。如果你没有配置ssl，勾上就连不上了。<br>
+有朋友说“网外发送到网外Email”不用勾，但是我在hMailServer的论坛看到回答是除了网外发送到网内，其它的都应该勾上，这是安全方面。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/filee27e.png?id=76" class="postimage" alt="hmailserverpz4.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailserverpz4.png (35.21 KiB) 查看 19256 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+就配置方面,高级-TCP/IP 端口，在后面会提到。配置方面TCP/IP等下将。<br>
+<br>
+<strong class="text-strong">hMailServer配置DKIM</strong><br>
+<a href="viewtopicb540.html?f=4&amp;t=12" class="postlink">给hMailServer添加DKIM图文教程</a> 这篇文章已经写得很详细了。怎么配置请前往。<br>
+我要说的就是输入<br>
+openssl genrsa -out rsa.private 1024 <br>
+openssl rsa -in rsa.private -out rsa.public -pubout -outform PEM <br>
+<br>
+<strong class="text-strong">Openssl教程</strong><br>
+<a href="viewtopic8eb6.html?f=4&amp;t=26" class="postlink">hmailserver ssl openssl教程</a><br>
+我重点说下TCP/IP端口，
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/filed8c4.png?id=77" class="postimage" alt="hmailservertcp.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailservertcp.png (35.32 KiB) 查看 19256 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+25端口必须打开，smtp:465 , imap:993,pop3:995应该选择SSL/TLS ,其它端口选择STARTTLS Optional，大概意思是如果可能加密就会加密，25、587、110 应选择STARTTLS Optional.<br>
+怎么设置端口看你能不能用到了，我就设置这么多。<br>
+<br>
+我已经勾上。
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="download/filebc58.png?id=78" class="postimage" alt="hmailserverssltls.png" onclick="viewableArea(this);" /></dt>
+						<dd>hmailserverssltls.png (12.75 KiB) 查看 19256 次</dd>
+		</dl>
+		
+		
+		
+			</div>
+
+<strong class="text-strong">反垃圾选项</strong><br>
+设置--反垃圾选项<br>
+建议把DNS黑名单和SURBL启用。<br>
+<br>
+<strong class="text-strong">hMailServer安全方面：</strong><br>
+高级--自动屏蔽<br>
+请把它启用。登陆次数的最大尝试次数。<br>
+完毕。我不是技术人员，只是爱好者，很多东西都不懂，也不会表达，我做的就这么多了。<br>
+最后诊断下，全部绿色表示通过。</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=30&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:20:06 GMT -->
+</html>

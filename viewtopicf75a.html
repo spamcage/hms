@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=137&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:23:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; 逻辑好的来看！关于规则死循环！</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>逻辑好的来看！关于规则死循环！</h2>
+		<p><a href="viewtopic3e08.html?f=3&amp;t=137">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=137</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>逻辑好的来看！关于规则死循环！</h3>
+				<div class="date">发表于 : <strong>2015年8月4日, 11:34</strong></div>
+				<div class="author">由 <strong>mossad</strong></div>
+				<div class="content">关于 hm 规则遇到死循环问题<br>
+<br>
+同域HM邮局  **@xxx.com   镜像邮箱账户<a href="mailto:all@xxx.com">all@xxx.com</a>     垃圾邮件收集账户<a href="mailto:spam@xxx.com">spam@xxx.com</a><br>
+<br>
+邮件进来经过SpamAssassin  处理后 疑似垃圾邮件主题加上了[SPAM] 标记<br>
+<br>
+所有邮件在<a href="mailto:all@xxx.com">all@xxx.com</a> 账户做备份，主题包含[spam]转发到  <a href="mailto:spam@xxx.com">spam@xxx.com</a>  账户<br>
+<br>
+目的： 所有主题包含[spam]的邮件全部转发到<a href="mailto:spam@xxx.com">spam@xxx.com</a>  下面其他账户不接收这类垃圾邮件！<br>
+<br>
+规则0    触发： smtp 命名中包含<a href="mailto:spam@xxx.com">spam@xxx.com</a><br>
+            动作： 停止处理规则<br>
+<br>
+规则1     触发：主题包含[spam]       <br>
+             动作： 转发  <a href="mailto:spam@xxx.com">spam@xxx.com</a>  然后删除当前这封（也就是垃圾邮件实际的收件人不发送过去）<br>
+<br>
+这样的设置  每封垃圾邮件 <a href="mailto:spam@xxx.com">spam@xxx.com</a>  账户会收到5封一模一样的!<br>
+<br>
+原因分析： 每次转发的邮件  它本身主题包含[spam],当这样一封邮件进入规则后，就会触发规则1，从而进入死循环！<br>
+<br>
+   hm 自动对这类问题进行处理 循环5次后结束！<br>
+<br>
+大神们！ 有啥好办法？<br>
+<br>
+  用过其它方法，出现4中情况（或混合）：<br>
+  1    <a href="mailto:all@xxx.com">all@xxx.com</a> 收到主题包含[spam]的邮件<br>
+  2    <a href="mailto:spam@xxx.com">spam@xxx.com</a>  收不到主题包含[spam]的邮件<br>
+  3    以上2种都收不到<br>
+  4    <a href="mailto:spam@xxx.com">spam@xxx.com</a>  收到主题包含[spam]的重复邮件超过5封  8，10多不同！</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 逻辑好的来看！关于规则死循环！</h3>
+				<div class="date">发表于 : <strong>2015年8月8日, 09:36</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">在<a href="mailto:spam@xxx.com">spam@xxx.com</a>  规则加上一个<a href="mailto:all@xx.com">all@xx.com</a>不处理。  大概看了下，收到信件的时候含有spam的会转到<a href="mailto:spam@xx.com">spam@xx.com</a>   然后 所有邮件转到<a href="mailto:all@xx.com">all@xx.com</a>  这个账户又处理了一次。<br>
+<br>
+不知道我说的对不对，感觉是这样的，你的逻辑比我好。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 逻辑好的来看！关于规则死循环！</h3>
+				<div class="date">发表于 : <strong>2015年8月10日, 13:37</strong></div>
+				<div class="author">由 <strong>mossad</strong></div>
+				<div class="content">主题包含[spam] 又是转发<a href="mailto:all@xx.com">all@xx.com</a> 的，不处理 ？</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 逻辑好的来看！关于规则死循环！</h3>
+				<div class="date">发表于 : <strong>2015年8月10日, 17:26</strong></div>
+				<div class="author">由 <strong>mossad</strong></div>
+				<div class="content">貌似搞出来了，在测试几天。再来！</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: 逻辑好的来看！关于规则死循环！</h3>
+				<div class="date">发表于 : <strong>2015年8月11日, 10:21</strong></div>
+				<div class="author">由 <strong>mossad</strong></div>
+				<div class="content">规则0之前再加一条！ 目前看来解决问题了！<br>
+<br>
+触发：主题包含 [spam] and smtp命名中包含<a href="mailto:all@xx.com">all@xx.com</a><br>
+动作：停止处理规则</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=137&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:23:24 GMT -->
+</html>

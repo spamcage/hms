@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=15&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:19:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; Roundcube 多域名设置方法</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>Roundcube 多域名设置方法</h2>
+		<p><a href="viewtopic9cb9.html?f=4&amp;t=15">https://www.hmailserver.org/viewtopic.php?f=4&amp;t=15</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>Roundcube 多域名设置方法</h3>
+				<div class="date">发表于 : <strong>2014年11月29日, 19:52</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">Roundcube 多域名设置方法,按照步骤可完成。<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>查找：$rcmail_config['default_host'] =
+修改成：
+$rcmail_config['default_host'] = array (
+    'mail.hmailserver.org' =&gt;   '@hmailserver.org',
+        'mail.sina.com' =&gt; '@sina.com');
+
+查找：$rcmail_config['username_domain'] =
+修改成：
+$rcmail_config['username_domain'] = array (
+    'mail.hmailserver.org' =&gt;   'hmailserver.org',
+        'mail.sina.com' =&gt; 'sina.com');
+
+查找：$rcmail_config['mail_domain'] =
+修改成：
+$rcmail_config['mail_domain'] = $rcmail_config['username_domain'];</code></pre></div></div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: Roundcube 多域名设置方法</h3>
+				<div class="date">发表于 : <strong>2015年5月6日, 11:37</strong></div>
+				<div class="author">由 <strong>jasonshaw</strong></div>
+				<div class="content">这个webmail使用的很多吗？<br>
+多域名 还需要配置这个php代码？看来没我想想的那么简单</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: Roundcube 多域名设置方法</h3>
+				<div class="date">发表于 : <strong>2016年4月15日, 13:05</strong></div>
+				<div class="author">由 <strong>yungdeguo</strong></div>
+				<div class="content">你好,如果是同一台imap和smtp服务器呢?<br>
+这台服务器上有多个邮箱域.<br>
+如果呈现下拉菜单选择域,而帐户只输入@前面的部份啊?<br>
+<br>
+谢谢!</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: Roundcube 多域名设置方法</h3>
+				<div class="date">发表于 : <strong>2016年9月22日, 12:52</strong></div>
+				<div class="author">由 <strong>ayeyew</strong></div>
+				<div class="content">这个哪个配置文件呢？麻烦说下</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=15&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:19:40 GMT -->
+</html>

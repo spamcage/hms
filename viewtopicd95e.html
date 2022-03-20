@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=2149&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:21:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; foxmail提示远程主机强迫关闭了连接</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>foxmail提示远程主机强迫关闭了连接</h2>
+		<p><a href="viewtopic3f2e.html?f=3&amp;t=2149">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=2149</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>foxmail提示远程主机强迫关闭了连接</h3>
+				<div class="date">发表于 : <strong>2017年5月21日, 12:00</strong></div>
+				<div class="author">由 <strong>watdyk</strong></div>
+				<div class="content"><span style="font-size: 150%; line-height: 116%;">hmailserver装载windows server 2008上，<br>
+客户端在server2008上用foxmail时无法发邮件，提示此错误。<br>
+想问一下，选择的是使用builtin数据库，那server2008上还要再找文件装sqlserver compact嘛？<br>
+防火墙已经关闭。<br>
+奇怪的是如果客户机服务器用win7，无论是foxmail还是hmail，都不会提示此错误。<br>
+用telnet测试25端口，能连上，但是一输入立马断开连接，用wireshark，发现foxmail一连上，SMTP协议立马发送FIN消息了。</span></div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: foxmail提示远程主机强迫关闭了连接</h3>
+				<div class="date">发表于 : <strong>2017年5月22日, 09:27</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">错误日志？</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: foxmail提示远程主机强迫关闭了连接</h3>
+				<div class="date">发表于 : <strong>2017年5月23日, 11:59</strong></div>
+				<div class="author">由 <strong>watdyk</strong></div>
+				<div class="content"><blockquote><div><cite><a href="memberlistb2a4.html?mode=viewprofile&amp;u=2">Hsia</a> 写了: <a href="viewtopicfac1.html?p=3384#p3384" data-post-id="3384" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">2017年5月22日, 09:27</div></cite>错误日志？</div></blockquote>
+
+谢谢，错误日志显示根本就没连上过，我怀疑是windows 2008阻断了连接，有可能我是采用虚拟机还是链接克隆的原因，只是可能，我回头再试试实体机及完整克隆的虚拟机吧，看看有没有这个问题，谢谢！</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: foxmail提示远程主机强迫关闭了连接</h3>
+				<div class="date">发表于 : <strong>2017年5月23日, 14:03</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">防火墙？</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: foxmail提示远程主机强迫关闭了连接</h3>
+				<div class="date">发表于 : <strong>2017年5月23日, 22:29</strong></div>
+				<div class="author">由 <strong>watdyk</strong></div>
+				<div class="content"><blockquote><div><cite><a href="memberlistb2a4.html?mode=viewprofile&amp;u=2">Hsia</a> 写了: <a href="viewtopic38e8.html?p=3386#p3386" data-post-id="3386" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">2017年5月23日, 14:03</div></cite>防火墙？</div></blockquote>
+
+今天以windows 2008做服务器，win7 做客户端，没有收发邮件问题了。都是vmware worksation上的虚拟机。<br>
+估计之前是因为客户机和服务器都是虚拟机，而且是从同一台母机链接克隆出来的原因，结贴吧，不纠结了，<br>
+做为免费服务器，hmail还是不错的。<br>
+<br>
+同时鄙视一下微软，为了推自家的exchage，server2008竟然只提供smtp服务，不提供pop3.至少linux上还有sendmail和dovecot啊！</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: foxmail提示远程主机强迫关闭了连接</h3>
+				<div class="date">发表于 : <strong>2017年5月25日, 21:52</strong></div>
+				<div class="author">由 <strong>watdyk</strong></div>
+				<div class="content">今天又出现了这个远程主机强迫关闭连接的错误，最后通过高级设置里，把auto-ban的enable去掉解决了，可能是这个一直在阻止多个客户端连接。<br>
+然后有时候还会出现foxmail提示主机无回复的错误，通过status里停止重启服务解决。<br>
+总体感觉hmailserver在windows20008企业版sp1上不是很稳定啊。</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=2149&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:21:15 GMT -->
+</html>

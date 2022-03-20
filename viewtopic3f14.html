@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=1274&p=3422 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 02:38:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>调用官方文档API vb脚本修改用户密码问题 - hMailServer中文论坛</title>
+
+	<link rel="alternate" type="application/atom+xml" title="Feed - hMailServer中文论坛" href="app.php/feed.html">			<link rel="alternate" type="application/atom+xml" title="Feed - 新主题" href="app.php/feed/topics.html">		<link rel="alternate" type="application/atom+xml" title="Feed - 版面 - 综合讨论" href="app.php/feed/forum/3.html">	<link rel="alternate" type="application/atom+xml" title="Feed - 主题 - 调用官方文档API vb脚本修改用户密码问题" href="app.php/feed/topic/1274.html">	
+	<link rel="canonical" href="viewtopic9de3.html?t=1274">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="assets/css/font-awesome.min871b.css?assets_version=936" rel="stylesheet">
+<link href="styles/prosilver/theme/stylesheet871b.css?assets_version=936" rel="stylesheet">
+<link href="styles/prosilver/theme/zh_cmn_hans/stylesheet871b.html?assets_version=936" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/prosilver/theme/tweaks.css?assets_version=936" rel="stylesheet">
+<![endif]-->
+
+	
+<link href="ext/phpbb/boardannouncements/styles/all/theme/boardannouncements871b.css?assets_version=936" rel="stylesheet" media="screen" />
+<link href="ext/phpbb/ads/styles/all/theme/phpbbads871b.css?assets_version=936" rel="stylesheet" media="screen" />
+
+
+
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+				<a id="logo" class="logo" href="index-2.html" title="论坛首页"><span class="site_logo"></span></a>
+				<h1>hMailServer中文论坛</h1>
+				<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。</p>
+				<p class="skiplink"><a href="#start_here">跳到内容</a></p>
+			</div>
+
+									<div id="search-box" class="search-box search-header" role="search">
+				<form action="https://www.hmailserver.org/search.php" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="按关键词搜索" class="inputbox search tiny" size="20" value="" placeholder="搜索……" />
+					<button class="button button-search" type="submit" title="搜索">
+						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+					</button>
+					<a href="search.html" class="button button-search-end" title="高级搜索">
+						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+					</a>
+					
+				</fieldset>
+				</form>
+			</div>
+						
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>快捷链接</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+											<li class="separator"></li>
+																									<li>
+								<a href="search33a7.html?search_id=unanswered" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>查看没有回复的主题</span>
+								</a>
+							</li>
+							<li>
+								<a href="search526f.html?search_id=active_topics" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>查看活跃的主题</span>
+								</a>
+							</li>
+							<li class="separator"></li>
+							<li>
+								<a href="search.html" role="menuitem">
+									<i class="icon fa-search fa-fw" aria-hidden="true"></i><span>搜索</span>
+								</a>
+							</li>
+					
+										<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="ucp26c3.html?mode=login" title="登录" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>登录</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="ucp8319.html?mode=register" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>注册</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+				
+		
+		<li class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+
+			
+							<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope><a itemprop="item" href="index-2.html" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="name">论坛首页</span></a><meta itemprop="position" content="1" /></span>
+
+											
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="12"><a itemprop="item" href="viewforum01c9.html?f=12"><span itemprop="name">讨论</span></a><meta itemprop="position" content="2" /></span>
+															
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="3"><a itemprop="item" href="viewforum4d6b.html?f=3"><span itemprop="name">综合讨论</span></a><meta itemprop="position" content="3" /></span>
+							
+					</li>
+
+		
+					<li class="rightside responsive-search">
+				<a href="search.html" title="查看高级搜索选项" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+				<div id="phpbb_announcement">
+		<a href="app.php/boardannouncements/close3ef5.html?hash=dc7c24e5" data-ajax="close_announcement" data-overlay="false" class="close clearfix" title="Close announcement"></a>		<div><span style="color:#0000FF">hMailServer中文论坛 QQ群：80049760</span></div>
+	</div>
+
+<h2 class="topic-title"><a href="viewtopic1d65.html?f=3&amp;t=1274">调用官方文档API vb脚本修改用户密码问题</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">hMailServer的综合讨论。包括安装、使用、webmail等问题。<br /></div>
+<p>
+	<strong>版主:</strong> <a href="memberlistd942.html?mode=viewprofile&amp;u=49" class="username">jimmy</a>, <a href="memberlistb2a4.html?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured">Hsia</a>
+</p>
+
+	<div class="rules">
+		<div class="inner">
+
+					<strong>版面规则</strong><br />
+			hMailServer中文论坛 已经开通QQ群：80049760
+		
+		</div>
+	</div>
+
+<div class="action-bar bar-top">
+	
+			<a href="posting3595.html?mode=reply&amp;f=3&amp;t=1274" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="viewtopic8ebe.html?f=3&amp;t=1274&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="https://www.hmailserver.org/search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="查找这个主题……" />
+				<button class="button button-search" type="submit" title="搜索">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">搜索</span>
+				</button>
+				<a href="search.html" class="button button-search-end" title="高级搜索">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">高级搜索</span>
+				</a>
+				<input type="hidden" name="t" value="1274" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			4 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+		</div>
+
+
+
+
+			<div id="p2217" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2217">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist8e5c.html?mode=viewprofile&amp;u=717" class="username">380036207@qq.com</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search390f.html?author_id=717&amp;sr=posts">1</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2016年9月9日, 16:17</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2217">
+
+						<h3 class="first"><a href="viewtopice1a1.html?p=2217#p2217">调用官方文档API vb脚本修改用户密码问题</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="postinga272.html?mode=quote&amp;f=3&amp;p=2217" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopice1a1.html?p=2217#p2217" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlist8e5c.html?mode=viewprofile&amp;u=717" class="username">380036207@qq.com</a></strong> &raquo; </span><time datetime="2016-09-09T08:21:36+00:00">2016年9月9日, 16:21</time>
+			</p>
+			
+			
+			
+			<div class="content">通过调用官方文档vb脚本修改用户密码，系统提示修改成功，查看数据库发现，密码已修改，但是怎么就登录不上去呢？一直提示：验证失败，错误的登陆名或密码。有朋友能帮忙解决下吗？<br>
+<br>
+********************************      官方脚本    ******************************************************<br>
+<br>
+Function ModifyHmailPassWordAccount(domainName,userName,password,adminName,adminPassword)<br>
+     Dim obApp<br>
+   Set obApp = CreateObject("hMailServer.Application")<br>
+<br>
+   ' Authenticate. Without doing this, we won't have permission<br>
+   ' to change any server settings or add any objects to the<br>
+   ' installation.   <br>
+   Call obApp.Authenticate(adminName, adminPassword)<br>
+   <br>
+   ' Locate the domain we want to add the account to<br>
+   Dim obDomain<br>
+   Set obDomain = obApp.Domains.ItemByName(domainName)<br>
+   <br>
+   Dim obAccount<br>
+   Set obAccount = obDomain.Accounts.ItemByAddress(userName)<br>
+   <br>
+   ' Set the password to "secret"   <br>
+   obAccount.Password = password   <br>
+<br>
+   obAccount.Save<br>
+End Function<br>
+<br>
+<br>
+**********************************************************************************************************************</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				
+			<div id="p3420" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3420">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist9054.html?mode=viewprofile&amp;u=1064" class="username">maomaoniu112</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search0f6c.html?author_id=1064&amp;sr=posts">3</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2017年10月13日, 08:56</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3420">
+
+						<h3 ><a href="viewtopic1407-2.html?p=3420#p3420">Re: 调用官方文档API vb脚本修改用户密码问题</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="postingb15f.html?mode=quote&amp;f=3&amp;p=3420" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic1407-2.html?p=3420#p3420" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlist9054.html?mode=viewprofile&amp;u=1064" class="username">maomaoniu112</a></strong> &raquo; </span><time datetime="2017-10-13T01:01:39+00:00">2017年10月13日, 09:01</time>
+			</p>
+			
+			
+			
+			<div class="content">我遇到相同问题，不仅仅是用vb脚本，C#代码一样，任何修改密码的途径都会导致webmail-lite-master7.7.5客户端提示“验证失败，错误的登陆名或密码。”。<br>
+最甚至是直接通过hmailserver自己的管理工具修改，也同样会导致该问题。<br>
+<br>
+目前正在找原因</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p3421" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3421">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist9054.html?mode=viewprofile&amp;u=1064" class="username">maomaoniu112</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search0f6c.html?author_id=1064&amp;sr=posts">3</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2017年10月13日, 08:56</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3421">
+
+						<h3 ><a href="viewtopic5e48.html?p=3421#p3421">Re: 调用官方文档API vb脚本修改用户密码问题</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting74d7.html?mode=quote&amp;f=3&amp;p=3421" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic5e48.html?p=3421#p3421" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlist9054.html?mode=viewprofile&amp;u=1064" class="username">maomaoniu112</a></strong> &raquo; </span><time datetime="2017-10-14T13:16:49+00:00">2017年10月14日, 21:16</time>
+			</p>
+			
+			
+			
+			<div class="content">花了几天时间没找到原因。<br>
+但发现当通过各种方式修改密码后（我是通过hmailserver自己的管理工具修改的密码，或者直接update  hm_accounts表的accountpassword字段），<br>
+隔几个小时（具体隔多久不清楚，但我是间隔了3个小时多），就完可以登录了。</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+						<div id="p3422" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3422">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist9054.html?mode=viewprofile&amp;u=1064" class="username">maomaoniu112</a>							</dt>
+
+						<dd class="profile-rank">Level 1<br /><img src="images/ranks/rank1.png" alt="Level 1" title="Level 1" /></dd>			
+		<dd class="profile-posts"><strong>帖子:</strong> <a href="search0f6c.html?author_id=1064&amp;sr=posts">3</a></dd>		<dd class="profile-joined"><strong>注册:</strong> 2017年10月13日, 08:56</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3422">
+
+						<h3 ><a href="viewtopic7129.html?p=3422#p3422">Re: 调用官方文档API vb脚本修改用户密码问题</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting9237.html?mode=quote&amp;f=3&amp;p=3422" title="引用回复" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">引用</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic7129.html?p=3422#p3422" title="帖子">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">帖子</span>
+					</a>
+								<span class="responsive-hide">由 <strong><a href="memberlist9054.html?mode=viewprofile&amp;u=1064" class="username">maomaoniu112</a></strong> &raquo; </span><time datetime="2017-10-14T14:32:39+00:00">2017年10月14日, 22:32</time>
+			</p>
+			
+			
+			
+			<div class="content">问题已解决<br>
+<br>
+把“高级”--“自动停用”禁用。<br>
+VBS代码应该没问题，我尝试多次修改密码，不会导致“验证失败，错误的登陆名或密码。”<br>
+   Dim obApp<br>
+   Set obApp = CreateObject("hMailServer.Application")<br>
+<br>
+   ' Authenticate. Without doing this, we won't have permission<br>
+   ' to change any server settings or add any objects to the<br>
+   ' installation.   <br>
+   Call obApp.Authenticate("Administrator", "admin!123")<br>
+   <br>
+   ' Locate the domain we want to add the account to<br>
+   Dim obDomain<br>
+   Set obDomain = obApp.Domains.ItemByName("goldfish.com")<br>
+   <br>
+   Dim obAccount<br>
+   Set obAccount = obDomain.Accounts.ItemByAddress("<a href="mailto:yyfan@goldfish.com">yyfan@goldfish.com</a>")<br>
+   <br>
+   ' Set the password to "secret"   <br>
+   obAccount.Password = "secret"   <br>
+<br>
+   obAccount.Save<br>
+<br>
+同时提供一个C#版本的代码<br>
+        /// &lt;summary&gt;<br>
+        /// 修改密码方法<br>
+        /// &lt;/summary&gt;<br>
+        /// &lt;param name="userName"&gt;邮件服务器管理账户，一般为administrator&lt;/param&gt;<br>
+        /// &lt;param name="password"&gt;邮件服务器管理账户密码&lt;/param&gt;<br>
+        /// &lt;param name="domainName"&gt;域名&lt;/param&gt;<br>
+        /// &lt;param name="accountAddress"&gt;邮件地址&lt;/param&gt;<br>
+        /// &lt;param name="newAccountPassword"&gt;邮件地址新密码&lt;/param&gt;<br>
+        /// &lt;returns&gt;&lt;/returns&gt;<br>
+        public bool ChangePassword(string userName, string password, string domainName, string accountAddress, string newAccountPassword)<br>
+        {<br>
+            try<br>
+            {<br>
+                hMailServer.Application hMailApp = Authenticate(userName, password);<br>
+                hMailServer.Domain myDomain = hMailApp.Domains.get_ItemByName(domainName);<br>
+<br>
+                hMailServer.Account account = myDomain.Accounts.get_ItemByAddress(accountAddress);<br>
+                account.Password = newAccountPassword;<br>
+<br>
+                account.Save();<br>
+                return true;<br>
+            }<br>
+            catch (System.Exception)<br>
+            {<br>
+                throw;<br>
+<br>
+            }<br>
+        }</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="页首">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">页首</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+			
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="posting3595.html?mode=reply&amp;f=3&amp;t=1274" class="button" title="发表回复">
+							<span>回复</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="主题工具" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="viewtopic8ebe.html?f=3&amp;t=1274&amp;view=print" title="打印预览" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>打印预览</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="https://www.hmailserver.org/viewtopic.php?f=3&amp;t=1274">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="SORT_OPTIONS" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>显示: <select name="st" id="st"><option value="0" selected="selected">全部帖子</option><option value="1">1天</option><option value="7">7天</option><option value="14">2周</option><option value="30">1个月</option><option value="90">3个月</option><option value="180">6个月</option><option value="365">1年</option></select></label>
+								<label>排序: <select name="sk" id="sk"><option value="a">作者</option><option value="t" selected="selected">发表时间</option><option value="s">标题</option></select></label>
+				<label>SORT_DIRECTION: <select name="sd" id="sd"><option value="a" selected="selected">升序</option><option value="d">降序</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="去" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			4 帖子
+							&bull; 分页： <strong>1</strong> / <strong>1</strong>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="viewforum4d6b.html?f=3" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>回到 “综合讨论”</span>
+		</a>
+	</p>
+	
+		<br /><br />
+	</div>
+
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="index-2.html" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>论坛首页</span></a></span>					</li>
+		
+				<li class="rightside">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr></li>
+							<li class="rightside"><a href="viewtopic928e.html?f=5&amp;t=13">hMailServer汉化文件</a>
+				<a href="ucp033a.html?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem"><a href="viewtopic6053.html?f=4&amp;t=2300">邮件查询工具</a>
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>删除全部论坛cookie</span>
+				</a>
+			</li>
+														</ul>
+
+	</div>
+</div>
+<!--
+<h3 style="padding-top: 8px;">advertisements</h3>
+
+-->
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持</span>
+		</p>
+				<p class="footer-row">
+			<span class="footer-copyright">Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a></span>
+		</p>
+				
+				
+		
+				
+	</div>
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="错误" data-l-timeout-processing-req="请求超时。">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+
+<script src="assets/javascript/jquery.min871b.js?assets_version=936"></script>
+<script src="assets/javascript/core871b.js?assets_version=936"></script>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	</div>
+
+<script src="assets/javascript/jquery.min871b.js?assets_version=936"></script>
+<script src="assets/javascript/core871b.js?assets_version=936"></script>
+
+
+
+
+
+<script src="ext/phpbb/boardannouncements/styles/all/template/js/boardannouncements871b.js?assets_version=936"></script>
+<script src="styles/prosilver/template/forum_fn871b.js?assets_version=936"></script>
+<script src="styles/prosilver/template/ajax871b.js?assets_version=936"></script>
+
+
+
+
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=1274&p=3422 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 02:38:52 GMT -->
+</html>

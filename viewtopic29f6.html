@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=90&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:19:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; Roundcube 不能修改密码的解决方法</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>Roundcube 不能修改密码的解决方法</h2>
+		<p><a href="viewtopic9519.html?f=4&amp;t=90">https://www.hmailserver.org/viewtopic.php?f=4&amp;t=90</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>Roundcube 不能修改密码的解决方法</h3>
+				<div class="date">发表于 : <strong>2015年4月15日, 17:00</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">本文重点介绍Roundcube的插件不能修改密码的问题。<br>
+1.启用修改密码的插件：<br>
+修改roundcube的主配文件 config/config.inc.php,启用passwrod插件<br>
+$rcmail_config['plugins'] = array("password");<br>
+2.解决插件不工作，修改密码失败的方法：<br>
+修改password插件本身的配置文件，复制config.inc.php.dist为config.inc.php，然后做如下修改：<br>
+$config['password_driver'] = 'hmail';<br>
+修改 hMail Driver options相关项。<br>
+这段应该是这样的，你不用复制，只需要修改888888，这是你登陆hmailserver 的密码。<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>// hMail Driver options
+// -----------------------
+// Remote hMailServer configuration
+// true:  HMailserver is on a remote box (php.ini: com.allow_dcom = true)
+// false: Hmailserver is on same box as PHP
+$config['hmailserver_remote_dcom'] = false;
+// Windows credentials
+$config['hmailserver_server'] = array(
+    'Server' =&gt; 'localhost', // hostname or ip address
+    'Username' =&gt; 'administrator', // windows username
+    'Password' =&gt; '888888' // windows user password
+);</code></pre></div>
+
+最后启用PHP的php_com_dotnet.dll扩展。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: Roundcube 不能修改密码的解决方法</h3>
+				<div class="date">发表于 : <strong>2016年3月19日, 17:43</strong></div>
+				<div class="author">由 <strong>lqh280</strong></div>
+				<div class="content">如果 mysql 端口不是默认的3306，那么要不是在localhost后面添加“:端口”？</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: Roundcube 不能修改密码的解决方法</h3>
+				<div class="date">发表于 : <strong>2016年3月31日, 10:52</strong></div>
+				<div class="author">由 <strong>jumio</strong></div>
+				<div class="content">还有一个方法就是不改hmail，用默认的sql方式。<br>
+<br>
+修改数据库连接串<br>
+<br>
+进入“plugins\password”目录，复制一份config.inc.php.dist文件，修改为config.inc.php，搜索“$config['password_db_dsn']”，修改为：<br>
+
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>$config['password_db_dsn'] = 'mysql://root:yourpassword@localhost/hmailserver';</code></pre></div>
+
+参数说明:<br>
+<br>
+    @mysql:因为roundcube我用的mysql作为数据存储<br>
+<br>
+    @root:访问数据库的用户(需要具有可读写权限)   <br>
+<br>
+    @youpassword：密码，即你访问数据库的用户密码；<br>
+<br>
+    @localhost：本地访问<br>
+<br>
+    @hmailserver：安装hmialserver时的数据库名称；<br>
+<br>
+功能：即链接hmailserver数据库<br>
+<br>
+修改更新密码的SQL语句<br>
+<br>
+搜索“$config['password_query'] ”，找到如下代码：<br>
+
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>'SELECT update_passwd(%c, %u)'</code></pre></div>
+
+修改为：<br>
+
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>$config['password_query'] = 'UPDATE hm_accounts
+ SET accountpassword=md5(%p),accountpwencryption = 2
+ WHERE accountaddress=%u
+LIMIT 1';</code></pre></div>
+
+这样也可以修改密码。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: Roundcube 不能修改密码的解决方法</h3>
+				<div class="date">发表于 : <strong>2016年4月1日, 14:32</strong></div>
+				<div class="author">由 <strong>Royjohn</strong></div>
+				<div class="content"><blockquote><div><cite>jumio 写了:</cite>还有一个方法就是不改hmail，用默认的sql方式。<br>
+<br>
+修改数据库连接串<br>
+<br>
+进入“plugins\password”目录，复制一份config.inc.php.dist文件，修改为config.inc.php，搜索“$config['password_db_dsn']”，修改为：<br>
+
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>$config['password_db_dsn'] = 'mysql://root:yourpassword@localhost/hmailserver';</code></pre></div>
+
+参数说明:<br>
+<br>
+    @mysql:因为roundcube我用的mysql作为数据存储<br>
+<br>
+    @root:访问数据库的用户(需要具有可读写权限)   <br>
+<br>
+    @youpassword：密码，即你访问数据库的用户密码；<br>
+<br>
+    @localhost：本地访问<br>
+<br>
+    @hmailserver：安装hmialserver时的数据库名称；<br>
+<br>
+功能：即链接hmailserver数据库<br>
+<br>
+修改更新密码的SQL语句<br>
+<br>
+搜索“$config['password_query'] ”，找到如下代码：<br>
+
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>'SELECT update_passwd(%c, %u)'</code></pre></div>
+
+修改为：<br>
+
+<div class="codebox"><p>代码: <a href="#" onclick="selectCode(this); return false;">全选</a></p><pre><code>$config['password_query'] = 'UPDATE hm_accounts
+ SET accountpassword=md5(%p),accountpwencryption = 2
+ WHERE accountaddress=%u
+LIMIT 1';</code></pre></div>
+
+这样也可以修改密码。</div></blockquote>
+
+哥们，按照你的方法到更改密码界面更改了点保存，我用的是Round  右下角提示保存成功，但是注销一登录，还是原来的密码，新密码没法登录</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: Roundcube 不能修改密码的解决方法</h3>
+				<div class="date">发表于 : <strong>2016年4月1日, 14:33</strong></div>
+				<div class="author">由 <strong>Royjohn</strong></div>
+				<div class="content">这楼主你的方法我刚才试了，发现不行，点保存之后页面一片空白 ，密码也没更改成功</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: Roundcube 不能修改密码的解决方法</h3>
+				<div class="date">发表于 : <strong>2016年4月2日, 21:44</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">以上两种方法都可行。如果没有成功，一定是遗留什么地方了。 jumio 是在数据库中修改，可行，亲测。</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=4&t=90&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:19:51 GMT -->
+</html>

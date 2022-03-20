@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=19&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:24:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; hMailServer怎么样杜绝用户发垃圾邮件？</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>hMailServer怎么样杜绝用户发垃圾邮件？</h2>
+		<p><a href="viewtopic0e2a.html?f=3&amp;t=19">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=19</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>hMailServer怎么样杜绝用户发垃圾邮件？</h3>
+				<div class="date">发表于 : <strong>2014年12月3日, 17:16</strong></div>
+				<div class="author">由 <strong>Ching</strong></div>
+				<div class="content">比如说，用户在1小时内超过多少封，或者说1天超过多少，或者是有什么办法知道用户在发垃圾邮件，然后系统就会自动发一封邮件提醒，有什么办法呢？</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hMailServer怎么样杜绝用户发垃圾邮件？</h3>
+				<div class="date">发表于 : <strong>2014年12月5日, 16:56</strong></div>
+				<div class="author">由 <strong>jimmy</strong></div>
+				<div class="content">我之前好像在网上看到过类似的命题，有脚本可以解决限制每天发多少封邮件，至于垃圾邮件，可以通过垃圾邮件过滤解决(这个我一直没搞明白怎么设定);<br>
+<br>
+但是，一般公司的员工，不会发垃圾邮件，如果邮箱发垃圾邮件可能是帐号密码被盗或泄漏、smtp设置不安全、系统漏洞等情况；<br>
+<br>
+还有一种笨方法，就是通过bat脚本分析日志(bat+awk[win版本])，hmailserver只记录smtp日志，其它不记录，否则日志太大，分析速度慢;<br>
+通过bat+awk进行统计当天日志中帐号发送了多少封邮件(多个收件人算多封)，超过多少封就将该IP写入系统ipsec，禁止其访问smtp端口，过滤常用IP(如公司的内外网IP)；<br>
+哎，我就是用这个方法来做的，非公司IP发送邮件，直接进入ipsec禁止访问，脚本一分钟跑一次，当然，我这儿情况特殊允许这么操作。</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=19&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:24:34 GMT -->
+</html>

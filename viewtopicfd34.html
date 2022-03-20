@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-cmn-hans">
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=879&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:22:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex" />
+
+<title>hMailServer中文论坛 &bull; hmailserver与jenkins集成不能识别smtp host name</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet">
+<link href="styles/prosilver/theme/bidi.css" rel="stylesheet">
+</head>
+<body id="phpbb" class="ltr">
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>hMailServer中文论坛</h1>
+		<p>hMailServer中文论坛于2014年上线,支持开源与共享.hMailServer是一个运行于Windows系统的,基于GPL授权的,免费的,开源的邮件系统。<br /><a href="index.html">https://www.hmailserver.org/</a></p>
+
+		<h2>hmailserver与jenkins集成不能识别smtp host name</h2>
+		<p><a href="viewtopicea5d.html?f=3&amp;t=879">https://www.hmailserver.org/viewtopic.php?f=3&amp;t=879</a></p>
+	</div>
+
+	<div id="page-body" class="page-body">
+		<div class="page-number">分页： <strong>1</strong> / <strong>1</strong></div>
+					<div class="post">
+				<h3>hmailserver与jenkins集成不能识别smtp host name</h3>
+				<div class="date">发表于 : <strong>2016年7月1日, 14:26</strong></div>
+				<div class="author">由 <strong>zhl</strong></div>
+				<div class="content">我在公司win7 64位PC上搭建了一个 Jenkins，以及hmailserver.在该PC或者其它PC上使用foxmail都是可以正常收发邮件的。现在想把hmailserver集成到jenkins,也就是每次构建后都发邮件通知项目组成员。<br>
+问题是：jenkins配置邮件时，要填一个smtp host name.我按照hmailserver上的设置填的：mail.test.com，jenkins 上一直报unknown smtp host.<br>
+<br>
+我在该PC上命令行输入telnet 192.168.1.100 25，显示220 mail.test.com ESMTP<br>
+我输入telnet mail.test.com 25 则提示无法连接。<br>
+<br>
+刚入手邮件，不太清楚什么原因。是DNS问题？？邮件只是内网使用，不需要设置DNS的吧？<br>
+<br>
+各位帮我看看，感谢帮助。</div>
+			</div>
+			<hr />
+					<div class="post">
+				<h3>Re: hmailserver与jenkins集成不能识别smtp host name</h3>
+				<div class="date">发表于 : <strong>2016年7月1日, 15:33</strong></div>
+				<div class="author">由 <strong>Hsia</strong></div>
+				<div class="content">你把服务器的主机名同时改成  mail.test.com  试试？？？</div>
+			</div>
+			<hr />
+			</div>
+
+	<div id="page-footer" class="page-footer">
+		<div class="page-number">全部次数是<abbr title="Asia/Shanghai">UTC+08:00</abbr><br />分页： <strong>1</strong> / <strong>1</strong></div>
+			<div class="copyright">
+				<p>由 <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited 提供支持
+				</p>
+								<p>Copyright © 2014-2015 <a href="index.html">hMailServer中文论坛</a>
+				</p>
+							</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Mirrored from www.hmailserver.org/viewtopic.php?f=3&t=879&view=print by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Mar 2022 03:22:32 GMT -->
+</html>
